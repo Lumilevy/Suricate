@@ -1,0 +1,9 @@
+grammar org.fil2018.flomira.Suricate with org.eclipse.xtext.common.Terminals
+
+generate suricate "http://www.fil2018.org/flomira/Suricate"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

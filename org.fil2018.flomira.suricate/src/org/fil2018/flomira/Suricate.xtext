@@ -4,27 +4,43 @@ generate suricate "http://www.fil2018.org/flomira/Suricate"
 
 Programme:
 	(elements+=Ligne)*;
-
+	
 Ligne:
-	Affectation | Operation;
+	instr=Instruction  ("->" var=Variable)?
+;
 
 Affectation:
-	obj=Objet "->" var=Variable;
+	StringLiteral | IntLiteral ("->" var=Variable)?
+;
 
+Instruction:
+	Constructeur | Operation
+;
+
+Operation:
+	name=[Variable] "." methode=Methode
+;
+
+Expression:
+	Constructeur |  | Operation;
+	
 Variable:
 	name=ID;
 
-Objet:
-	Constructeur | STRING | INT | Operation;
-	
+IntLiteral:
+	name=INT
+;
+
+StringLiteral:
+	name=STRING
+;	
+
 Constructeur :
 	name=ID "(" ")";
-	
-Operation:
-	name=[Variable] "." methode=Methode;
+
 	
 Methode:
-	ID "(" ( para=Parametre ("," para=Parametre)* )* ")";
+	{Methode} ID "(" ( params+=Parametre ("," params+=Parametre)* )* ")";
 	
 Parametre:
-	Objet | Variable;
+	Expression | Variable;

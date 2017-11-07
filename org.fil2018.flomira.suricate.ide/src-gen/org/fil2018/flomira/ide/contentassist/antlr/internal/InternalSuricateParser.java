@@ -22,14 +22,15 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSuricateParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'->'", "'('", "')'", "'.'", "','"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':'", "'->'", "'('", "')'", "'.'", "','"
     };
-    public static final int RULE_ID=6;
+    public static final int RULE_ID=4;
     public static final int RULE_WS=9;
-    public static final int RULE_STRING=4;
+    public static final int RULE_STRING=6;
     public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__15=15;
+    public static final int T__16=16;
     public static final int RULE_INT=5;
     public static final int T__11=11;
     public static final int RULE_ML_COMMENT=7;
@@ -123,7 +124,7 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=RULE_STRING && LA1_0<=RULE_ID)) ) {
+                if ( (LA1_0==RULE_ID||LA1_0==11) ) {
                     alt1=1;
                 }
 
@@ -476,12 +477,166 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "ruleObjet"
 
 
+    // $ANTLR start "entryRuleIntLiteral"
+    // InternalSuricate.g:178:1: entryRuleIntLiteral : ruleIntLiteral EOF ;
+    public final void entryRuleIntLiteral() throws RecognitionException {
+        try {
+            // InternalSuricate.g:179:1: ( ruleIntLiteral EOF )
+            // InternalSuricate.g:180:1: ruleIntLiteral EOF
+            {
+             before(grammarAccess.getIntLiteralRule()); 
+            pushFollow(FOLLOW_1);
+            ruleIntLiteral();
+
+            state._fsp--;
+
+             after(grammarAccess.getIntLiteralRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleIntLiteral"
+
+
+    // $ANTLR start "ruleIntLiteral"
+    // InternalSuricate.g:187:1: ruleIntLiteral : ( ( rule__IntLiteral__NameAssignment ) ) ;
+    public final void ruleIntLiteral() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSuricate.g:191:2: ( ( ( rule__IntLiteral__NameAssignment ) ) )
+            // InternalSuricate.g:192:2: ( ( rule__IntLiteral__NameAssignment ) )
+            {
+            // InternalSuricate.g:192:2: ( ( rule__IntLiteral__NameAssignment ) )
+            // InternalSuricate.g:193:3: ( rule__IntLiteral__NameAssignment )
+            {
+             before(grammarAccess.getIntLiteralAccess().getNameAssignment()); 
+            // InternalSuricate.g:194:3: ( rule__IntLiteral__NameAssignment )
+            // InternalSuricate.g:194:4: rule__IntLiteral__NameAssignment
+            {
+            pushFollow(FOLLOW_2);
+            rule__IntLiteral__NameAssignment();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getIntLiteralAccess().getNameAssignment()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleIntLiteral"
+
+
+    // $ANTLR start "entryRuleStringLiteral"
+    // InternalSuricate.g:203:1: entryRuleStringLiteral : ruleStringLiteral EOF ;
+    public final void entryRuleStringLiteral() throws RecognitionException {
+        try {
+            // InternalSuricate.g:204:1: ( ruleStringLiteral EOF )
+            // InternalSuricate.g:205:1: ruleStringLiteral EOF
+            {
+             before(grammarAccess.getStringLiteralRule()); 
+            pushFollow(FOLLOW_1);
+            ruleStringLiteral();
+
+            state._fsp--;
+
+             after(grammarAccess.getStringLiteralRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleStringLiteral"
+
+
+    // $ANTLR start "ruleStringLiteral"
+    // InternalSuricate.g:212:1: ruleStringLiteral : ( ( rule__StringLiteral__NameAssignment ) ) ;
+    public final void ruleStringLiteral() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSuricate.g:216:2: ( ( ( rule__StringLiteral__NameAssignment ) ) )
+            // InternalSuricate.g:217:2: ( ( rule__StringLiteral__NameAssignment ) )
+            {
+            // InternalSuricate.g:217:2: ( ( rule__StringLiteral__NameAssignment ) )
+            // InternalSuricate.g:218:3: ( rule__StringLiteral__NameAssignment )
+            {
+             before(grammarAccess.getStringLiteralAccess().getNameAssignment()); 
+            // InternalSuricate.g:219:3: ( rule__StringLiteral__NameAssignment )
+            // InternalSuricate.g:219:4: rule__StringLiteral__NameAssignment
+            {
+            pushFollow(FOLLOW_2);
+            rule__StringLiteral__NameAssignment();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getStringLiteralAccess().getNameAssignment()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleStringLiteral"
+
+
     // $ANTLR start "entryRuleConstructeur"
-    // InternalSuricate.g:178:1: entryRuleConstructeur : ruleConstructeur EOF ;
+    // InternalSuricate.g:228:1: entryRuleConstructeur : ruleConstructeur EOF ;
     public final void entryRuleConstructeur() throws RecognitionException {
         try {
-            // InternalSuricate.g:179:1: ( ruleConstructeur EOF )
-            // InternalSuricate.g:180:1: ruleConstructeur EOF
+            // InternalSuricate.g:229:1: ( ruleConstructeur EOF )
+            // InternalSuricate.g:230:1: ruleConstructeur EOF
             {
              before(grammarAccess.getConstructeurRule()); 
             pushFollow(FOLLOW_1);
@@ -507,21 +662,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "ruleConstructeur"
-    // InternalSuricate.g:187:1: ruleConstructeur : ( ( rule__Constructeur__Group__0 ) ) ;
+    // InternalSuricate.g:237:1: ruleConstructeur : ( ( rule__Constructeur__Group__0 ) ) ;
     public final void ruleConstructeur() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:191:2: ( ( ( rule__Constructeur__Group__0 ) ) )
-            // InternalSuricate.g:192:2: ( ( rule__Constructeur__Group__0 ) )
+            // InternalSuricate.g:241:2: ( ( ( rule__Constructeur__Group__0 ) ) )
+            // InternalSuricate.g:242:2: ( ( rule__Constructeur__Group__0 ) )
             {
-            // InternalSuricate.g:192:2: ( ( rule__Constructeur__Group__0 ) )
-            // InternalSuricate.g:193:3: ( rule__Constructeur__Group__0 )
+            // InternalSuricate.g:242:2: ( ( rule__Constructeur__Group__0 ) )
+            // InternalSuricate.g:243:3: ( rule__Constructeur__Group__0 )
             {
              before(grammarAccess.getConstructeurAccess().getGroup()); 
-            // InternalSuricate.g:194:3: ( rule__Constructeur__Group__0 )
-            // InternalSuricate.g:194:4: rule__Constructeur__Group__0
+            // InternalSuricate.g:244:3: ( rule__Constructeur__Group__0 )
+            // InternalSuricate.g:244:4: rule__Constructeur__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Constructeur__Group__0();
@@ -554,11 +709,11 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "entryRuleOperation"
-    // InternalSuricate.g:203:1: entryRuleOperation : ruleOperation EOF ;
+    // InternalSuricate.g:253:1: entryRuleOperation : ruleOperation EOF ;
     public final void entryRuleOperation() throws RecognitionException {
         try {
-            // InternalSuricate.g:204:1: ( ruleOperation EOF )
-            // InternalSuricate.g:205:1: ruleOperation EOF
+            // InternalSuricate.g:254:1: ( ruleOperation EOF )
+            // InternalSuricate.g:255:1: ruleOperation EOF
             {
              before(grammarAccess.getOperationRule()); 
             pushFollow(FOLLOW_1);
@@ -584,21 +739,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "ruleOperation"
-    // InternalSuricate.g:212:1: ruleOperation : ( ( rule__Operation__Group__0 ) ) ;
+    // InternalSuricate.g:262:1: ruleOperation : ( ( rule__Operation__Group__0 ) ) ;
     public final void ruleOperation() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:216:2: ( ( ( rule__Operation__Group__0 ) ) )
-            // InternalSuricate.g:217:2: ( ( rule__Operation__Group__0 ) )
+            // InternalSuricate.g:266:2: ( ( ( rule__Operation__Group__0 ) ) )
+            // InternalSuricate.g:267:2: ( ( rule__Operation__Group__0 ) )
             {
-            // InternalSuricate.g:217:2: ( ( rule__Operation__Group__0 ) )
-            // InternalSuricate.g:218:3: ( rule__Operation__Group__0 )
+            // InternalSuricate.g:267:2: ( ( rule__Operation__Group__0 ) )
+            // InternalSuricate.g:268:3: ( rule__Operation__Group__0 )
             {
              before(grammarAccess.getOperationAccess().getGroup()); 
-            // InternalSuricate.g:219:3: ( rule__Operation__Group__0 )
-            // InternalSuricate.g:219:4: rule__Operation__Group__0
+            // InternalSuricate.g:269:3: ( rule__Operation__Group__0 )
+            // InternalSuricate.g:269:4: rule__Operation__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Operation__Group__0();
@@ -631,11 +786,11 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "entryRuleMethode"
-    // InternalSuricate.g:228:1: entryRuleMethode : ruleMethode EOF ;
+    // InternalSuricate.g:278:1: entryRuleMethode : ruleMethode EOF ;
     public final void entryRuleMethode() throws RecognitionException {
         try {
-            // InternalSuricate.g:229:1: ( ruleMethode EOF )
-            // InternalSuricate.g:230:1: ruleMethode EOF
+            // InternalSuricate.g:279:1: ( ruleMethode EOF )
+            // InternalSuricate.g:280:1: ruleMethode EOF
             {
              before(grammarAccess.getMethodeRule()); 
             pushFollow(FOLLOW_1);
@@ -661,21 +816,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "ruleMethode"
-    // InternalSuricate.g:237:1: ruleMethode : ( ( rule__Methode__Group__0 ) ) ;
+    // InternalSuricate.g:287:1: ruleMethode : ( ( rule__Methode__Group__0 ) ) ;
     public final void ruleMethode() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:241:2: ( ( ( rule__Methode__Group__0 ) ) )
-            // InternalSuricate.g:242:2: ( ( rule__Methode__Group__0 ) )
+            // InternalSuricate.g:291:2: ( ( ( rule__Methode__Group__0 ) ) )
+            // InternalSuricate.g:292:2: ( ( rule__Methode__Group__0 ) )
             {
-            // InternalSuricate.g:242:2: ( ( rule__Methode__Group__0 ) )
-            // InternalSuricate.g:243:3: ( rule__Methode__Group__0 )
+            // InternalSuricate.g:292:2: ( ( rule__Methode__Group__0 ) )
+            // InternalSuricate.g:293:3: ( rule__Methode__Group__0 )
             {
              before(grammarAccess.getMethodeAccess().getGroup()); 
-            // InternalSuricate.g:244:3: ( rule__Methode__Group__0 )
-            // InternalSuricate.g:244:4: rule__Methode__Group__0
+            // InternalSuricate.g:294:3: ( rule__Methode__Group__0 )
+            // InternalSuricate.g:294:4: rule__Methode__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Methode__Group__0();
@@ -708,11 +863,11 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "entryRuleParametre"
-    // InternalSuricate.g:253:1: entryRuleParametre : ruleParametre EOF ;
+    // InternalSuricate.g:303:1: entryRuleParametre : ruleParametre EOF ;
     public final void entryRuleParametre() throws RecognitionException {
         try {
-            // InternalSuricate.g:254:1: ( ruleParametre EOF )
-            // InternalSuricate.g:255:1: ruleParametre EOF
+            // InternalSuricate.g:304:1: ( ruleParametre EOF )
+            // InternalSuricate.g:305:1: ruleParametre EOF
             {
              before(grammarAccess.getParametreRule()); 
             pushFollow(FOLLOW_1);
@@ -738,21 +893,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "ruleParametre"
-    // InternalSuricate.g:262:1: ruleParametre : ( ( rule__Parametre__Alternatives ) ) ;
+    // InternalSuricate.g:312:1: ruleParametre : ( ( rule__Parametre__Alternatives ) ) ;
     public final void ruleParametre() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:266:2: ( ( ( rule__Parametre__Alternatives ) ) )
-            // InternalSuricate.g:267:2: ( ( rule__Parametre__Alternatives ) )
+            // InternalSuricate.g:316:2: ( ( ( rule__Parametre__Alternatives ) ) )
+            // InternalSuricate.g:317:2: ( ( rule__Parametre__Alternatives ) )
             {
-            // InternalSuricate.g:267:2: ( ( rule__Parametre__Alternatives ) )
-            // InternalSuricate.g:268:3: ( rule__Parametre__Alternatives )
+            // InternalSuricate.g:317:2: ( ( rule__Parametre__Alternatives ) )
+            // InternalSuricate.g:318:3: ( rule__Parametre__Alternatives )
             {
              before(grammarAccess.getParametreAccess().getAlternatives()); 
-            // InternalSuricate.g:269:3: ( rule__Parametre__Alternatives )
-            // InternalSuricate.g:269:4: rule__Parametre__Alternatives
+            // InternalSuricate.g:319:3: ( rule__Parametre__Alternatives )
+            // InternalSuricate.g:319:4: rule__Parametre__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Parametre__Alternatives();
@@ -785,34 +940,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Ligne__Alternatives"
-    // InternalSuricate.g:277:1: rule__Ligne__Alternatives : ( ( ruleAffectation ) | ( ruleOperation ) );
+    // InternalSuricate.g:327:1: rule__Ligne__Alternatives : ( ( ruleAffectation ) | ( ruleOperation ) );
     public final void rule__Ligne__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:281:1: ( ( ruleAffectation ) | ( ruleOperation ) )
+            // InternalSuricate.g:331:1: ( ( ruleAffectation ) | ( ruleOperation ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==RULE_ID) ) {
-                int LA2_1 = input.LA(2);
-
-                if ( (LA2_1==12) ) {
-                    alt2=1;
-                }
-                else if ( (LA2_1==14) ) {
-                    alt2=2;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 2, 1, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( ((LA2_0>=RULE_STRING && LA2_0<=RULE_INT)) ) {
+            if ( (LA2_0==11) ) {
                 alt2=1;
+            }
+            else if ( (LA2_0==RULE_ID) ) {
+                alt2=2;
             }
             else {
                 NoViableAltException nvae =
@@ -822,10 +964,10 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
             }
             switch (alt2) {
                 case 1 :
-                    // InternalSuricate.g:282:2: ( ruleAffectation )
+                    // InternalSuricate.g:332:2: ( ruleAffectation )
                     {
-                    // InternalSuricate.g:282:2: ( ruleAffectation )
-                    // InternalSuricate.g:283:3: ruleAffectation
+                    // InternalSuricate.g:332:2: ( ruleAffectation )
+                    // InternalSuricate.g:333:3: ruleAffectation
                     {
                      before(grammarAccess.getLigneAccess().getAffectationParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -841,10 +983,10 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalSuricate.g:288:2: ( ruleOperation )
+                    // InternalSuricate.g:338:2: ( ruleOperation )
                     {
-                    // InternalSuricate.g:288:2: ( ruleOperation )
-                    // InternalSuricate.g:289:3: ruleOperation
+                    // InternalSuricate.g:338:2: ( ruleOperation )
+                    // InternalSuricate.g:339:3: ruleOperation
                     {
                      before(grammarAccess.getLigneAccess().getOperationParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -877,18 +1019,31 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Objet__Alternatives"
-    // InternalSuricate.g:298:1: rule__Objet__Alternatives : ( ( ruleConstructeur ) | ( RULE_STRING ) | ( RULE_INT ) );
+    // InternalSuricate.g:348:1: rule__Objet__Alternatives : ( ( ruleConstructeur ) | ( ruleStringLiteral ) | ( ruleIntLiteral ) | ( ruleOperation ) );
     public final void rule__Objet__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:302:1: ( ( ruleConstructeur ) | ( RULE_STRING ) | ( RULE_INT ) )
-            int alt3=3;
+            // InternalSuricate.g:352:1: ( ( ruleConstructeur ) | ( ruleStringLiteral ) | ( ruleIntLiteral ) | ( ruleOperation ) )
+            int alt3=4;
             switch ( input.LA(1) ) {
             case RULE_ID:
                 {
-                alt3=1;
+                int LA3_1 = input.LA(2);
+
+                if ( (LA3_1==13) ) {
+                    alt3=1;
+                }
+                else if ( (LA3_1==15) ) {
+                    alt3=4;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 3, 1, input);
+
+                    throw nvae;
+                }
                 }
                 break;
             case RULE_STRING:
@@ -910,10 +1065,10 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
             switch (alt3) {
                 case 1 :
-                    // InternalSuricate.g:303:2: ( ruleConstructeur )
+                    // InternalSuricate.g:353:2: ( ruleConstructeur )
                     {
-                    // InternalSuricate.g:303:2: ( ruleConstructeur )
-                    // InternalSuricate.g:304:3: ruleConstructeur
+                    // InternalSuricate.g:353:2: ( ruleConstructeur )
+                    // InternalSuricate.g:354:3: ruleConstructeur
                     {
                      before(grammarAccess.getObjetAccess().getConstructeurParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -929,14 +1084,18 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalSuricate.g:309:2: ( RULE_STRING )
+                    // InternalSuricate.g:359:2: ( ruleStringLiteral )
                     {
-                    // InternalSuricate.g:309:2: ( RULE_STRING )
-                    // InternalSuricate.g:310:3: RULE_STRING
+                    // InternalSuricate.g:359:2: ( ruleStringLiteral )
+                    // InternalSuricate.g:360:3: ruleStringLiteral
                     {
-                     before(grammarAccess.getObjetAccess().getSTRINGTerminalRuleCall_1()); 
-                    match(input,RULE_STRING,FOLLOW_2); 
-                     after(grammarAccess.getObjetAccess().getSTRINGTerminalRuleCall_1()); 
+                     before(grammarAccess.getObjetAccess().getStringLiteralParserRuleCall_1()); 
+                    pushFollow(FOLLOW_2);
+                    ruleStringLiteral();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getObjetAccess().getStringLiteralParserRuleCall_1()); 
 
                     }
 
@@ -944,14 +1103,37 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // InternalSuricate.g:315:2: ( RULE_INT )
+                    // InternalSuricate.g:365:2: ( ruleIntLiteral )
                     {
-                    // InternalSuricate.g:315:2: ( RULE_INT )
-                    // InternalSuricate.g:316:3: RULE_INT
+                    // InternalSuricate.g:365:2: ( ruleIntLiteral )
+                    // InternalSuricate.g:366:3: ruleIntLiteral
                     {
-                     before(grammarAccess.getObjetAccess().getINTTerminalRuleCall_2()); 
-                    match(input,RULE_INT,FOLLOW_2); 
-                     after(grammarAccess.getObjetAccess().getINTTerminalRuleCall_2()); 
+                     before(grammarAccess.getObjetAccess().getIntLiteralParserRuleCall_2()); 
+                    pushFollow(FOLLOW_2);
+                    ruleIntLiteral();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getObjetAccess().getIntLiteralParserRuleCall_2()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalSuricate.g:371:2: ( ruleOperation )
+                    {
+                    // InternalSuricate.g:371:2: ( ruleOperation )
+                    // InternalSuricate.g:372:3: ruleOperation
+                    {
+                     before(grammarAccess.getObjetAccess().getOperationParserRuleCall_3()); 
+                    pushFollow(FOLLOW_2);
+                    ruleOperation();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getObjetAccess().getOperationParserRuleCall_3()); 
 
                     }
 
@@ -976,23 +1158,23 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Parametre__Alternatives"
-    // InternalSuricate.g:325:1: rule__Parametre__Alternatives : ( ( ruleObjet ) | ( ruleVariable ) );
+    // InternalSuricate.g:381:1: rule__Parametre__Alternatives : ( ( ruleObjet ) | ( ruleVariable ) );
     public final void rule__Parametre__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:329:1: ( ( ruleObjet ) | ( ruleVariable ) )
+            // InternalSuricate.g:385:1: ( ( ruleObjet ) | ( ruleVariable ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
             if ( (LA4_0==RULE_ID) ) {
                 int LA4_1 = input.LA(2);
 
-                if ( (LA4_1==12) ) {
+                if ( (LA4_1==13||LA4_1==15) ) {
                     alt4=1;
                 }
-                else if ( (LA4_1==EOF||(LA4_1>=RULE_STRING && LA4_1<=RULE_ID)||LA4_1==13||LA4_1==15) ) {
+                else if ( (LA4_1==EOF||(LA4_1>=RULE_ID && LA4_1<=RULE_STRING)||LA4_1==14||LA4_1==16) ) {
                     alt4=2;
                 }
                 else {
@@ -1002,7 +1184,7 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
                     throw nvae;
                 }
             }
-            else if ( ((LA4_0>=RULE_STRING && LA4_0<=RULE_INT)) ) {
+            else if ( ((LA4_0>=RULE_INT && LA4_0<=RULE_STRING)) ) {
                 alt4=1;
             }
             else {
@@ -1013,10 +1195,10 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
             }
             switch (alt4) {
                 case 1 :
-                    // InternalSuricate.g:330:2: ( ruleObjet )
+                    // InternalSuricate.g:386:2: ( ruleObjet )
                     {
-                    // InternalSuricate.g:330:2: ( ruleObjet )
-                    // InternalSuricate.g:331:3: ruleObjet
+                    // InternalSuricate.g:386:2: ( ruleObjet )
+                    // InternalSuricate.g:387:3: ruleObjet
                     {
                      before(grammarAccess.getParametreAccess().getObjetParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1032,10 +1214,10 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalSuricate.g:336:2: ( ruleVariable )
+                    // InternalSuricate.g:392:2: ( ruleVariable )
                     {
-                    // InternalSuricate.g:336:2: ( ruleVariable )
-                    // InternalSuricate.g:337:3: ruleVariable
+                    // InternalSuricate.g:392:2: ( ruleVariable )
+                    // InternalSuricate.g:393:3: ruleVariable
                     {
                      before(grammarAccess.getParametreAccess().getVariableParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1068,14 +1250,14 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Affectation__Group__0"
-    // InternalSuricate.g:346:1: rule__Affectation__Group__0 : rule__Affectation__Group__0__Impl rule__Affectation__Group__1 ;
+    // InternalSuricate.g:402:1: rule__Affectation__Group__0 : rule__Affectation__Group__0__Impl rule__Affectation__Group__1 ;
     public final void rule__Affectation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:350:1: ( rule__Affectation__Group__0__Impl rule__Affectation__Group__1 )
-            // InternalSuricate.g:351:2: rule__Affectation__Group__0__Impl rule__Affectation__Group__1
+            // InternalSuricate.g:406:1: ( rule__Affectation__Group__0__Impl rule__Affectation__Group__1 )
+            // InternalSuricate.g:407:2: rule__Affectation__Group__0__Impl rule__Affectation__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Affectation__Group__0__Impl();
@@ -1106,31 +1288,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Affectation__Group__0__Impl"
-    // InternalSuricate.g:358:1: rule__Affectation__Group__0__Impl : ( ( rule__Affectation__ObjAssignment_0 ) ) ;
+    // InternalSuricate.g:414:1: rule__Affectation__Group__0__Impl : ( ':' ) ;
     public final void rule__Affectation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:362:1: ( ( ( rule__Affectation__ObjAssignment_0 ) ) )
-            // InternalSuricate.g:363:1: ( ( rule__Affectation__ObjAssignment_0 ) )
+            // InternalSuricate.g:418:1: ( ( ':' ) )
+            // InternalSuricate.g:419:1: ( ':' )
             {
-            // InternalSuricate.g:363:1: ( ( rule__Affectation__ObjAssignment_0 ) )
-            // InternalSuricate.g:364:2: ( rule__Affectation__ObjAssignment_0 )
+            // InternalSuricate.g:419:1: ( ':' )
+            // InternalSuricate.g:420:2: ':'
             {
-             before(grammarAccess.getAffectationAccess().getObjAssignment_0()); 
-            // InternalSuricate.g:365:2: ( rule__Affectation__ObjAssignment_0 )
-            // InternalSuricate.g:365:3: rule__Affectation__ObjAssignment_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__Affectation__ObjAssignment_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getAffectationAccess().getObjAssignment_0()); 
+             before(grammarAccess.getAffectationAccess().getColonKeyword_0()); 
+            match(input,11,FOLLOW_2); 
+             after(grammarAccess.getAffectationAccess().getColonKeyword_0()); 
 
             }
 
@@ -1153,14 +1325,14 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Affectation__Group__1"
-    // InternalSuricate.g:373:1: rule__Affectation__Group__1 : rule__Affectation__Group__1__Impl rule__Affectation__Group__2 ;
+    // InternalSuricate.g:429:1: rule__Affectation__Group__1 : rule__Affectation__Group__1__Impl rule__Affectation__Group__2 ;
     public final void rule__Affectation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:377:1: ( rule__Affectation__Group__1__Impl rule__Affectation__Group__2 )
-            // InternalSuricate.g:378:2: rule__Affectation__Group__1__Impl rule__Affectation__Group__2
+            // InternalSuricate.g:433:1: ( rule__Affectation__Group__1__Impl rule__Affectation__Group__2 )
+            // InternalSuricate.g:434:2: rule__Affectation__Group__1__Impl rule__Affectation__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__Affectation__Group__1__Impl();
@@ -1191,21 +1363,31 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Affectation__Group__1__Impl"
-    // InternalSuricate.g:385:1: rule__Affectation__Group__1__Impl : ( '->' ) ;
+    // InternalSuricate.g:441:1: rule__Affectation__Group__1__Impl : ( ( rule__Affectation__ObjAssignment_1 ) ) ;
     public final void rule__Affectation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:389:1: ( ( '->' ) )
-            // InternalSuricate.g:390:1: ( '->' )
+            // InternalSuricate.g:445:1: ( ( ( rule__Affectation__ObjAssignment_1 ) ) )
+            // InternalSuricate.g:446:1: ( ( rule__Affectation__ObjAssignment_1 ) )
             {
-            // InternalSuricate.g:390:1: ( '->' )
-            // InternalSuricate.g:391:2: '->'
+            // InternalSuricate.g:446:1: ( ( rule__Affectation__ObjAssignment_1 ) )
+            // InternalSuricate.g:447:2: ( rule__Affectation__ObjAssignment_1 )
             {
-             before(grammarAccess.getAffectationAccess().getHyphenMinusGreaterThanSignKeyword_1()); 
-            match(input,11,FOLLOW_2); 
-             after(grammarAccess.getAffectationAccess().getHyphenMinusGreaterThanSignKeyword_1()); 
+             before(grammarAccess.getAffectationAccess().getObjAssignment_1()); 
+            // InternalSuricate.g:448:2: ( rule__Affectation__ObjAssignment_1 )
+            // InternalSuricate.g:448:3: rule__Affectation__ObjAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Affectation__ObjAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getAffectationAccess().getObjAssignment_1()); 
 
             }
 
@@ -1228,17 +1410,22 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Affectation__Group__2"
-    // InternalSuricate.g:400:1: rule__Affectation__Group__2 : rule__Affectation__Group__2__Impl ;
+    // InternalSuricate.g:456:1: rule__Affectation__Group__2 : rule__Affectation__Group__2__Impl rule__Affectation__Group__3 ;
     public final void rule__Affectation__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:404:1: ( rule__Affectation__Group__2__Impl )
-            // InternalSuricate.g:405:2: rule__Affectation__Group__2__Impl
+            // InternalSuricate.g:460:1: ( rule__Affectation__Group__2__Impl rule__Affectation__Group__3 )
+            // InternalSuricate.g:461:2: rule__Affectation__Group__2__Impl rule__Affectation__Group__3
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_6);
             rule__Affectation__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Affectation__Group__3();
 
             state._fsp--;
 
@@ -1261,31 +1448,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Affectation__Group__2__Impl"
-    // InternalSuricate.g:411:1: rule__Affectation__Group__2__Impl : ( ( rule__Affectation__VarAssignment_2 ) ) ;
+    // InternalSuricate.g:468:1: rule__Affectation__Group__2__Impl : ( '->' ) ;
     public final void rule__Affectation__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:415:1: ( ( ( rule__Affectation__VarAssignment_2 ) ) )
-            // InternalSuricate.g:416:1: ( ( rule__Affectation__VarAssignment_2 ) )
+            // InternalSuricate.g:472:1: ( ( '->' ) )
+            // InternalSuricate.g:473:1: ( '->' )
             {
-            // InternalSuricate.g:416:1: ( ( rule__Affectation__VarAssignment_2 ) )
-            // InternalSuricate.g:417:2: ( rule__Affectation__VarAssignment_2 )
+            // InternalSuricate.g:473:1: ( '->' )
+            // InternalSuricate.g:474:2: '->'
             {
-             before(grammarAccess.getAffectationAccess().getVarAssignment_2()); 
-            // InternalSuricate.g:418:2: ( rule__Affectation__VarAssignment_2 )
-            // InternalSuricate.g:418:3: rule__Affectation__VarAssignment_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Affectation__VarAssignment_2();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getAffectationAccess().getVarAssignment_2()); 
+             before(grammarAccess.getAffectationAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+            match(input,12,FOLLOW_2); 
+             after(grammarAccess.getAffectationAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
 
             }
 
@@ -1307,17 +1484,97 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Affectation__Group__2__Impl"
 
 
+    // $ANTLR start "rule__Affectation__Group__3"
+    // InternalSuricate.g:483:1: rule__Affectation__Group__3 : rule__Affectation__Group__3__Impl ;
+    public final void rule__Affectation__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSuricate.g:487:1: ( rule__Affectation__Group__3__Impl )
+            // InternalSuricate.g:488:2: rule__Affectation__Group__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Affectation__Group__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Affectation__Group__3"
+
+
+    // $ANTLR start "rule__Affectation__Group__3__Impl"
+    // InternalSuricate.g:494:1: rule__Affectation__Group__3__Impl : ( ( rule__Affectation__VarAssignment_3 ) ) ;
+    public final void rule__Affectation__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSuricate.g:498:1: ( ( ( rule__Affectation__VarAssignment_3 ) ) )
+            // InternalSuricate.g:499:1: ( ( rule__Affectation__VarAssignment_3 ) )
+            {
+            // InternalSuricate.g:499:1: ( ( rule__Affectation__VarAssignment_3 ) )
+            // InternalSuricate.g:500:2: ( rule__Affectation__VarAssignment_3 )
+            {
+             before(grammarAccess.getAffectationAccess().getVarAssignment_3()); 
+            // InternalSuricate.g:501:2: ( rule__Affectation__VarAssignment_3 )
+            // InternalSuricate.g:501:3: rule__Affectation__VarAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__Affectation__VarAssignment_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getAffectationAccess().getVarAssignment_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Affectation__Group__3__Impl"
+
+
     // $ANTLR start "rule__Constructeur__Group__0"
-    // InternalSuricate.g:427:1: rule__Constructeur__Group__0 : rule__Constructeur__Group__0__Impl rule__Constructeur__Group__1 ;
+    // InternalSuricate.g:510:1: rule__Constructeur__Group__0 : rule__Constructeur__Group__0__Impl rule__Constructeur__Group__1 ;
     public final void rule__Constructeur__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:431:1: ( rule__Constructeur__Group__0__Impl rule__Constructeur__Group__1 )
-            // InternalSuricate.g:432:2: rule__Constructeur__Group__0__Impl rule__Constructeur__Group__1
+            // InternalSuricate.g:514:1: ( rule__Constructeur__Group__0__Impl rule__Constructeur__Group__1 )
+            // InternalSuricate.g:515:2: rule__Constructeur__Group__0__Impl rule__Constructeur__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_7);
             rule__Constructeur__Group__0__Impl();
 
             state._fsp--;
@@ -1346,21 +1603,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Constructeur__Group__0__Impl"
-    // InternalSuricate.g:439:1: rule__Constructeur__Group__0__Impl : ( ( rule__Constructeur__NameAssignment_0 ) ) ;
+    // InternalSuricate.g:522:1: rule__Constructeur__Group__0__Impl : ( ( rule__Constructeur__NameAssignment_0 ) ) ;
     public final void rule__Constructeur__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:443:1: ( ( ( rule__Constructeur__NameAssignment_0 ) ) )
-            // InternalSuricate.g:444:1: ( ( rule__Constructeur__NameAssignment_0 ) )
+            // InternalSuricate.g:526:1: ( ( ( rule__Constructeur__NameAssignment_0 ) ) )
+            // InternalSuricate.g:527:1: ( ( rule__Constructeur__NameAssignment_0 ) )
             {
-            // InternalSuricate.g:444:1: ( ( rule__Constructeur__NameAssignment_0 ) )
-            // InternalSuricate.g:445:2: ( rule__Constructeur__NameAssignment_0 )
+            // InternalSuricate.g:527:1: ( ( rule__Constructeur__NameAssignment_0 ) )
+            // InternalSuricate.g:528:2: ( rule__Constructeur__NameAssignment_0 )
             {
              before(grammarAccess.getConstructeurAccess().getNameAssignment_0()); 
-            // InternalSuricate.g:446:2: ( rule__Constructeur__NameAssignment_0 )
-            // InternalSuricate.g:446:3: rule__Constructeur__NameAssignment_0
+            // InternalSuricate.g:529:2: ( rule__Constructeur__NameAssignment_0 )
+            // InternalSuricate.g:529:3: rule__Constructeur__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Constructeur__NameAssignment_0();
@@ -1393,16 +1650,16 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Constructeur__Group__1"
-    // InternalSuricate.g:454:1: rule__Constructeur__Group__1 : rule__Constructeur__Group__1__Impl rule__Constructeur__Group__2 ;
+    // InternalSuricate.g:537:1: rule__Constructeur__Group__1 : rule__Constructeur__Group__1__Impl rule__Constructeur__Group__2 ;
     public final void rule__Constructeur__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:458:1: ( rule__Constructeur__Group__1__Impl rule__Constructeur__Group__2 )
-            // InternalSuricate.g:459:2: rule__Constructeur__Group__1__Impl rule__Constructeur__Group__2
+            // InternalSuricate.g:541:1: ( rule__Constructeur__Group__1__Impl rule__Constructeur__Group__2 )
+            // InternalSuricate.g:542:2: rule__Constructeur__Group__1__Impl rule__Constructeur__Group__2
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_8);
             rule__Constructeur__Group__1__Impl();
 
             state._fsp--;
@@ -1431,20 +1688,20 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Constructeur__Group__1__Impl"
-    // InternalSuricate.g:466:1: rule__Constructeur__Group__1__Impl : ( '(' ) ;
+    // InternalSuricate.g:549:1: rule__Constructeur__Group__1__Impl : ( '(' ) ;
     public final void rule__Constructeur__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:470:1: ( ( '(' ) )
-            // InternalSuricate.g:471:1: ( '(' )
+            // InternalSuricate.g:553:1: ( ( '(' ) )
+            // InternalSuricate.g:554:1: ( '(' )
             {
-            // InternalSuricate.g:471:1: ( '(' )
-            // InternalSuricate.g:472:2: '('
+            // InternalSuricate.g:554:1: ( '(' )
+            // InternalSuricate.g:555:2: '('
             {
              before(grammarAccess.getConstructeurAccess().getLeftParenthesisKeyword_1()); 
-            match(input,12,FOLLOW_2); 
+            match(input,13,FOLLOW_2); 
              after(grammarAccess.getConstructeurAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -1468,14 +1725,14 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Constructeur__Group__2"
-    // InternalSuricate.g:481:1: rule__Constructeur__Group__2 : rule__Constructeur__Group__2__Impl ;
+    // InternalSuricate.g:564:1: rule__Constructeur__Group__2 : rule__Constructeur__Group__2__Impl ;
     public final void rule__Constructeur__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:485:1: ( rule__Constructeur__Group__2__Impl )
-            // InternalSuricate.g:486:2: rule__Constructeur__Group__2__Impl
+            // InternalSuricate.g:568:1: ( rule__Constructeur__Group__2__Impl )
+            // InternalSuricate.g:569:2: rule__Constructeur__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Constructeur__Group__2__Impl();
@@ -1501,20 +1758,20 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Constructeur__Group__2__Impl"
-    // InternalSuricate.g:492:1: rule__Constructeur__Group__2__Impl : ( ')' ) ;
+    // InternalSuricate.g:575:1: rule__Constructeur__Group__2__Impl : ( ')' ) ;
     public final void rule__Constructeur__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:496:1: ( ( ')' ) )
-            // InternalSuricate.g:497:1: ( ')' )
+            // InternalSuricate.g:579:1: ( ( ')' ) )
+            // InternalSuricate.g:580:1: ( ')' )
             {
-            // InternalSuricate.g:497:1: ( ')' )
-            // InternalSuricate.g:498:2: ')'
+            // InternalSuricate.g:580:1: ( ')' )
+            // InternalSuricate.g:581:2: ')'
             {
              before(grammarAccess.getConstructeurAccess().getRightParenthesisKeyword_2()); 
-            match(input,13,FOLLOW_2); 
+            match(input,14,FOLLOW_2); 
              after(grammarAccess.getConstructeurAccess().getRightParenthesisKeyword_2()); 
 
             }
@@ -1538,16 +1795,16 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Operation__Group__0"
-    // InternalSuricate.g:508:1: rule__Operation__Group__0 : rule__Operation__Group__0__Impl rule__Operation__Group__1 ;
+    // InternalSuricate.g:591:1: rule__Operation__Group__0 : rule__Operation__Group__0__Impl rule__Operation__Group__1 ;
     public final void rule__Operation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:512:1: ( rule__Operation__Group__0__Impl rule__Operation__Group__1 )
-            // InternalSuricate.g:513:2: rule__Operation__Group__0__Impl rule__Operation__Group__1
+            // InternalSuricate.g:595:1: ( rule__Operation__Group__0__Impl rule__Operation__Group__1 )
+            // InternalSuricate.g:596:2: rule__Operation__Group__0__Impl rule__Operation__Group__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             rule__Operation__Group__0__Impl();
 
             state._fsp--;
@@ -1576,21 +1833,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Operation__Group__0__Impl"
-    // InternalSuricate.g:520:1: rule__Operation__Group__0__Impl : ( ( rule__Operation__NameAssignment_0 ) ) ;
+    // InternalSuricate.g:603:1: rule__Operation__Group__0__Impl : ( ( rule__Operation__NameAssignment_0 ) ) ;
     public final void rule__Operation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:524:1: ( ( ( rule__Operation__NameAssignment_0 ) ) )
-            // InternalSuricate.g:525:1: ( ( rule__Operation__NameAssignment_0 ) )
+            // InternalSuricate.g:607:1: ( ( ( rule__Operation__NameAssignment_0 ) ) )
+            // InternalSuricate.g:608:1: ( ( rule__Operation__NameAssignment_0 ) )
             {
-            // InternalSuricate.g:525:1: ( ( rule__Operation__NameAssignment_0 ) )
-            // InternalSuricate.g:526:2: ( rule__Operation__NameAssignment_0 )
+            // InternalSuricate.g:608:1: ( ( rule__Operation__NameAssignment_0 ) )
+            // InternalSuricate.g:609:2: ( rule__Operation__NameAssignment_0 )
             {
              before(grammarAccess.getOperationAccess().getNameAssignment_0()); 
-            // InternalSuricate.g:527:2: ( rule__Operation__NameAssignment_0 )
-            // InternalSuricate.g:527:3: rule__Operation__NameAssignment_0
+            // InternalSuricate.g:610:2: ( rule__Operation__NameAssignment_0 )
+            // InternalSuricate.g:610:3: rule__Operation__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Operation__NameAssignment_0();
@@ -1623,16 +1880,16 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Operation__Group__1"
-    // InternalSuricate.g:535:1: rule__Operation__Group__1 : rule__Operation__Group__1__Impl rule__Operation__Group__2 ;
+    // InternalSuricate.g:618:1: rule__Operation__Group__1 : rule__Operation__Group__1__Impl rule__Operation__Group__2 ;
     public final void rule__Operation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:539:1: ( rule__Operation__Group__1__Impl rule__Operation__Group__2 )
-            // InternalSuricate.g:540:2: rule__Operation__Group__1__Impl rule__Operation__Group__2
+            // InternalSuricate.g:622:1: ( rule__Operation__Group__1__Impl rule__Operation__Group__2 )
+            // InternalSuricate.g:623:2: rule__Operation__Group__1__Impl rule__Operation__Group__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             rule__Operation__Group__1__Impl();
 
             state._fsp--;
@@ -1661,20 +1918,20 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Operation__Group__1__Impl"
-    // InternalSuricate.g:547:1: rule__Operation__Group__1__Impl : ( '.' ) ;
+    // InternalSuricate.g:630:1: rule__Operation__Group__1__Impl : ( '.' ) ;
     public final void rule__Operation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:551:1: ( ( '.' ) )
-            // InternalSuricate.g:552:1: ( '.' )
+            // InternalSuricate.g:634:1: ( ( '.' ) )
+            // InternalSuricate.g:635:1: ( '.' )
             {
-            // InternalSuricate.g:552:1: ( '.' )
-            // InternalSuricate.g:553:2: '.'
+            // InternalSuricate.g:635:1: ( '.' )
+            // InternalSuricate.g:636:2: '.'
             {
              before(grammarAccess.getOperationAccess().getFullStopKeyword_1()); 
-            match(input,14,FOLLOW_2); 
+            match(input,15,FOLLOW_2); 
              after(grammarAccess.getOperationAccess().getFullStopKeyword_1()); 
 
             }
@@ -1698,14 +1955,14 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Operation__Group__2"
-    // InternalSuricate.g:562:1: rule__Operation__Group__2 : rule__Operation__Group__2__Impl ;
+    // InternalSuricate.g:645:1: rule__Operation__Group__2 : rule__Operation__Group__2__Impl ;
     public final void rule__Operation__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:566:1: ( rule__Operation__Group__2__Impl )
-            // InternalSuricate.g:567:2: rule__Operation__Group__2__Impl
+            // InternalSuricate.g:649:1: ( rule__Operation__Group__2__Impl )
+            // InternalSuricate.g:650:2: rule__Operation__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Operation__Group__2__Impl();
@@ -1731,21 +1988,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Operation__Group__2__Impl"
-    // InternalSuricate.g:573:1: rule__Operation__Group__2__Impl : ( ( rule__Operation__MethodeAssignment_2 ) ) ;
+    // InternalSuricate.g:656:1: rule__Operation__Group__2__Impl : ( ( rule__Operation__MethodeAssignment_2 ) ) ;
     public final void rule__Operation__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:577:1: ( ( ( rule__Operation__MethodeAssignment_2 ) ) )
-            // InternalSuricate.g:578:1: ( ( rule__Operation__MethodeAssignment_2 ) )
+            // InternalSuricate.g:660:1: ( ( ( rule__Operation__MethodeAssignment_2 ) ) )
+            // InternalSuricate.g:661:1: ( ( rule__Operation__MethodeAssignment_2 ) )
             {
-            // InternalSuricate.g:578:1: ( ( rule__Operation__MethodeAssignment_2 ) )
-            // InternalSuricate.g:579:2: ( rule__Operation__MethodeAssignment_2 )
+            // InternalSuricate.g:661:1: ( ( rule__Operation__MethodeAssignment_2 ) )
+            // InternalSuricate.g:662:2: ( rule__Operation__MethodeAssignment_2 )
             {
              before(grammarAccess.getOperationAccess().getMethodeAssignment_2()); 
-            // InternalSuricate.g:580:2: ( rule__Operation__MethodeAssignment_2 )
-            // InternalSuricate.g:580:3: rule__Operation__MethodeAssignment_2
+            // InternalSuricate.g:663:2: ( rule__Operation__MethodeAssignment_2 )
+            // InternalSuricate.g:663:3: rule__Operation__MethodeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Operation__MethodeAssignment_2();
@@ -1778,14 +2035,14 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Methode__Group__0"
-    // InternalSuricate.g:589:1: rule__Methode__Group__0 : rule__Methode__Group__0__Impl rule__Methode__Group__1 ;
+    // InternalSuricate.g:672:1: rule__Methode__Group__0 : rule__Methode__Group__0__Impl rule__Methode__Group__1 ;
     public final void rule__Methode__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:593:1: ( rule__Methode__Group__0__Impl rule__Methode__Group__1 )
-            // InternalSuricate.g:594:2: rule__Methode__Group__0__Impl rule__Methode__Group__1
+            // InternalSuricate.g:676:1: ( rule__Methode__Group__0__Impl rule__Methode__Group__1 )
+            // InternalSuricate.g:677:2: rule__Methode__Group__0__Impl rule__Methode__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Methode__Group__0__Impl();
@@ -1816,31 +2073,31 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Methode__Group__0__Impl"
-    // InternalSuricate.g:601:1: rule__Methode__Group__0__Impl : ( RULE_ID ) ;
+    // InternalSuricate.g:684:1: rule__Methode__Group__0__Impl : ( () ) ;
     public final void rule__Methode__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:605:1: ( ( RULE_ID ) )
-            // InternalSuricate.g:606:1: ( RULE_ID )
+            // InternalSuricate.g:688:1: ( ( () ) )
+            // InternalSuricate.g:689:1: ( () )
             {
-            // InternalSuricate.g:606:1: ( RULE_ID )
-            // InternalSuricate.g:607:2: RULE_ID
+            // InternalSuricate.g:689:1: ( () )
+            // InternalSuricate.g:690:2: ()
             {
-             before(grammarAccess.getMethodeAccess().getIDTerminalRuleCall_0()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getMethodeAccess().getIDTerminalRuleCall_0()); 
+             before(grammarAccess.getMethodeAccess().getMethodeAction_0()); 
+            // InternalSuricate.g:691:2: ()
+            // InternalSuricate.g:691:3: 
+            {
+            }
+
+             after(grammarAccess.getMethodeAccess().getMethodeAction_0()); 
 
             }
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -1853,16 +2110,16 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Methode__Group__1"
-    // InternalSuricate.g:616:1: rule__Methode__Group__1 : rule__Methode__Group__1__Impl rule__Methode__Group__2 ;
+    // InternalSuricate.g:699:1: rule__Methode__Group__1 : rule__Methode__Group__1__Impl rule__Methode__Group__2 ;
     public final void rule__Methode__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:620:1: ( rule__Methode__Group__1__Impl rule__Methode__Group__2 )
-            // InternalSuricate.g:621:2: rule__Methode__Group__1__Impl rule__Methode__Group__2
+            // InternalSuricate.g:703:1: ( rule__Methode__Group__1__Impl rule__Methode__Group__2 )
+            // InternalSuricate.g:704:2: rule__Methode__Group__1__Impl rule__Methode__Group__2
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_7);
             rule__Methode__Group__1__Impl();
 
             state._fsp--;
@@ -1891,21 +2148,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Methode__Group__1__Impl"
-    // InternalSuricate.g:628:1: rule__Methode__Group__1__Impl : ( '(' ) ;
+    // InternalSuricate.g:711:1: rule__Methode__Group__1__Impl : ( RULE_ID ) ;
     public final void rule__Methode__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:632:1: ( ( '(' ) )
-            // InternalSuricate.g:633:1: ( '(' )
+            // InternalSuricate.g:715:1: ( ( RULE_ID ) )
+            // InternalSuricate.g:716:1: ( RULE_ID )
             {
-            // InternalSuricate.g:633:1: ( '(' )
-            // InternalSuricate.g:634:2: '('
+            // InternalSuricate.g:716:1: ( RULE_ID )
+            // InternalSuricate.g:717:2: RULE_ID
             {
-             before(grammarAccess.getMethodeAccess().getLeftParenthesisKeyword_1()); 
-            match(input,12,FOLLOW_2); 
-             after(grammarAccess.getMethodeAccess().getLeftParenthesisKeyword_1()); 
+             before(grammarAccess.getMethodeAccess().getIDTerminalRuleCall_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getMethodeAccess().getIDTerminalRuleCall_1()); 
 
             }
 
@@ -1928,16 +2185,16 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Methode__Group__2"
-    // InternalSuricate.g:643:1: rule__Methode__Group__2 : rule__Methode__Group__2__Impl rule__Methode__Group__3 ;
+    // InternalSuricate.g:726:1: rule__Methode__Group__2 : rule__Methode__Group__2__Impl rule__Methode__Group__3 ;
     public final void rule__Methode__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:647:1: ( rule__Methode__Group__2__Impl rule__Methode__Group__3 )
-            // InternalSuricate.g:648:2: rule__Methode__Group__2__Impl rule__Methode__Group__3
+            // InternalSuricate.g:730:1: ( rule__Methode__Group__2__Impl rule__Methode__Group__3 )
+            // InternalSuricate.g:731:2: rule__Methode__Group__2__Impl rule__Methode__Group__3
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Methode__Group__2__Impl();
 
             state._fsp--;
@@ -1966,49 +2223,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Methode__Group__2__Impl"
-    // InternalSuricate.g:655:1: rule__Methode__Group__2__Impl : ( ( rule__Methode__Group_2__0 )* ) ;
+    // InternalSuricate.g:738:1: rule__Methode__Group__2__Impl : ( '(' ) ;
     public final void rule__Methode__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:659:1: ( ( ( rule__Methode__Group_2__0 )* ) )
-            // InternalSuricate.g:660:1: ( ( rule__Methode__Group_2__0 )* )
+            // InternalSuricate.g:742:1: ( ( '(' ) )
+            // InternalSuricate.g:743:1: ( '(' )
             {
-            // InternalSuricate.g:660:1: ( ( rule__Methode__Group_2__0 )* )
-            // InternalSuricate.g:661:2: ( rule__Methode__Group_2__0 )*
+            // InternalSuricate.g:743:1: ( '(' )
+            // InternalSuricate.g:744:2: '('
             {
-             before(grammarAccess.getMethodeAccess().getGroup_2()); 
-            // InternalSuricate.g:662:2: ( rule__Methode__Group_2__0 )*
-            loop5:
-            do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
-
-                if ( ((LA5_0>=RULE_STRING && LA5_0<=RULE_ID)) ) {
-                    alt5=1;
-                }
-
-
-                switch (alt5) {
-            	case 1 :
-            	    // InternalSuricate.g:662:3: rule__Methode__Group_2__0
-            	    {
-            	    pushFollow(FOLLOW_3);
-            	    rule__Methode__Group_2__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop5;
-                }
-            } while (true);
-
-             after(grammarAccess.getMethodeAccess().getGroup_2()); 
+             before(grammarAccess.getMethodeAccess().getLeftParenthesisKeyword_2()); 
+            match(input,13,FOLLOW_2); 
+             after(grammarAccess.getMethodeAccess().getLeftParenthesisKeyword_2()); 
 
             }
 
@@ -2031,17 +2260,22 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Methode__Group__3"
-    // InternalSuricate.g:670:1: rule__Methode__Group__3 : rule__Methode__Group__3__Impl ;
+    // InternalSuricate.g:753:1: rule__Methode__Group__3 : rule__Methode__Group__3__Impl rule__Methode__Group__4 ;
     public final void rule__Methode__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:674:1: ( rule__Methode__Group__3__Impl )
-            // InternalSuricate.g:675:2: rule__Methode__Group__3__Impl
+            // InternalSuricate.g:757:1: ( rule__Methode__Group__3__Impl rule__Methode__Group__4 )
+            // InternalSuricate.g:758:2: rule__Methode__Group__3__Impl rule__Methode__Group__4
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_10);
             rule__Methode__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Methode__Group__4();
 
             state._fsp--;
 
@@ -2064,21 +2298,49 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Methode__Group__3__Impl"
-    // InternalSuricate.g:681:1: rule__Methode__Group__3__Impl : ( ')' ) ;
+    // InternalSuricate.g:765:1: rule__Methode__Group__3__Impl : ( ( rule__Methode__Group_3__0 )* ) ;
     public final void rule__Methode__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:685:1: ( ( ')' ) )
-            // InternalSuricate.g:686:1: ( ')' )
+            // InternalSuricate.g:769:1: ( ( ( rule__Methode__Group_3__0 )* ) )
+            // InternalSuricate.g:770:1: ( ( rule__Methode__Group_3__0 )* )
             {
-            // InternalSuricate.g:686:1: ( ')' )
-            // InternalSuricate.g:687:2: ')'
+            // InternalSuricate.g:770:1: ( ( rule__Methode__Group_3__0 )* )
+            // InternalSuricate.g:771:2: ( rule__Methode__Group_3__0 )*
             {
-             before(grammarAccess.getMethodeAccess().getRightParenthesisKeyword_3()); 
-            match(input,13,FOLLOW_2); 
-             after(grammarAccess.getMethodeAccess().getRightParenthesisKeyword_3()); 
+             before(grammarAccess.getMethodeAccess().getGroup_3()); 
+            // InternalSuricate.g:772:2: ( rule__Methode__Group_3__0 )*
+            loop5:
+            do {
+                int alt5=2;
+                int LA5_0 = input.LA(1);
+
+                if ( ((LA5_0>=RULE_ID && LA5_0<=RULE_STRING)) ) {
+                    alt5=1;
+                }
+
+
+                switch (alt5) {
+            	case 1 :
+            	    // InternalSuricate.g:772:3: rule__Methode__Group_3__0
+            	    {
+            	    pushFollow(FOLLOW_11);
+            	    rule__Methode__Group_3__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop5;
+                }
+            } while (true);
+
+             after(grammarAccess.getMethodeAccess().getGroup_3()); 
 
             }
 
@@ -2100,23 +2362,18 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Methode__Group__3__Impl"
 
 
-    // $ANTLR start "rule__Methode__Group_2__0"
-    // InternalSuricate.g:697:1: rule__Methode__Group_2__0 : rule__Methode__Group_2__0__Impl rule__Methode__Group_2__1 ;
-    public final void rule__Methode__Group_2__0() throws RecognitionException {
+    // $ANTLR start "rule__Methode__Group__4"
+    // InternalSuricate.g:780:1: rule__Methode__Group__4 : rule__Methode__Group__4__Impl ;
+    public final void rule__Methode__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:701:1: ( rule__Methode__Group_2__0__Impl rule__Methode__Group_2__1 )
-            // InternalSuricate.g:702:2: rule__Methode__Group_2__0__Impl rule__Methode__Group_2__1
+            // InternalSuricate.g:784:1: ( rule__Methode__Group__4__Impl )
+            // InternalSuricate.g:785:2: rule__Methode__Group__4__Impl
             {
-            pushFollow(FOLLOW_10);
-            rule__Methode__Group_2__0__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Methode__Group_2__1();
+            rule__Methode__Group__4__Impl();
 
             state._fsp--;
 
@@ -2135,35 +2392,25 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__Group_2__0"
+    // $ANTLR end "rule__Methode__Group__4"
 
 
-    // $ANTLR start "rule__Methode__Group_2__0__Impl"
-    // InternalSuricate.g:709:1: rule__Methode__Group_2__0__Impl : ( ( rule__Methode__ParaAssignment_2_0 ) ) ;
-    public final void rule__Methode__Group_2__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Methode__Group__4__Impl"
+    // InternalSuricate.g:791:1: rule__Methode__Group__4__Impl : ( ')' ) ;
+    public final void rule__Methode__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:713:1: ( ( ( rule__Methode__ParaAssignment_2_0 ) ) )
-            // InternalSuricate.g:714:1: ( ( rule__Methode__ParaAssignment_2_0 ) )
+            // InternalSuricate.g:795:1: ( ( ')' ) )
+            // InternalSuricate.g:796:1: ( ')' )
             {
-            // InternalSuricate.g:714:1: ( ( rule__Methode__ParaAssignment_2_0 ) )
-            // InternalSuricate.g:715:2: ( rule__Methode__ParaAssignment_2_0 )
+            // InternalSuricate.g:796:1: ( ')' )
+            // InternalSuricate.g:797:2: ')'
             {
-             before(grammarAccess.getMethodeAccess().getParaAssignment_2_0()); 
-            // InternalSuricate.g:716:2: ( rule__Methode__ParaAssignment_2_0 )
-            // InternalSuricate.g:716:3: rule__Methode__ParaAssignment_2_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__Methode__ParaAssignment_2_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getMethodeAccess().getParaAssignment_2_0()); 
+             before(grammarAccess.getMethodeAccess().getRightParenthesisKeyword_4()); 
+            match(input,14,FOLLOW_2); 
+             after(grammarAccess.getMethodeAccess().getRightParenthesisKeyword_4()); 
 
             }
 
@@ -2182,21 +2429,26 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__Group_2__0__Impl"
+    // $ANTLR end "rule__Methode__Group__4__Impl"
 
 
-    // $ANTLR start "rule__Methode__Group_2__1"
-    // InternalSuricate.g:724:1: rule__Methode__Group_2__1 : rule__Methode__Group_2__1__Impl ;
-    public final void rule__Methode__Group_2__1() throws RecognitionException {
+    // $ANTLR start "rule__Methode__Group_3__0"
+    // InternalSuricate.g:807:1: rule__Methode__Group_3__0 : rule__Methode__Group_3__0__Impl rule__Methode__Group_3__1 ;
+    public final void rule__Methode__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:728:1: ( rule__Methode__Group_2__1__Impl )
-            // InternalSuricate.g:729:2: rule__Methode__Group_2__1__Impl
+            // InternalSuricate.g:811:1: ( rule__Methode__Group_3__0__Impl rule__Methode__Group_3__1 )
+            // InternalSuricate.g:812:2: rule__Methode__Group_3__0__Impl rule__Methode__Group_3__1
             {
+            pushFollow(FOLLOW_12);
+            rule__Methode__Group_3__0__Impl();
+
+            state._fsp--;
+
             pushFollow(FOLLOW_2);
-            rule__Methode__Group_2__1__Impl();
+            rule__Methode__Group_3__1();
 
             state._fsp--;
 
@@ -2215,40 +2467,120 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__Group_2__1"
+    // $ANTLR end "rule__Methode__Group_3__0"
 
 
-    // $ANTLR start "rule__Methode__Group_2__1__Impl"
-    // InternalSuricate.g:735:1: rule__Methode__Group_2__1__Impl : ( ( rule__Methode__Group_2_1__0 )* ) ;
-    public final void rule__Methode__Group_2__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Methode__Group_3__0__Impl"
+    // InternalSuricate.g:819:1: rule__Methode__Group_3__0__Impl : ( ( rule__Methode__ParamsAssignment_3_0 ) ) ;
+    public final void rule__Methode__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:739:1: ( ( ( rule__Methode__Group_2_1__0 )* ) )
-            // InternalSuricate.g:740:1: ( ( rule__Methode__Group_2_1__0 )* )
+            // InternalSuricate.g:823:1: ( ( ( rule__Methode__ParamsAssignment_3_0 ) ) )
+            // InternalSuricate.g:824:1: ( ( rule__Methode__ParamsAssignment_3_0 ) )
             {
-            // InternalSuricate.g:740:1: ( ( rule__Methode__Group_2_1__0 )* )
-            // InternalSuricate.g:741:2: ( rule__Methode__Group_2_1__0 )*
+            // InternalSuricate.g:824:1: ( ( rule__Methode__ParamsAssignment_3_0 ) )
+            // InternalSuricate.g:825:2: ( rule__Methode__ParamsAssignment_3_0 )
             {
-             before(grammarAccess.getMethodeAccess().getGroup_2_1()); 
-            // InternalSuricate.g:742:2: ( rule__Methode__Group_2_1__0 )*
+             before(grammarAccess.getMethodeAccess().getParamsAssignment_3_0()); 
+            // InternalSuricate.g:826:2: ( rule__Methode__ParamsAssignment_3_0 )
+            // InternalSuricate.g:826:3: rule__Methode__ParamsAssignment_3_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Methode__ParamsAssignment_3_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getMethodeAccess().getParamsAssignment_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Methode__Group_3__0__Impl"
+
+
+    // $ANTLR start "rule__Methode__Group_3__1"
+    // InternalSuricate.g:834:1: rule__Methode__Group_3__1 : rule__Methode__Group_3__1__Impl ;
+    public final void rule__Methode__Group_3__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSuricate.g:838:1: ( rule__Methode__Group_3__1__Impl )
+            // InternalSuricate.g:839:2: rule__Methode__Group_3__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Methode__Group_3__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Methode__Group_3__1"
+
+
+    // $ANTLR start "rule__Methode__Group_3__1__Impl"
+    // InternalSuricate.g:845:1: rule__Methode__Group_3__1__Impl : ( ( rule__Methode__Group_3_1__0 )* ) ;
+    public final void rule__Methode__Group_3__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSuricate.g:849:1: ( ( ( rule__Methode__Group_3_1__0 )* ) )
+            // InternalSuricate.g:850:1: ( ( rule__Methode__Group_3_1__0 )* )
+            {
+            // InternalSuricate.g:850:1: ( ( rule__Methode__Group_3_1__0 )* )
+            // InternalSuricate.g:851:2: ( rule__Methode__Group_3_1__0 )*
+            {
+             before(grammarAccess.getMethodeAccess().getGroup_3_1()); 
+            // InternalSuricate.g:852:2: ( rule__Methode__Group_3_1__0 )*
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==15) ) {
+                if ( (LA6_0==16) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalSuricate.g:742:3: rule__Methode__Group_2_1__0
+            	    // InternalSuricate.g:852:3: rule__Methode__Group_3_1__0
             	    {
-            	    pushFollow(FOLLOW_11);
-            	    rule__Methode__Group_2_1__0();
+            	    pushFollow(FOLLOW_13);
+            	    rule__Methode__Group_3_1__0();
 
             	    state._fsp--;
 
@@ -2261,7 +2593,7 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
                 }
             } while (true);
 
-             after(grammarAccess.getMethodeAccess().getGroup_2_1()); 
+             after(grammarAccess.getMethodeAccess().getGroup_3_1()); 
 
             }
 
@@ -2280,26 +2612,26 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__Group_2__1__Impl"
+    // $ANTLR end "rule__Methode__Group_3__1__Impl"
 
 
-    // $ANTLR start "rule__Methode__Group_2_1__0"
-    // InternalSuricate.g:751:1: rule__Methode__Group_2_1__0 : rule__Methode__Group_2_1__0__Impl rule__Methode__Group_2_1__1 ;
-    public final void rule__Methode__Group_2_1__0() throws RecognitionException {
+    // $ANTLR start "rule__Methode__Group_3_1__0"
+    // InternalSuricate.g:861:1: rule__Methode__Group_3_1__0 : rule__Methode__Group_3_1__0__Impl rule__Methode__Group_3_1__1 ;
+    public final void rule__Methode__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:755:1: ( rule__Methode__Group_2_1__0__Impl rule__Methode__Group_2_1__1 )
-            // InternalSuricate.g:756:2: rule__Methode__Group_2_1__0__Impl rule__Methode__Group_2_1__1
+            // InternalSuricate.g:865:1: ( rule__Methode__Group_3_1__0__Impl rule__Methode__Group_3_1__1 )
+            // InternalSuricate.g:866:2: rule__Methode__Group_3_1__0__Impl rule__Methode__Group_3_1__1
             {
-            pushFollow(FOLLOW_12);
-            rule__Methode__Group_2_1__0__Impl();
+            pushFollow(FOLLOW_4);
+            rule__Methode__Group_3_1__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Methode__Group_2_1__1();
+            rule__Methode__Group_3_1__1();
 
             state._fsp--;
 
@@ -2318,25 +2650,25 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__Group_2_1__0"
+    // $ANTLR end "rule__Methode__Group_3_1__0"
 
 
-    // $ANTLR start "rule__Methode__Group_2_1__0__Impl"
-    // InternalSuricate.g:763:1: rule__Methode__Group_2_1__0__Impl : ( ',' ) ;
-    public final void rule__Methode__Group_2_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Methode__Group_3_1__0__Impl"
+    // InternalSuricate.g:873:1: rule__Methode__Group_3_1__0__Impl : ( ',' ) ;
+    public final void rule__Methode__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:767:1: ( ( ',' ) )
-            // InternalSuricate.g:768:1: ( ',' )
+            // InternalSuricate.g:877:1: ( ( ',' ) )
+            // InternalSuricate.g:878:1: ( ',' )
             {
-            // InternalSuricate.g:768:1: ( ',' )
-            // InternalSuricate.g:769:2: ','
+            // InternalSuricate.g:878:1: ( ',' )
+            // InternalSuricate.g:879:2: ','
             {
-             before(grammarAccess.getMethodeAccess().getCommaKeyword_2_1_0()); 
-            match(input,15,FOLLOW_2); 
-             after(grammarAccess.getMethodeAccess().getCommaKeyword_2_1_0()); 
+             before(grammarAccess.getMethodeAccess().getCommaKeyword_3_1_0()); 
+            match(input,16,FOLLOW_2); 
+             after(grammarAccess.getMethodeAccess().getCommaKeyword_3_1_0()); 
 
             }
 
@@ -2355,21 +2687,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__Group_2_1__0__Impl"
+    // $ANTLR end "rule__Methode__Group_3_1__0__Impl"
 
 
-    // $ANTLR start "rule__Methode__Group_2_1__1"
-    // InternalSuricate.g:778:1: rule__Methode__Group_2_1__1 : rule__Methode__Group_2_1__1__Impl ;
-    public final void rule__Methode__Group_2_1__1() throws RecognitionException {
+    // $ANTLR start "rule__Methode__Group_3_1__1"
+    // InternalSuricate.g:888:1: rule__Methode__Group_3_1__1 : rule__Methode__Group_3_1__1__Impl ;
+    public final void rule__Methode__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:782:1: ( rule__Methode__Group_2_1__1__Impl )
-            // InternalSuricate.g:783:2: rule__Methode__Group_2_1__1__Impl
+            // InternalSuricate.g:892:1: ( rule__Methode__Group_3_1__1__Impl )
+            // InternalSuricate.g:893:2: rule__Methode__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Methode__Group_2_1__1__Impl();
+            rule__Methode__Group_3_1__1__Impl();
 
             state._fsp--;
 
@@ -2388,35 +2720,35 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__Group_2_1__1"
+    // $ANTLR end "rule__Methode__Group_3_1__1"
 
 
-    // $ANTLR start "rule__Methode__Group_2_1__1__Impl"
-    // InternalSuricate.g:789:1: rule__Methode__Group_2_1__1__Impl : ( ( rule__Methode__ParaAssignment_2_1_1 ) ) ;
-    public final void rule__Methode__Group_2_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Methode__Group_3_1__1__Impl"
+    // InternalSuricate.g:899:1: rule__Methode__Group_3_1__1__Impl : ( ( rule__Methode__ParamsAssignment_3_1_1 ) ) ;
+    public final void rule__Methode__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:793:1: ( ( ( rule__Methode__ParaAssignment_2_1_1 ) ) )
-            // InternalSuricate.g:794:1: ( ( rule__Methode__ParaAssignment_2_1_1 ) )
+            // InternalSuricate.g:903:1: ( ( ( rule__Methode__ParamsAssignment_3_1_1 ) ) )
+            // InternalSuricate.g:904:1: ( ( rule__Methode__ParamsAssignment_3_1_1 ) )
             {
-            // InternalSuricate.g:794:1: ( ( rule__Methode__ParaAssignment_2_1_1 ) )
-            // InternalSuricate.g:795:2: ( rule__Methode__ParaAssignment_2_1_1 )
+            // InternalSuricate.g:904:1: ( ( rule__Methode__ParamsAssignment_3_1_1 ) )
+            // InternalSuricate.g:905:2: ( rule__Methode__ParamsAssignment_3_1_1 )
             {
-             before(grammarAccess.getMethodeAccess().getParaAssignment_2_1_1()); 
-            // InternalSuricate.g:796:2: ( rule__Methode__ParaAssignment_2_1_1 )
-            // InternalSuricate.g:796:3: rule__Methode__ParaAssignment_2_1_1
+             before(grammarAccess.getMethodeAccess().getParamsAssignment_3_1_1()); 
+            // InternalSuricate.g:906:2: ( rule__Methode__ParamsAssignment_3_1_1 )
+            // InternalSuricate.g:906:3: rule__Methode__ParamsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__Methode__ParaAssignment_2_1_1();
+            rule__Methode__ParamsAssignment_3_1_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMethodeAccess().getParaAssignment_2_1_1()); 
+             after(grammarAccess.getMethodeAccess().getParamsAssignment_3_1_1()); 
 
             }
 
@@ -2435,21 +2767,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__Group_2_1__1__Impl"
+    // $ANTLR end "rule__Methode__Group_3_1__1__Impl"
 
 
     // $ANTLR start "rule__Programme__ElementsAssignment"
-    // InternalSuricate.g:805:1: rule__Programme__ElementsAssignment : ( ruleLigne ) ;
+    // InternalSuricate.g:915:1: rule__Programme__ElementsAssignment : ( ruleLigne ) ;
     public final void rule__Programme__ElementsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:809:1: ( ( ruleLigne ) )
-            // InternalSuricate.g:810:2: ( ruleLigne )
+            // InternalSuricate.g:919:1: ( ( ruleLigne ) )
+            // InternalSuricate.g:920:2: ( ruleLigne )
             {
-            // InternalSuricate.g:810:2: ( ruleLigne )
-            // InternalSuricate.g:811:3: ruleLigne
+            // InternalSuricate.g:920:2: ( ruleLigne )
+            // InternalSuricate.g:921:3: ruleLigne
             {
              before(grammarAccess.getProgrammeAccess().getElementsLigneParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -2479,26 +2811,26 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Programme__ElementsAssignment"
 
 
-    // $ANTLR start "rule__Affectation__ObjAssignment_0"
-    // InternalSuricate.g:820:1: rule__Affectation__ObjAssignment_0 : ( ruleObjet ) ;
-    public final void rule__Affectation__ObjAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__Affectation__ObjAssignment_1"
+    // InternalSuricate.g:930:1: rule__Affectation__ObjAssignment_1 : ( ruleObjet ) ;
+    public final void rule__Affectation__ObjAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:824:1: ( ( ruleObjet ) )
-            // InternalSuricate.g:825:2: ( ruleObjet )
+            // InternalSuricate.g:934:1: ( ( ruleObjet ) )
+            // InternalSuricate.g:935:2: ( ruleObjet )
             {
-            // InternalSuricate.g:825:2: ( ruleObjet )
-            // InternalSuricate.g:826:3: ruleObjet
+            // InternalSuricate.g:935:2: ( ruleObjet )
+            // InternalSuricate.g:936:3: ruleObjet
             {
-             before(grammarAccess.getAffectationAccess().getObjObjetParserRuleCall_0_0()); 
+             before(grammarAccess.getAffectationAccess().getObjObjetParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
             ruleObjet();
 
             state._fsp--;
 
-             after(grammarAccess.getAffectationAccess().getObjObjetParserRuleCall_0_0()); 
+             after(grammarAccess.getAffectationAccess().getObjObjetParserRuleCall_1_0()); 
 
             }
 
@@ -2517,29 +2849,29 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Affectation__ObjAssignment_0"
+    // $ANTLR end "rule__Affectation__ObjAssignment_1"
 
 
-    // $ANTLR start "rule__Affectation__VarAssignment_2"
-    // InternalSuricate.g:835:1: rule__Affectation__VarAssignment_2 : ( ruleVariable ) ;
-    public final void rule__Affectation__VarAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Affectation__VarAssignment_3"
+    // InternalSuricate.g:945:1: rule__Affectation__VarAssignment_3 : ( ruleVariable ) ;
+    public final void rule__Affectation__VarAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:839:1: ( ( ruleVariable ) )
-            // InternalSuricate.g:840:2: ( ruleVariable )
+            // InternalSuricate.g:949:1: ( ( ruleVariable ) )
+            // InternalSuricate.g:950:2: ( ruleVariable )
             {
-            // InternalSuricate.g:840:2: ( ruleVariable )
-            // InternalSuricate.g:841:3: ruleVariable
+            // InternalSuricate.g:950:2: ( ruleVariable )
+            // InternalSuricate.g:951:3: ruleVariable
             {
-             before(grammarAccess.getAffectationAccess().getVarVariableParserRuleCall_2_0()); 
+             before(grammarAccess.getAffectationAccess().getVarVariableParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
             ruleVariable();
 
             state._fsp--;
 
-             after(grammarAccess.getAffectationAccess().getVarVariableParserRuleCall_2_0()); 
+             after(grammarAccess.getAffectationAccess().getVarVariableParserRuleCall_3_0()); 
 
             }
 
@@ -2558,21 +2890,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Affectation__VarAssignment_2"
+    // $ANTLR end "rule__Affectation__VarAssignment_3"
 
 
     // $ANTLR start "rule__Variable__NameAssignment"
-    // InternalSuricate.g:850:1: rule__Variable__NameAssignment : ( RULE_ID ) ;
+    // InternalSuricate.g:960:1: rule__Variable__NameAssignment : ( RULE_ID ) ;
     public final void rule__Variable__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:854:1: ( ( RULE_ID ) )
-            // InternalSuricate.g:855:2: ( RULE_ID )
+            // InternalSuricate.g:964:1: ( ( RULE_ID ) )
+            // InternalSuricate.g:965:2: ( RULE_ID )
             {
-            // InternalSuricate.g:855:2: ( RULE_ID )
-            // InternalSuricate.g:856:3: RULE_ID
+            // InternalSuricate.g:965:2: ( RULE_ID )
+            // InternalSuricate.g:966:3: RULE_ID
             {
              before(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -2598,18 +2930,92 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Variable__NameAssignment"
 
 
+    // $ANTLR start "rule__IntLiteral__NameAssignment"
+    // InternalSuricate.g:975:1: rule__IntLiteral__NameAssignment : ( RULE_INT ) ;
+    public final void rule__IntLiteral__NameAssignment() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSuricate.g:979:1: ( ( RULE_INT ) )
+            // InternalSuricate.g:980:2: ( RULE_INT )
+            {
+            // InternalSuricate.g:980:2: ( RULE_INT )
+            // InternalSuricate.g:981:3: RULE_INT
+            {
+             before(grammarAccess.getIntLiteralAccess().getNameINTTerminalRuleCall_0()); 
+            match(input,RULE_INT,FOLLOW_2); 
+             after(grammarAccess.getIntLiteralAccess().getNameINTTerminalRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__IntLiteral__NameAssignment"
+
+
+    // $ANTLR start "rule__StringLiteral__NameAssignment"
+    // InternalSuricate.g:990:1: rule__StringLiteral__NameAssignment : ( RULE_STRING ) ;
+    public final void rule__StringLiteral__NameAssignment() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSuricate.g:994:1: ( ( RULE_STRING ) )
+            // InternalSuricate.g:995:2: ( RULE_STRING )
+            {
+            // InternalSuricate.g:995:2: ( RULE_STRING )
+            // InternalSuricate.g:996:3: RULE_STRING
+            {
+             before(grammarAccess.getStringLiteralAccess().getNameSTRINGTerminalRuleCall_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getStringLiteralAccess().getNameSTRINGTerminalRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__StringLiteral__NameAssignment"
+
+
     // $ANTLR start "rule__Constructeur__NameAssignment_0"
-    // InternalSuricate.g:865:1: rule__Constructeur__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalSuricate.g:1005:1: rule__Constructeur__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Constructeur__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:869:1: ( ( RULE_ID ) )
-            // InternalSuricate.g:870:2: ( RULE_ID )
+            // InternalSuricate.g:1009:1: ( ( RULE_ID ) )
+            // InternalSuricate.g:1010:2: ( RULE_ID )
             {
-            // InternalSuricate.g:870:2: ( RULE_ID )
-            // InternalSuricate.g:871:3: RULE_ID
+            // InternalSuricate.g:1010:2: ( RULE_ID )
+            // InternalSuricate.g:1011:3: RULE_ID
             {
              before(grammarAccess.getConstructeurAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -2636,21 +3042,21 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Operation__NameAssignment_0"
-    // InternalSuricate.g:880:1: rule__Operation__NameAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalSuricate.g:1020:1: rule__Operation__NameAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Operation__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:884:1: ( ( ( RULE_ID ) ) )
-            // InternalSuricate.g:885:2: ( ( RULE_ID ) )
+            // InternalSuricate.g:1024:1: ( ( ( RULE_ID ) ) )
+            // InternalSuricate.g:1025:2: ( ( RULE_ID ) )
             {
-            // InternalSuricate.g:885:2: ( ( RULE_ID ) )
-            // InternalSuricate.g:886:3: ( RULE_ID )
+            // InternalSuricate.g:1025:2: ( ( RULE_ID ) )
+            // InternalSuricate.g:1026:3: ( RULE_ID )
             {
              before(grammarAccess.getOperationAccess().getNameVariableCrossReference_0_0()); 
-            // InternalSuricate.g:887:3: ( RULE_ID )
-            // InternalSuricate.g:888:4: RULE_ID
+            // InternalSuricate.g:1027:3: ( RULE_ID )
+            // InternalSuricate.g:1028:4: RULE_ID
             {
              before(grammarAccess.getOperationAccess().getNameVariableIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -2681,17 +3087,17 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Operation__MethodeAssignment_2"
-    // InternalSuricate.g:899:1: rule__Operation__MethodeAssignment_2 : ( ruleMethode ) ;
+    // InternalSuricate.g:1039:1: rule__Operation__MethodeAssignment_2 : ( ruleMethode ) ;
     public final void rule__Operation__MethodeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:903:1: ( ( ruleMethode ) )
-            // InternalSuricate.g:904:2: ( ruleMethode )
+            // InternalSuricate.g:1043:1: ( ( ruleMethode ) )
+            // InternalSuricate.g:1044:2: ( ruleMethode )
             {
-            // InternalSuricate.g:904:2: ( ruleMethode )
-            // InternalSuricate.g:905:3: ruleMethode
+            // InternalSuricate.g:1044:2: ( ruleMethode )
+            // InternalSuricate.g:1045:3: ruleMethode
             {
              before(grammarAccess.getOperationAccess().getMethodeMethodeParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -2721,26 +3127,26 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Operation__MethodeAssignment_2"
 
 
-    // $ANTLR start "rule__Methode__ParaAssignment_2_0"
-    // InternalSuricate.g:914:1: rule__Methode__ParaAssignment_2_0 : ( ruleParametre ) ;
-    public final void rule__Methode__ParaAssignment_2_0() throws RecognitionException {
+    // $ANTLR start "rule__Methode__ParamsAssignment_3_0"
+    // InternalSuricate.g:1054:1: rule__Methode__ParamsAssignment_3_0 : ( ruleParametre ) ;
+    public final void rule__Methode__ParamsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:918:1: ( ( ruleParametre ) )
-            // InternalSuricate.g:919:2: ( ruleParametre )
+            // InternalSuricate.g:1058:1: ( ( ruleParametre ) )
+            // InternalSuricate.g:1059:2: ( ruleParametre )
             {
-            // InternalSuricate.g:919:2: ( ruleParametre )
-            // InternalSuricate.g:920:3: ruleParametre
+            // InternalSuricate.g:1059:2: ( ruleParametre )
+            // InternalSuricate.g:1060:3: ruleParametre
             {
-             before(grammarAccess.getMethodeAccess().getParaParametreParserRuleCall_2_0_0()); 
+             before(grammarAccess.getMethodeAccess().getParamsParametreParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
             ruleParametre();
 
             state._fsp--;
 
-             after(grammarAccess.getMethodeAccess().getParaParametreParserRuleCall_2_0_0()); 
+             after(grammarAccess.getMethodeAccess().getParamsParametreParserRuleCall_3_0_0()); 
 
             }
 
@@ -2759,29 +3165,29 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__ParaAssignment_2_0"
+    // $ANTLR end "rule__Methode__ParamsAssignment_3_0"
 
 
-    // $ANTLR start "rule__Methode__ParaAssignment_2_1_1"
-    // InternalSuricate.g:929:1: rule__Methode__ParaAssignment_2_1_1 : ( ruleParametre ) ;
-    public final void rule__Methode__ParaAssignment_2_1_1() throws RecognitionException {
+    // $ANTLR start "rule__Methode__ParamsAssignment_3_1_1"
+    // InternalSuricate.g:1069:1: rule__Methode__ParamsAssignment_3_1_1 : ( ruleParametre ) ;
+    public final void rule__Methode__ParamsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSuricate.g:933:1: ( ( ruleParametre ) )
-            // InternalSuricate.g:934:2: ( ruleParametre )
+            // InternalSuricate.g:1073:1: ( ( ruleParametre ) )
+            // InternalSuricate.g:1074:2: ( ruleParametre )
             {
-            // InternalSuricate.g:934:2: ( ruleParametre )
-            // InternalSuricate.g:935:3: ruleParametre
+            // InternalSuricate.g:1074:2: ( ruleParametre )
+            // InternalSuricate.g:1075:3: ruleParametre
             {
-             before(grammarAccess.getMethodeAccess().getParaParametreParserRuleCall_2_1_1_0()); 
+             before(grammarAccess.getMethodeAccess().getParamsParametreParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
             ruleParametre();
 
             state._fsp--;
 
-             after(grammarAccess.getMethodeAccess().getParaParametreParserRuleCall_2_1_1_0()); 
+             after(grammarAccess.getMethodeAccess().getParamsParametreParserRuleCall_3_1_1_0()); 
 
             }
 
@@ -2800,7 +3206,7 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Methode__ParaAssignment_2_1_1"
+    // $ANTLR end "rule__Methode__ParamsAssignment_3_1_1"
 
     // Delegated rules
 
@@ -2809,15 +3215,16 @@ public class InternalSuricateParser extends AbstractInternalContentAssistParser 
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000072L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000812L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000870L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002070L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000004870L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000872L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000010002L});
 
 }

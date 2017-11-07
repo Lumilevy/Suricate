@@ -21,15 +21,16 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSuricateParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'->'", "'('", "')'", "'.'", "','"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':'", "'->'", "'('", "')'", "'.'", "','"
     };
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
-    public static final int RULE_STRING=5;
+    public static final int RULE_STRING=6;
     public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__15=15;
-    public static final int RULE_INT=6;
+    public static final int T__16=16;
+    public static final int RULE_INT=5;
     public static final int T__11=11;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
@@ -133,7 +134,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=RULE_ID && LA1_0<=RULE_INT)) ) {
+                if ( (LA1_0==RULE_ID||LA1_0==11) ) {
                     alt1=1;
                 }
 
@@ -252,24 +253,11 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==RULE_ID) ) {
-                int LA2_1 = input.LA(2);
-
-                if ( (LA2_1==12) ) {
-                    alt2=1;
-                }
-                else if ( (LA2_1==14) ) {
-                    alt2=2;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 2, 1, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( ((LA2_0>=RULE_STRING && LA2_0<=RULE_INT)) ) {
+            if ( (LA2_0==11) ) {
                 alt2=1;
+            }
+            else if ( (LA2_0==RULE_ID) ) {
+                alt2=2;
             }
             else {
                 NoViableAltException nvae =
@@ -373,37 +361,42 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAffectation"
-    // InternalSuricate.g:143:1: ruleAffectation returns [EObject current=null] : ( ( (lv_obj_0_0= ruleObjet ) ) otherlv_1= '->' ( (lv_var_2_0= ruleVariable ) ) ) ;
+    // InternalSuricate.g:143:1: ruleAffectation returns [EObject current=null] : (otherlv_0= ':' ( (lv_obj_1_0= ruleObjet ) ) otherlv_2= '->' ( (lv_var_3_0= ruleVariable ) ) ) ;
     public final EObject ruleAffectation() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
-        EObject lv_obj_0_0 = null;
+        Token otherlv_0=null;
+        Token otherlv_2=null;
+        EObject lv_obj_1_0 = null;
 
-        EObject lv_var_2_0 = null;
+        EObject lv_var_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSuricate.g:149:2: ( ( ( (lv_obj_0_0= ruleObjet ) ) otherlv_1= '->' ( (lv_var_2_0= ruleVariable ) ) ) )
-            // InternalSuricate.g:150:2: ( ( (lv_obj_0_0= ruleObjet ) ) otherlv_1= '->' ( (lv_var_2_0= ruleVariable ) ) )
+            // InternalSuricate.g:149:2: ( (otherlv_0= ':' ( (lv_obj_1_0= ruleObjet ) ) otherlv_2= '->' ( (lv_var_3_0= ruleVariable ) ) ) )
+            // InternalSuricate.g:150:2: (otherlv_0= ':' ( (lv_obj_1_0= ruleObjet ) ) otherlv_2= '->' ( (lv_var_3_0= ruleVariable ) ) )
             {
-            // InternalSuricate.g:150:2: ( ( (lv_obj_0_0= ruleObjet ) ) otherlv_1= '->' ( (lv_var_2_0= ruleVariable ) ) )
-            // InternalSuricate.g:151:3: ( (lv_obj_0_0= ruleObjet ) ) otherlv_1= '->' ( (lv_var_2_0= ruleVariable ) )
+            // InternalSuricate.g:150:2: (otherlv_0= ':' ( (lv_obj_1_0= ruleObjet ) ) otherlv_2= '->' ( (lv_var_3_0= ruleVariable ) ) )
+            // InternalSuricate.g:151:3: otherlv_0= ':' ( (lv_obj_1_0= ruleObjet ) ) otherlv_2= '->' ( (lv_var_3_0= ruleVariable ) )
             {
-            // InternalSuricate.g:151:3: ( (lv_obj_0_0= ruleObjet ) )
-            // InternalSuricate.g:152:4: (lv_obj_0_0= ruleObjet )
+            otherlv_0=(Token)match(input,11,FOLLOW_4); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getAffectationAccess().getColonKeyword_0());
+            		
+            // InternalSuricate.g:155:3: ( (lv_obj_1_0= ruleObjet ) )
+            // InternalSuricate.g:156:4: (lv_obj_1_0= ruleObjet )
             {
-            // InternalSuricate.g:152:4: (lv_obj_0_0= ruleObjet )
-            // InternalSuricate.g:153:5: lv_obj_0_0= ruleObjet
+            // InternalSuricate.g:156:4: (lv_obj_1_0= ruleObjet )
+            // InternalSuricate.g:157:5: lv_obj_1_0= ruleObjet
             {
 
-            					newCompositeNode(grammarAccess.getAffectationAccess().getObjObjetParserRuleCall_0_0());
+            					newCompositeNode(grammarAccess.getAffectationAccess().getObjObjetParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_4);
-            lv_obj_0_0=ruleObjet();
+            pushFollow(FOLLOW_5);
+            lv_obj_1_0=ruleObjet();
 
             state._fsp--;
 
@@ -414,7 +407,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"obj",
-            						lv_obj_0_0,
+            						lv_obj_1_0,
             						"org.fil2018.flomira.Suricate.Objet");
             					afterParserOrEnumRuleCall();
             				
@@ -424,21 +417,21 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FOLLOW_5); 
+            otherlv_2=(Token)match(input,12,FOLLOW_6); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getAffectationAccess().getHyphenMinusGreaterThanSignKeyword_1());
+            			newLeafNode(otherlv_2, grammarAccess.getAffectationAccess().getHyphenMinusGreaterThanSignKeyword_2());
             		
-            // InternalSuricate.g:174:3: ( (lv_var_2_0= ruleVariable ) )
-            // InternalSuricate.g:175:4: (lv_var_2_0= ruleVariable )
+            // InternalSuricate.g:178:3: ( (lv_var_3_0= ruleVariable ) )
+            // InternalSuricate.g:179:4: (lv_var_3_0= ruleVariable )
             {
-            // InternalSuricate.g:175:4: (lv_var_2_0= ruleVariable )
-            // InternalSuricate.g:176:5: lv_var_2_0= ruleVariable
+            // InternalSuricate.g:179:4: (lv_var_3_0= ruleVariable )
+            // InternalSuricate.g:180:5: lv_var_3_0= ruleVariable
             {
 
-            					newCompositeNode(grammarAccess.getAffectationAccess().getVarVariableParserRuleCall_2_0());
+            					newCompositeNode(grammarAccess.getAffectationAccess().getVarVariableParserRuleCall_3_0());
             				
             pushFollow(FOLLOW_2);
-            lv_var_2_0=ruleVariable();
+            lv_var_3_0=ruleVariable();
 
             state._fsp--;
 
@@ -449,7 +442,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"var",
-            						lv_var_2_0,
+            						lv_var_3_0,
             						"org.fil2018.flomira.Suricate.Variable");
             					afterParserOrEnumRuleCall();
             				
@@ -482,7 +475,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVariable"
-    // InternalSuricate.g:197:1: entryRuleVariable returns [EObject current=null] : iv_ruleVariable= ruleVariable EOF ;
+    // InternalSuricate.g:201:1: entryRuleVariable returns [EObject current=null] : iv_ruleVariable= ruleVariable EOF ;
     public final EObject entryRuleVariable() throws RecognitionException {
         EObject current = null;
 
@@ -490,8 +483,8 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSuricate.g:197:49: (iv_ruleVariable= ruleVariable EOF )
-            // InternalSuricate.g:198:2: iv_ruleVariable= ruleVariable EOF
+            // InternalSuricate.g:201:49: (iv_ruleVariable= ruleVariable EOF )
+            // InternalSuricate.g:202:2: iv_ruleVariable= ruleVariable EOF
             {
              newCompositeNode(grammarAccess.getVariableRule()); 
             pushFollow(FOLLOW_1);
@@ -518,7 +511,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVariable"
-    // InternalSuricate.g:204:1: ruleVariable returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
+    // InternalSuricate.g:208:1: ruleVariable returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleVariable() throws RecognitionException {
         EObject current = null;
 
@@ -528,14 +521,14 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSuricate.g:210:2: ( ( (lv_name_0_0= RULE_ID ) ) )
-            // InternalSuricate.g:211:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalSuricate.g:214:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalSuricate.g:215:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalSuricate.g:211:2: ( (lv_name_0_0= RULE_ID ) )
-            // InternalSuricate.g:212:3: (lv_name_0_0= RULE_ID )
+            // InternalSuricate.g:215:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalSuricate.g:216:3: (lv_name_0_0= RULE_ID )
             {
-            // InternalSuricate.g:212:3: (lv_name_0_0= RULE_ID )
-            // InternalSuricate.g:213:4: lv_name_0_0= RULE_ID
+            // InternalSuricate.g:216:3: (lv_name_0_0= RULE_ID )
+            // InternalSuricate.g:217:4: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -577,7 +570,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleObjet"
-    // InternalSuricate.g:232:1: entryRuleObjet returns [EObject current=null] : iv_ruleObjet= ruleObjet EOF ;
+    // InternalSuricate.g:236:1: entryRuleObjet returns [EObject current=null] : iv_ruleObjet= ruleObjet EOF ;
     public final EObject entryRuleObjet() throws RecognitionException {
         EObject current = null;
 
@@ -585,8 +578,8 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSuricate.g:232:46: (iv_ruleObjet= ruleObjet EOF )
-            // InternalSuricate.g:233:2: iv_ruleObjet= ruleObjet EOF
+            // InternalSuricate.g:236:46: (iv_ruleObjet= ruleObjet EOF )
+            // InternalSuricate.g:237:2: iv_ruleObjet= ruleObjet EOF
             {
              newCompositeNode(grammarAccess.getObjetRule()); 
             pushFollow(FOLLOW_1);
@@ -613,28 +606,45 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleObjet"
-    // InternalSuricate.g:239:1: ruleObjet returns [EObject current=null] : (this_Constructeur_0= ruleConstructeur | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT ) ;
+    // InternalSuricate.g:243:1: ruleObjet returns [EObject current=null] : (this_Constructeur_0= ruleConstructeur | this_StringLiteral_1= ruleStringLiteral | this_IntLiteral_2= ruleIntLiteral | this_Operation_3= ruleOperation ) ;
     public final EObject ruleObjet() throws RecognitionException {
         EObject current = null;
 
-        Token this_STRING_1=null;
-        Token this_INT_2=null;
         EObject this_Constructeur_0 = null;
+
+        EObject this_StringLiteral_1 = null;
+
+        EObject this_IntLiteral_2 = null;
+
+        EObject this_Operation_3 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSuricate.g:245:2: ( (this_Constructeur_0= ruleConstructeur | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT ) )
-            // InternalSuricate.g:246:2: (this_Constructeur_0= ruleConstructeur | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT )
+            // InternalSuricate.g:249:2: ( (this_Constructeur_0= ruleConstructeur | this_StringLiteral_1= ruleStringLiteral | this_IntLiteral_2= ruleIntLiteral | this_Operation_3= ruleOperation ) )
+            // InternalSuricate.g:250:2: (this_Constructeur_0= ruleConstructeur | this_StringLiteral_1= ruleStringLiteral | this_IntLiteral_2= ruleIntLiteral | this_Operation_3= ruleOperation )
             {
-            // InternalSuricate.g:246:2: (this_Constructeur_0= ruleConstructeur | this_STRING_1= RULE_STRING | this_INT_2= RULE_INT )
-            int alt3=3;
+            // InternalSuricate.g:250:2: (this_Constructeur_0= ruleConstructeur | this_StringLiteral_1= ruleStringLiteral | this_IntLiteral_2= ruleIntLiteral | this_Operation_3= ruleOperation )
+            int alt3=4;
             switch ( input.LA(1) ) {
             case RULE_ID:
                 {
-                alt3=1;
+                int LA3_1 = input.LA(2);
+
+                if ( (LA3_1==13) ) {
+                    alt3=1;
+                }
+                else if ( (LA3_1==15) ) {
+                    alt3=4;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 3, 1, input);
+
+                    throw nvae;
+                }
                 }
                 break;
             case RULE_STRING:
@@ -656,7 +666,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
             switch (alt3) {
                 case 1 :
-                    // InternalSuricate.g:247:3: this_Constructeur_0= ruleConstructeur
+                    // InternalSuricate.g:251:3: this_Constructeur_0= ruleConstructeur
                     {
 
                     			newCompositeNode(grammarAccess.getObjetAccess().getConstructeurParserRuleCall_0());
@@ -674,21 +684,55 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSuricate.g:256:3: this_STRING_1= RULE_STRING
+                    // InternalSuricate.g:260:3: this_StringLiteral_1= ruleStringLiteral
                     {
-                    this_STRING_1=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-                    			newLeafNode(this_STRING_1, grammarAccess.getObjetAccess().getSTRINGTerminalRuleCall_1());
+                    			newCompositeNode(grammarAccess.getObjetAccess().getStringLiteralParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_StringLiteral_1=ruleStringLiteral();
+
+                    state._fsp--;
+
+
+                    			current = this_StringLiteral_1;
+                    			afterParserOrEnumRuleCall();
                     		
 
                     }
                     break;
                 case 3 :
-                    // InternalSuricate.g:261:3: this_INT_2= RULE_INT
+                    // InternalSuricate.g:269:3: this_IntLiteral_2= ruleIntLiteral
                     {
-                    this_INT_2=(Token)match(input,RULE_INT,FOLLOW_2); 
 
-                    			newLeafNode(this_INT_2, grammarAccess.getObjetAccess().getINTTerminalRuleCall_2());
+                    			newCompositeNode(grammarAccess.getObjetAccess().getIntLiteralParserRuleCall_2());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_IntLiteral_2=ruleIntLiteral();
+
+                    state._fsp--;
+
+
+                    			current = this_IntLiteral_2;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 4 :
+                    // InternalSuricate.g:278:3: this_Operation_3= ruleOperation
+                    {
+
+                    			newCompositeNode(grammarAccess.getObjetAccess().getOperationParserRuleCall_3());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Operation_3=ruleOperation();
+
+                    state._fsp--;
+
+
+                    			current = this_Operation_3;
+                    			afterParserOrEnumRuleCall();
                     		
 
                     }
@@ -715,8 +759,198 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleObjet"
 
 
+    // $ANTLR start "entryRuleIntLiteral"
+    // InternalSuricate.g:290:1: entryRuleIntLiteral returns [EObject current=null] : iv_ruleIntLiteral= ruleIntLiteral EOF ;
+    public final EObject entryRuleIntLiteral() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleIntLiteral = null;
+
+
+        try {
+            // InternalSuricate.g:290:51: (iv_ruleIntLiteral= ruleIntLiteral EOF )
+            // InternalSuricate.g:291:2: iv_ruleIntLiteral= ruleIntLiteral EOF
+            {
+             newCompositeNode(grammarAccess.getIntLiteralRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleIntLiteral=ruleIntLiteral();
+
+            state._fsp--;
+
+             current =iv_ruleIntLiteral; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleIntLiteral"
+
+
+    // $ANTLR start "ruleIntLiteral"
+    // InternalSuricate.g:297:1: ruleIntLiteral returns [EObject current=null] : ( (lv_name_0_0= RULE_INT ) ) ;
+    public final EObject ruleIntLiteral() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_name_0_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalSuricate.g:303:2: ( ( (lv_name_0_0= RULE_INT ) ) )
+            // InternalSuricate.g:304:2: ( (lv_name_0_0= RULE_INT ) )
+            {
+            // InternalSuricate.g:304:2: ( (lv_name_0_0= RULE_INT ) )
+            // InternalSuricate.g:305:3: (lv_name_0_0= RULE_INT )
+            {
+            // InternalSuricate.g:305:3: (lv_name_0_0= RULE_INT )
+            // InternalSuricate.g:306:4: lv_name_0_0= RULE_INT
+            {
+            lv_name_0_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+            				newLeafNode(lv_name_0_0, grammarAccess.getIntLiteralAccess().getNameINTTerminalRuleCall_0());
+            			
+
+            				if (current==null) {
+            					current = createModelElement(grammarAccess.getIntLiteralRule());
+            				}
+            				setWithLastConsumed(
+            					current,
+            					"name",
+            					lv_name_0_0,
+            					"org.eclipse.xtext.common.Terminals.INT");
+            			
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleIntLiteral"
+
+
+    // $ANTLR start "entryRuleStringLiteral"
+    // InternalSuricate.g:325:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    public final EObject entryRuleStringLiteral() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleStringLiteral = null;
+
+
+        try {
+            // InternalSuricate.g:325:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // InternalSuricate.g:326:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            {
+             newCompositeNode(grammarAccess.getStringLiteralRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleStringLiteral=ruleStringLiteral();
+
+            state._fsp--;
+
+             current =iv_ruleStringLiteral; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleStringLiteral"
+
+
+    // $ANTLR start "ruleStringLiteral"
+    // InternalSuricate.g:332:1: ruleStringLiteral returns [EObject current=null] : ( (lv_name_0_0= RULE_STRING ) ) ;
+    public final EObject ruleStringLiteral() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_name_0_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalSuricate.g:338:2: ( ( (lv_name_0_0= RULE_STRING ) ) )
+            // InternalSuricate.g:339:2: ( (lv_name_0_0= RULE_STRING ) )
+            {
+            // InternalSuricate.g:339:2: ( (lv_name_0_0= RULE_STRING ) )
+            // InternalSuricate.g:340:3: (lv_name_0_0= RULE_STRING )
+            {
+            // InternalSuricate.g:340:3: (lv_name_0_0= RULE_STRING )
+            // InternalSuricate.g:341:4: lv_name_0_0= RULE_STRING
+            {
+            lv_name_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+
+            				newLeafNode(lv_name_0_0, grammarAccess.getStringLiteralAccess().getNameSTRINGTerminalRuleCall_0());
+            			
+
+            				if (current==null) {
+            					current = createModelElement(grammarAccess.getStringLiteralRule());
+            				}
+            				setWithLastConsumed(
+            					current,
+            					"name",
+            					lv_name_0_0,
+            					"org.eclipse.xtext.common.Terminals.STRING");
+            			
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleStringLiteral"
+
+
     // $ANTLR start "entryRuleConstructeur"
-    // InternalSuricate.g:269:1: entryRuleConstructeur returns [EObject current=null] : iv_ruleConstructeur= ruleConstructeur EOF ;
+    // InternalSuricate.g:360:1: entryRuleConstructeur returns [EObject current=null] : iv_ruleConstructeur= ruleConstructeur EOF ;
     public final EObject entryRuleConstructeur() throws RecognitionException {
         EObject current = null;
 
@@ -724,8 +958,8 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSuricate.g:269:53: (iv_ruleConstructeur= ruleConstructeur EOF )
-            // InternalSuricate.g:270:2: iv_ruleConstructeur= ruleConstructeur EOF
+            // InternalSuricate.g:360:53: (iv_ruleConstructeur= ruleConstructeur EOF )
+            // InternalSuricate.g:361:2: iv_ruleConstructeur= ruleConstructeur EOF
             {
              newCompositeNode(grammarAccess.getConstructeurRule()); 
             pushFollow(FOLLOW_1);
@@ -752,7 +986,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConstructeur"
-    // InternalSuricate.g:276:1: ruleConstructeur returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')' ) ;
+    // InternalSuricate.g:367:1: ruleConstructeur returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')' ) ;
     public final EObject ruleConstructeur() throws RecognitionException {
         EObject current = null;
 
@@ -764,19 +998,19 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSuricate.g:282:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')' ) )
-            // InternalSuricate.g:283:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')' )
+            // InternalSuricate.g:373:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')' ) )
+            // InternalSuricate.g:374:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')' )
             {
-            // InternalSuricate.g:283:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')' )
-            // InternalSuricate.g:284:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')'
+            // InternalSuricate.g:374:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')' )
+            // InternalSuricate.g:375:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '(' otherlv_2= ')'
             {
-            // InternalSuricate.g:284:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalSuricate.g:285:4: (lv_name_0_0= RULE_ID )
+            // InternalSuricate.g:375:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalSuricate.g:376:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalSuricate.g:285:4: (lv_name_0_0= RULE_ID )
-            // InternalSuricate.g:286:5: lv_name_0_0= RULE_ID
+            // InternalSuricate.g:376:4: (lv_name_0_0= RULE_ID )
+            // InternalSuricate.g:377:5: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_6); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_7); 
 
             					newLeafNode(lv_name_0_0, grammarAccess.getConstructeurAccess().getNameIDTerminalRuleCall_0_0());
             				
@@ -796,11 +1030,11 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,12,FOLLOW_7); 
+            otherlv_1=(Token)match(input,13,FOLLOW_8); 
 
             			newLeafNode(otherlv_1, grammarAccess.getConstructeurAccess().getLeftParenthesisKeyword_1());
             		
-            otherlv_2=(Token)match(input,13,FOLLOW_2); 
+            otherlv_2=(Token)match(input,14,FOLLOW_2); 
 
             			newLeafNode(otherlv_2, grammarAccess.getConstructeurAccess().getRightParenthesisKeyword_2());
             		
@@ -827,7 +1061,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOperation"
-    // InternalSuricate.g:314:1: entryRuleOperation returns [EObject current=null] : iv_ruleOperation= ruleOperation EOF ;
+    // InternalSuricate.g:405:1: entryRuleOperation returns [EObject current=null] : iv_ruleOperation= ruleOperation EOF ;
     public final EObject entryRuleOperation() throws RecognitionException {
         EObject current = null;
 
@@ -835,8 +1069,8 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSuricate.g:314:50: (iv_ruleOperation= ruleOperation EOF )
-            // InternalSuricate.g:315:2: iv_ruleOperation= ruleOperation EOF
+            // InternalSuricate.g:405:50: (iv_ruleOperation= ruleOperation EOF )
+            // InternalSuricate.g:406:2: iv_ruleOperation= ruleOperation EOF
             {
              newCompositeNode(grammarAccess.getOperationRule()); 
             pushFollow(FOLLOW_1);
@@ -863,7 +1097,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOperation"
-    // InternalSuricate.g:321:1: ruleOperation returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) ) ) ;
+    // InternalSuricate.g:412:1: ruleOperation returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) ) ) ;
     public final EObject ruleOperation() throws RecognitionException {
         EObject current = null;
 
@@ -876,24 +1110,24 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSuricate.g:327:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) ) ) )
-            // InternalSuricate.g:328:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) ) )
+            // InternalSuricate.g:418:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) ) ) )
+            // InternalSuricate.g:419:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) ) )
             {
-            // InternalSuricate.g:328:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) ) )
-            // InternalSuricate.g:329:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) )
+            // InternalSuricate.g:419:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) ) )
+            // InternalSuricate.g:420:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '.' ( (lv_methode_2_0= ruleMethode ) )
             {
-            // InternalSuricate.g:329:3: ( (otherlv_0= RULE_ID ) )
-            // InternalSuricate.g:330:4: (otherlv_0= RULE_ID )
+            // InternalSuricate.g:420:3: ( (otherlv_0= RULE_ID ) )
+            // InternalSuricate.g:421:4: (otherlv_0= RULE_ID )
             {
-            // InternalSuricate.g:330:4: (otherlv_0= RULE_ID )
-            // InternalSuricate.g:331:5: otherlv_0= RULE_ID
+            // InternalSuricate.g:421:4: (otherlv_0= RULE_ID )
+            // InternalSuricate.g:422:5: otherlv_0= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getOperationRule());
             					}
             				
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_8); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_9); 
 
             					newLeafNode(otherlv_0, grammarAccess.getOperationAccess().getNameVariableCrossReference_0_0());
             				
@@ -903,15 +1137,15 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FOLLOW_5); 
+            otherlv_1=(Token)match(input,15,FOLLOW_6); 
 
             			newLeafNode(otherlv_1, grammarAccess.getOperationAccess().getFullStopKeyword_1());
             		
-            // InternalSuricate.g:346:3: ( (lv_methode_2_0= ruleMethode ) )
-            // InternalSuricate.g:347:4: (lv_methode_2_0= ruleMethode )
+            // InternalSuricate.g:437:3: ( (lv_methode_2_0= ruleMethode ) )
+            // InternalSuricate.g:438:4: (lv_methode_2_0= ruleMethode )
             {
-            // InternalSuricate.g:347:4: (lv_methode_2_0= ruleMethode )
-            // InternalSuricate.g:348:5: lv_methode_2_0= ruleMethode
+            // InternalSuricate.g:438:4: (lv_methode_2_0= ruleMethode )
+            // InternalSuricate.g:439:5: lv_methode_2_0= ruleMethode
             {
 
             					newCompositeNode(grammarAccess.getOperationAccess().getMethodeMethodeParserRuleCall_2_0());
@@ -961,7 +1195,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMethode"
-    // InternalSuricate.g:369:1: entryRuleMethode returns [EObject current=null] : iv_ruleMethode= ruleMethode EOF ;
+    // InternalSuricate.g:460:1: entryRuleMethode returns [EObject current=null] : iv_ruleMethode= ruleMethode EOF ;
     public final EObject entryRuleMethode() throws RecognitionException {
         EObject current = null;
 
@@ -969,8 +1203,8 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSuricate.g:369:48: (iv_ruleMethode= ruleMethode EOF )
-            // InternalSuricate.g:370:2: iv_ruleMethode= ruleMethode EOF
+            // InternalSuricate.g:460:48: (iv_ruleMethode= ruleMethode EOF )
+            // InternalSuricate.g:461:2: iv_ruleMethode= ruleMethode EOF
             {
              newCompositeNode(grammarAccess.getMethodeRule()); 
             pushFollow(FOLLOW_1);
@@ -997,63 +1231,74 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMethode"
-    // InternalSuricate.g:376:1: ruleMethode returns [EObject current=null] : (this_ID_0= RULE_ID otherlv_1= '(' ( ( (lv_para_2_0= ruleParametre ) ) (otherlv_3= ',' ( (lv_para_4_0= ruleParametre ) ) )* )* otherlv_5= ')' ) ;
+    // InternalSuricate.g:467:1: ruleMethode returns [EObject current=null] : ( () this_ID_1= RULE_ID otherlv_2= '(' ( ( (lv_params_3_0= ruleParametre ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParametre ) ) )* )* otherlv_6= ')' ) ;
     public final EObject ruleMethode() throws RecognitionException {
         EObject current = null;
 
-        Token this_ID_0=null;
-        Token otherlv_1=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        EObject lv_para_2_0 = null;
+        Token this_ID_1=null;
+        Token otherlv_2=null;
+        Token otherlv_4=null;
+        Token otherlv_6=null;
+        EObject lv_params_3_0 = null;
 
-        EObject lv_para_4_0 = null;
+        EObject lv_params_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSuricate.g:382:2: ( (this_ID_0= RULE_ID otherlv_1= '(' ( ( (lv_para_2_0= ruleParametre ) ) (otherlv_3= ',' ( (lv_para_4_0= ruleParametre ) ) )* )* otherlv_5= ')' ) )
-            // InternalSuricate.g:383:2: (this_ID_0= RULE_ID otherlv_1= '(' ( ( (lv_para_2_0= ruleParametre ) ) (otherlv_3= ',' ( (lv_para_4_0= ruleParametre ) ) )* )* otherlv_5= ')' )
+            // InternalSuricate.g:473:2: ( ( () this_ID_1= RULE_ID otherlv_2= '(' ( ( (lv_params_3_0= ruleParametre ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParametre ) ) )* )* otherlv_6= ')' ) )
+            // InternalSuricate.g:474:2: ( () this_ID_1= RULE_ID otherlv_2= '(' ( ( (lv_params_3_0= ruleParametre ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParametre ) ) )* )* otherlv_6= ')' )
             {
-            // InternalSuricate.g:383:2: (this_ID_0= RULE_ID otherlv_1= '(' ( ( (lv_para_2_0= ruleParametre ) ) (otherlv_3= ',' ( (lv_para_4_0= ruleParametre ) ) )* )* otherlv_5= ')' )
-            // InternalSuricate.g:384:3: this_ID_0= RULE_ID otherlv_1= '(' ( ( (lv_para_2_0= ruleParametre ) ) (otherlv_3= ',' ( (lv_para_4_0= ruleParametre ) ) )* )* otherlv_5= ')'
+            // InternalSuricate.g:474:2: ( () this_ID_1= RULE_ID otherlv_2= '(' ( ( (lv_params_3_0= ruleParametre ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParametre ) ) )* )* otherlv_6= ')' )
+            // InternalSuricate.g:475:3: () this_ID_1= RULE_ID otherlv_2= '(' ( ( (lv_params_3_0= ruleParametre ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParametre ) ) )* )* otherlv_6= ')'
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_6); 
+            // InternalSuricate.g:475:3: ()
+            // InternalSuricate.g:476:4: 
+            {
 
-            			newLeafNode(this_ID_0, grammarAccess.getMethodeAccess().getIDTerminalRuleCall_0());
-            		
-            otherlv_1=(Token)match(input,12,FOLLOW_9); 
+            				current = forceCreateModelElement(
+            					grammarAccess.getMethodeAccess().getMethodeAction_0(),
+            					current);
+            			
 
-            			newLeafNode(otherlv_1, grammarAccess.getMethodeAccess().getLeftParenthesisKeyword_1());
+            }
+
+            this_ID_1=(Token)match(input,RULE_ID,FOLLOW_7); 
+
+            			newLeafNode(this_ID_1, grammarAccess.getMethodeAccess().getIDTerminalRuleCall_1());
             		
-            // InternalSuricate.g:392:3: ( ( (lv_para_2_0= ruleParametre ) ) (otherlv_3= ',' ( (lv_para_4_0= ruleParametre ) ) )* )*
+            otherlv_2=(Token)match(input,13,FOLLOW_10); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getMethodeAccess().getLeftParenthesisKeyword_2());
+            		
+            // InternalSuricate.g:490:3: ( ( (lv_params_3_0= ruleParametre ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParametre ) ) )* )*
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( ((LA5_0>=RULE_ID && LA5_0<=RULE_INT)) ) {
+                if ( ((LA5_0>=RULE_ID && LA5_0<=RULE_STRING)) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalSuricate.g:393:4: ( (lv_para_2_0= ruleParametre ) ) (otherlv_3= ',' ( (lv_para_4_0= ruleParametre ) ) )*
+            	    // InternalSuricate.g:491:4: ( (lv_params_3_0= ruleParametre ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParametre ) ) )*
             	    {
-            	    // InternalSuricate.g:393:4: ( (lv_para_2_0= ruleParametre ) )
-            	    // InternalSuricate.g:394:5: (lv_para_2_0= ruleParametre )
+            	    // InternalSuricate.g:491:4: ( (lv_params_3_0= ruleParametre ) )
+            	    // InternalSuricate.g:492:5: (lv_params_3_0= ruleParametre )
             	    {
-            	    // InternalSuricate.g:394:5: (lv_para_2_0= ruleParametre )
-            	    // InternalSuricate.g:395:6: lv_para_2_0= ruleParametre
+            	    // InternalSuricate.g:492:5: (lv_params_3_0= ruleParametre )
+            	    // InternalSuricate.g:493:6: lv_params_3_0= ruleParametre
             	    {
 
-            	    						newCompositeNode(grammarAccess.getMethodeAccess().getParaParametreParserRuleCall_2_0_0());
+            	    						newCompositeNode(grammarAccess.getMethodeAccess().getParamsParametreParserRuleCall_3_0_0());
             	    					
-            	    pushFollow(FOLLOW_10);
-            	    lv_para_2_0=ruleParametre();
+            	    pushFollow(FOLLOW_11);
+            	    lv_params_3_0=ruleParametre();
 
             	    state._fsp--;
 
@@ -1061,10 +1306,10 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
             	    						if (current==null) {
             	    							current = createModelElementForParent(grammarAccess.getMethodeRule());
             	    						}
-            	    						set(
+            	    						add(
             	    							current,
-            	    							"para",
-            	    							lv_para_2_0,
+            	    							"params",
+            	    							lv_params_3_0,
             	    							"org.fil2018.flomira.Suricate.Parametre");
             	    						afterParserOrEnumRuleCall();
             	    					
@@ -1074,36 +1319,36 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalSuricate.g:412:4: (otherlv_3= ',' ( (lv_para_4_0= ruleParametre ) ) )*
+            	    // InternalSuricate.g:510:4: (otherlv_4= ',' ( (lv_params_5_0= ruleParametre ) ) )*
             	    loop4:
             	    do {
             	        int alt4=2;
             	        int LA4_0 = input.LA(1);
 
-            	        if ( (LA4_0==15) ) {
+            	        if ( (LA4_0==16) ) {
             	            alt4=1;
             	        }
 
 
             	        switch (alt4) {
             	    	case 1 :
-            	    	    // InternalSuricate.g:413:5: otherlv_3= ',' ( (lv_para_4_0= ruleParametre ) )
+            	    	    // InternalSuricate.g:511:5: otherlv_4= ',' ( (lv_params_5_0= ruleParametre ) )
             	    	    {
-            	    	    otherlv_3=(Token)match(input,15,FOLLOW_11); 
+            	    	    otherlv_4=(Token)match(input,16,FOLLOW_4); 
 
-            	    	    					newLeafNode(otherlv_3, grammarAccess.getMethodeAccess().getCommaKeyword_2_1_0());
+            	    	    					newLeafNode(otherlv_4, grammarAccess.getMethodeAccess().getCommaKeyword_3_1_0());
             	    	    				
-            	    	    // InternalSuricate.g:417:5: ( (lv_para_4_0= ruleParametre ) )
-            	    	    // InternalSuricate.g:418:6: (lv_para_4_0= ruleParametre )
+            	    	    // InternalSuricate.g:515:5: ( (lv_params_5_0= ruleParametre ) )
+            	    	    // InternalSuricate.g:516:6: (lv_params_5_0= ruleParametre )
             	    	    {
-            	    	    // InternalSuricate.g:418:6: (lv_para_4_0= ruleParametre )
-            	    	    // InternalSuricate.g:419:7: lv_para_4_0= ruleParametre
+            	    	    // InternalSuricate.g:516:6: (lv_params_5_0= ruleParametre )
+            	    	    // InternalSuricate.g:517:7: lv_params_5_0= ruleParametre
             	    	    {
 
-            	    	    							newCompositeNode(grammarAccess.getMethodeAccess().getParaParametreParserRuleCall_2_1_1_0());
+            	    	    							newCompositeNode(grammarAccess.getMethodeAccess().getParamsParametreParserRuleCall_3_1_1_0());
             	    	    						
-            	    	    pushFollow(FOLLOW_10);
-            	    	    lv_para_4_0=ruleParametre();
+            	    	    pushFollow(FOLLOW_11);
+            	    	    lv_params_5_0=ruleParametre();
 
             	    	    state._fsp--;
 
@@ -1111,10 +1356,10 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
             	    	    							if (current==null) {
             	    	    								current = createModelElementForParent(grammarAccess.getMethodeRule());
             	    	    							}
-            	    	    							set(
+            	    	    							add(
             	    	    								current,
-            	    	    								"para",
-            	    	    								lv_para_4_0,
+            	    	    								"params",
+            	    	    								lv_params_5_0,
             	    	    								"org.fil2018.flomira.Suricate.Parametre");
             	    	    							afterParserOrEnumRuleCall();
             	    	    						
@@ -1142,9 +1387,9 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,13,FOLLOW_2); 
+            otherlv_6=(Token)match(input,14,FOLLOW_2); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getMethodeAccess().getRightParenthesisKeyword_3());
+            			newLeafNode(otherlv_6, grammarAccess.getMethodeAccess().getRightParenthesisKeyword_4());
             		
 
             }
@@ -1169,7 +1414,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParametre"
-    // InternalSuricate.g:446:1: entryRuleParametre returns [EObject current=null] : iv_ruleParametre= ruleParametre EOF ;
+    // InternalSuricate.g:544:1: entryRuleParametre returns [EObject current=null] : iv_ruleParametre= ruleParametre EOF ;
     public final EObject entryRuleParametre() throws RecognitionException {
         EObject current = null;
 
@@ -1177,8 +1422,8 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSuricate.g:446:50: (iv_ruleParametre= ruleParametre EOF )
-            // InternalSuricate.g:447:2: iv_ruleParametre= ruleParametre EOF
+            // InternalSuricate.g:544:50: (iv_ruleParametre= ruleParametre EOF )
+            // InternalSuricate.g:545:2: iv_ruleParametre= ruleParametre EOF
             {
              newCompositeNode(grammarAccess.getParametreRule()); 
             pushFollow(FOLLOW_1);
@@ -1205,7 +1450,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParametre"
-    // InternalSuricate.g:453:1: ruleParametre returns [EObject current=null] : (this_Objet_0= ruleObjet | this_Variable_1= ruleVariable ) ;
+    // InternalSuricate.g:551:1: ruleParametre returns [EObject current=null] : (this_Objet_0= ruleObjet | this_Variable_1= ruleVariable ) ;
     public final EObject ruleParametre() throws RecognitionException {
         EObject current = null;
 
@@ -1218,21 +1463,21 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSuricate.g:459:2: ( (this_Objet_0= ruleObjet | this_Variable_1= ruleVariable ) )
-            // InternalSuricate.g:460:2: (this_Objet_0= ruleObjet | this_Variable_1= ruleVariable )
+            // InternalSuricate.g:557:2: ( (this_Objet_0= ruleObjet | this_Variable_1= ruleVariable ) )
+            // InternalSuricate.g:558:2: (this_Objet_0= ruleObjet | this_Variable_1= ruleVariable )
             {
-            // InternalSuricate.g:460:2: (this_Objet_0= ruleObjet | this_Variable_1= ruleVariable )
+            // InternalSuricate.g:558:2: (this_Objet_0= ruleObjet | this_Variable_1= ruleVariable )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
             if ( (LA6_0==RULE_ID) ) {
                 int LA6_1 = input.LA(2);
 
-                if ( (LA6_1==12) ) {
-                    alt6=1;
-                }
-                else if ( (LA6_1==EOF||(LA6_1>=RULE_ID && LA6_1<=RULE_INT)||LA6_1==13||LA6_1==15) ) {
+                if ( (LA6_1==EOF||(LA6_1>=RULE_ID && LA6_1<=RULE_STRING)||LA6_1==14||LA6_1==16) ) {
                     alt6=2;
+                }
+                else if ( (LA6_1==13||LA6_1==15) ) {
+                    alt6=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1241,7 +1486,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
                     throw nvae;
                 }
             }
-            else if ( ((LA6_0>=RULE_STRING && LA6_0<=RULE_INT)) ) {
+            else if ( ((LA6_0>=RULE_INT && LA6_0<=RULE_STRING)) ) {
                 alt6=1;
             }
             else {
@@ -1252,7 +1497,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalSuricate.g:461:3: this_Objet_0= ruleObjet
+                    // InternalSuricate.g:559:3: this_Objet_0= ruleObjet
                     {
 
                     			newCompositeNode(grammarAccess.getParametreAccess().getObjetParserRuleCall_0());
@@ -1270,7 +1515,7 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSuricate.g:470:3: this_Variable_1= ruleVariable
+                    // InternalSuricate.g:568:3: this_Variable_1= ruleVariable
                     {
 
                     			newCompositeNode(grammarAccess.getParametreAccess().getVariableParserRuleCall_1());
@@ -1315,14 +1560,14 @@ public class InternalSuricateParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000072L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000812L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000870L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002070L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x000000000000A070L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000004870L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000014870L});
 
 }

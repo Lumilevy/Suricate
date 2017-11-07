@@ -6,21 +6,21 @@ package org.fil2018.flomira.suricate;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Variable</b></em>'.
+ * A representation of the model object '<em><b>String Literal</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.fil2018.flomira.suricate.Variable#getName <em>Name</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.StringLiteral#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see org.fil2018.flomira.suricate.SuricatePackage#getVariable()
+ * @see org.fil2018.flomira.suricate.SuricatePackage#getStringLiteral()
  * @model
  * @generated
  */
-public interface Variable extends Parametre
+public interface StringLiteral extends Objet
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -32,14 +32,14 @@ public interface Variable extends Parametre
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.fil2018.flomira.suricate.SuricatePackage#getVariable_Name()
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getStringLiteral_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.fil2018.flomira.suricate.Variable#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.StringLiteral#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -48,4 +48,4 @@ public interface Variable extends Parametre
    */
   void setName(String value);
 
-} // Variable
+} // StringLiteral

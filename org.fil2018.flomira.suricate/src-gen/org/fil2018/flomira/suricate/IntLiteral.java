@@ -6,21 +6,21 @@ package org.fil2018.flomira.suricate;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Variable</b></em>'.
+ * A representation of the model object '<em><b>Int Literal</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.fil2018.flomira.suricate.Variable#getName <em>Name</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.IntLiteral#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see org.fil2018.flomira.suricate.SuricatePackage#getVariable()
+ * @see org.fil2018.flomira.suricate.SuricatePackage#getIntLiteral()
  * @model
  * @generated
  */
-public interface Variable extends Parametre
+public interface IntLiteral extends Objet
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -31,21 +31,21 @@ public interface Variable extends Parametre
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.fil2018.flomira.suricate.SuricatePackage#getVariable_Name()
+   * @see #setName(int)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getIntLiteral_Name()
    * @model
    * @generated
    */
-  String getName();
+  int getName();
 
   /**
-   * Sets the value of the '{@link org.fil2018.flomira.suricate.Variable#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.IntLiteral#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
    * @see #getName()
    * @generated
    */
-  void setName(String value);
+  void setName(int value);
 
-} // Variable
+} // IntLiteral

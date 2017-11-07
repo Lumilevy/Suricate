@@ -11,6 +11,7 @@ import org.fil2018.flomira.SuricateStandaloneSetupGenerated;
 @SuppressWarnings("all")
 public class SuricateStandaloneSetup extends SuricateStandaloneSetupGenerated {
   public static void doSetup() {
-    new SuricateStandaloneSetup().createInjectorAndDoEMFRegistration();
+    SuricateStandaloneSetup _suricateStandaloneSetup = new SuricateStandaloneSetup();
+    _suricateStandaloneSetup.createInjectorAndDoEMFRegistration();
   }
 }

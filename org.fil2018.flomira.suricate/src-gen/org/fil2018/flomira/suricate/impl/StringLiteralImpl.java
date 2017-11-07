@@ -9,23 +9,23 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.fil2018.flomira.suricate.StringLiteral;
 import org.fil2018.flomira.suricate.SuricatePackage;
-import org.fil2018.flomira.suricate.Variable;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Variable</b></em>'.
+ * An implementation of the model object '<em><b>String Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.fil2018.flomira.suricate.impl.VariableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.StringLiteralImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VariableImpl extends ParametreImpl implements Variable
+public class StringLiteralImpl extends ObjetImpl implements StringLiteral
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -52,7 +52,7 @@ public class VariableImpl extends ParametreImpl implements Variable
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VariableImpl()
+  protected StringLiteralImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class VariableImpl extends ParametreImpl implements Variable
   @Override
   protected EClass eStaticClass()
   {
-    return SuricatePackage.Literals.VARIABLE;
+    return SuricatePackage.Literals.STRING_LITERAL;
   }
 
   /**
@@ -88,7 +88,7 @@ public class VariableImpl extends ParametreImpl implements Variable
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.VARIABLE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.STRING_LITERAL__NAME, oldName, name));
   }
 
   /**
@@ -101,7 +101,7 @@ public class VariableImpl extends ParametreImpl implements Variable
   {
     switch (featureID)
     {
-      case SuricatePackage.VARIABLE__NAME:
+      case SuricatePackage.STRING_LITERAL__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,7 +117,7 @@ public class VariableImpl extends ParametreImpl implements Variable
   {
     switch (featureID)
     {
-      case SuricatePackage.VARIABLE__NAME:
+      case SuricatePackage.STRING_LITERAL__NAME:
         setName((String)newValue);
         return;
     }
@@ -134,7 +134,7 @@ public class VariableImpl extends ParametreImpl implements Variable
   {
     switch (featureID)
     {
-      case SuricatePackage.VARIABLE__NAME:
+      case SuricatePackage.STRING_LITERAL__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -151,7 +151,7 @@ public class VariableImpl extends ParametreImpl implements Variable
   {
     switch (featureID)
     {
-      case SuricatePackage.VARIABLE__NAME:
+      case SuricatePackage.STRING_LITERAL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -174,4 +174,4 @@ public class VariableImpl extends ParametreImpl implements Variable
     return result.toString();
   }
 
-} //VariableImpl
+} //StringLiteralImpl

@@ -3,55 +3,56 @@
  */
 package org.fil2018.flomira.suricate.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.fil2018.flomira.suricate.Methode;
-import org.fil2018.flomira.suricate.Parametre;
+import org.fil2018.flomira.suricate.IntLiteral;
 import org.fil2018.flomira.suricate.SuricatePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Methode</b></em>'.
+ * An implementation of the model object '<em><b>Int Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.fil2018.flomira.suricate.impl.MethodeImpl#getParams <em>Params</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.IntLiteralImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MethodeImpl extends MinimalEObjectImpl.Container implements Methode
+public class IntLiteralImpl extends ObjetImpl implements IntLiteral
 {
   /**
-   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParams()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<Parametre> params;
+  protected static final int NAME_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected int name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MethodeImpl()
+  protected IntLiteralImpl()
   {
     super();
   }
@@ -64,7 +65,7 @@ public class MethodeImpl extends MinimalEObjectImpl.Container implements Methode
   @Override
   protected EClass eStaticClass()
   {
-    return SuricatePackage.Literals.METHODE;
+    return SuricatePackage.Literals.INT_LITERAL;
   }
 
   /**
@@ -72,13 +73,9 @@ public class MethodeImpl extends MinimalEObjectImpl.Container implements Methode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Parametre> getParams()
+  public int getName()
   {
-    if (params == null)
-    {
-      params = new EObjectContainmentEList<Parametre>(Parametre.class, this, SuricatePackage.METHODE__PARAMS);
-    }
-    return params;
+    return name;
   }
 
   /**
@@ -86,15 +83,12 @@ public class MethodeImpl extends MinimalEObjectImpl.Container implements Methode
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setName(int newName)
   {
-    switch (featureID)
-    {
-      case SuricatePackage.METHODE__PARAMS:
-        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    int oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.INT_LITERAL__NAME, oldName, name));
   }
 
   /**
@@ -107,8 +101,8 @@ public class MethodeImpl extends MinimalEObjectImpl.Container implements Methode
   {
     switch (featureID)
     {
-      case SuricatePackage.METHODE__PARAMS:
-        return getParams();
+      case SuricatePackage.INT_LITERAL__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,15 +112,13 @@ public class MethodeImpl extends MinimalEObjectImpl.Container implements Methode
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case SuricatePackage.METHODE__PARAMS:
-        getParams().clear();
-        getParams().addAll((Collection<? extends Parametre>)newValue);
+      case SuricatePackage.INT_LITERAL__NAME:
+        setName((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +134,8 @@ public class MethodeImpl extends MinimalEObjectImpl.Container implements Methode
   {
     switch (featureID)
     {
-      case SuricatePackage.METHODE__PARAMS:
-        getParams().clear();
+      case SuricatePackage.INT_LITERAL__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +151,27 @@ public class MethodeImpl extends MinimalEObjectImpl.Container implements Methode
   {
     switch (featureID)
     {
-      case SuricatePackage.METHODE__PARAMS:
-        return params != null && !params.isEmpty();
+      case SuricatePackage.INT_LITERAL__NAME:
+        return name != NAME_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
 
-} //MethodeImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
+  }
+
+} //IntLiteralImpl

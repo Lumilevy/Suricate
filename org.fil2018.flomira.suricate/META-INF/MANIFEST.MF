@@ -7,5 +7,23 @@ Bundle-SymbolicName: org.fil2018.flomira.suricate; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.fil2018.flomira.suricate.util,
+ org.fil2018.flomira.validation,
+ org.fil2018.flomira.generator,
+ org.fil2018.flomira.parser.antlr.internal,
+ org.fil2018.flomira.serializer,
+ org.fil2018.flomira.scoping,
+ org.fil2018.flomira.suricate,
+ org.fil2018.flomira.parser.antlr,
+ org.fil2018.flomira,
+ org.fil2018.flomira.suricate.impl,
+ org.fil2018.flomira.services
+Import-Package: org.apache.log4j

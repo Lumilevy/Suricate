@@ -2,8 +2,29 @@ grammar org.fil2018.flomira.Suricate with org.eclipse.xtext.common.Terminals
 
 generate suricate "http://www.fil2018.org/flomira/Suricate"
 
-Model:
-	greetings+=Greeting*;
+Programme:
+	(elements+=Ligne)*;
+
+Ligne:
+	Affectation | Operation;
+
+Affectation:
+	obj=Objet "->" var=Variable;
+
+Variable:
+	name=ID;
+
+Objet:
+	Constructeur | STRING | INT | Operation;
 	
-Greeting:
-	'Hello' name=ID '!';
+Constructeur :
+	name=ID "(" ")";
+	
+Operation:
+	name=[Variable] "." methode=Methode;
+	
+Methode:
+	ID "(" ( para=Parametre ("," para=Parametre)* )* ")";
+	
+Parametre:
+	Objet | Variable;

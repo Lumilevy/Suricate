@@ -3,8 +3,12 @@
  */
 package org.fil2018.flomira.ide;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
+import org.eclipse.xtext.util.Modules2;
+import org.fil2018.flomira.SuricateRuntimeModule;
 import org.fil2018.flomira.SuricateStandaloneSetup;
+import org.fil2018.flomira.ide.SuricateIdeModule;
 
 /**
  * Initialization support for running Xtext languages as language servers.
@@ -13,7 +17,8 @@ import org.fil2018.flomira.SuricateStandaloneSetup;
 public class SuricateIdeSetup extends SuricateStandaloneSetup {
   @Override
   public Injector createInjector() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from SuricateIdeModule to Module");
+    SuricateRuntimeModule _suricateRuntimeModule = new SuricateRuntimeModule();
+    SuricateIdeModule _suricateIdeModule = new SuricateIdeModule();
+    return Guice.createInjector(Modules2.mixin(_suricateRuntimeModule, _suricateIdeModule));
   }
 }

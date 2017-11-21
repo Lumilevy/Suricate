@@ -7,6 +7,11 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.fil2018.flomira.suricate.Ligne
+import javax.inject.Inject
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.fil2018.flomira.suricate.Programme
+import org.fil2018.flomira.suricate.Affectation
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +19,31 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class SuricateGenerator extends AbstractGenerator {
-
+	
+	@Inject extension IQualifiedNameProvider
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		for(p : resource.allContents.toIterable.filter(Programme)) {
+			fsa.generateFile("Main.java", p.compile);		
+		}
 	}
+	
+	def compile(Programme p)'''
+		public class Main {
+			public static void main(String[] args) {
+				«FOR l: p.elements»
+					«l.compile»
+				«ENDFOR»	
+			}
+		}
+	'''
+	
+	def compile(Ligne l)'''
+		«IF l.aff !== null»
+			«l.aff.compile»
+		«ENDIF»
+	'''
+	
+	def compile(Affectation a)'''
+		Object «a.variable.name» = «a.valeur» ;
+	'''
 }

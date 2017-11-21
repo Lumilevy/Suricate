@@ -5,33 +5,38 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//Ligne" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Ligne"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Affectation" eSuperTypes="#//Ligne">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="obj" eType="#//Objet" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ligne">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instr" eType="#//Instruction"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//Variable"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aff" eType="#//Affectation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Affectation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Instruction" eSuperTypes="#//Parametre"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Boucle" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IfBoucle" eSuperTypes="#//Boucle"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AppelMethode" eSuperTypes="#//Instruction #//IfBoucle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifBody" upperBound="-1"
+        eType="#//Ligne" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppelMethComposite" eSuperTypes="#//AppelMethode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methode" upperBound="-1"
+        eType="#//AppelMethSimple" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Parametre">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Objet" eSuperTypes="#//Parametre"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//Objet">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="#//Objet">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Constructeur" eSuperTypes="#//Objet">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//Ligne #//Objet">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Variable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="methode" eType="#//Methode"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Methode">
+  <eClassifiers xsi:type="ecore:EClass" name="AppelMethSimple" eSuperTypes="#//AppelMethode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parametre"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Methode" eSuperTypes="#//AppelMethSimple">
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Parametre" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parametre"/>
 </ecore:EPackage>

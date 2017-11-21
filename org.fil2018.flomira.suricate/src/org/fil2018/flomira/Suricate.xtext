@@ -7,40 +7,50 @@ Programme:
 	
 Ligne:
 	instr=Instruction  ("->" var=Variable)?
+	| aff=Affectation
 ;
 
 Affectation:
-	StringLiteral | IntLiteral ("->" var=Variable)?
+	{Affectation} valeur=TypePrimaire ("->" variable=Variable)?
 ;
 
 Instruction:
-	Constructeur | Operation
+	AppelMethode | Boucle
 ;
 
-Operation:
-	name=[Variable] "." methode=Methode
+Boucle:
+	IfBoucle
 ;
 
-Expression:
-	Constructeur |  | Operation;
+IfBoucle:
+	"If" AppelMethode "Then" "{" (ifBody+=Ligne)+ "}"
+;
+
+AppelMethode:
+	AppelMethSimple | AppelMethComposite
+	;
+
+AppelMethComposite:
+	name=[Variable] ("." methode+=AppelMethSimple)+
+;
+
+TypePrimaire:
+	IntLiteral | StringLiteral
+;
 	
 Variable:
 	name=ID;
 
 IntLiteral:
-	name=INT
+	INT
 ;
 
 StringLiteral:
-	name=STRING
+	STRING
 ;	
-
-Constructeur :
-	name=ID "(" ")";
-
 	
-Methode:
-	{Methode} ID "(" ( params+=Parametre ("," params+=Parametre)* )* ")";
+AppelMethSimple:
+	{Methode} ID "(" ( params+=Parametre ("," params+=Parametre)* )? ")";
 	
 Parametre:
-	Expression | Variable;
+	Instruction | Variable | TypePrimaire;

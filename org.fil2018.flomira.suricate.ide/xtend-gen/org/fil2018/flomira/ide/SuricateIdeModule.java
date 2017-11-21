@@ -3,9 +3,11 @@
  */
 package org.fil2018.flomira.ide;
 
+import org.fil2018.flomira.ide.AbstractSuricateIdeModule;
+
 /**
  * Use this class to register ide components.
  */
 @SuppressWarnings("all")
-public class SuricateIdeModule /* implements AbstractSuricateIdeModule  */{
+public class SuricateIdeModule extends AbstractSuricateIdeModule {
 }

@@ -3,10 +3,21 @@
  */
 package org.fil2018.flomira.generator;
 
+import com.google.common.collect.Iterables;
+import javax.inject.Inject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.fil2018.flomira.suricate.Affectation;
+import org.fil2018.flomira.suricate.Ligne;
+import org.fil2018.flomira.suricate.Programme;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +26,66 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class SuricateGenerator extends AbstractGenerator {
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<Programme> _filter = Iterables.<Programme>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Programme.class);
+    for (final Programme p : _filter) {
+      fsa.generateFile("Main.java", this.compile(p));
+    }
+  }
+  
+  public CharSequence compile(final Programme p) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public class Main {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static void main(String[] args) {");
+    _builder.newLine();
+    {
+      EList<Ligne> _elements = p.getElements();
+      for(final Ligne l : _elements) {
+        _builder.append("\t\t");
+        CharSequence _compile = this.compile(l);
+        _builder.append(_compile, "\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Ligne l) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Affectation _aff = l.getAff();
+      boolean _tripleNotEquals = (_aff != null);
+      if (_tripleNotEquals) {
+        CharSequence _compile = this.compile(l.getAff());
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Affectation a) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Object ");
+    String _name = a.getVariable().getName();
+    _builder.append(_name);
+    _builder.append(" = ");
+    String _valeur = a.getValeur();
+    _builder.append(_valeur);
+    _builder.append(" ;");
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
 }

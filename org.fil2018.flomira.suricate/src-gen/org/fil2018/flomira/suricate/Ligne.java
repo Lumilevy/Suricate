@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.fil2018.flomira.suricate.Ligne#getInstr <em>Instr</em>}</li>
- *   <li>{@link org.fil2018.flomira.suricate.Ligne#getVar <em>Var</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.Ligne#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.fil2018.flomira.suricate.Ligne#getAff <em>Aff</em>}</li>
  * </ul>
  *
@@ -52,30 +52,30 @@ public interface Ligne extends EObject
   void setInstr(Instruction value);
 
   /**
-   * Returns the value of the '<em><b>Var</b></em>' containment reference.
+   * Returns the value of the '<em><b>Variable</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Var</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Variable</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var</em>' containment reference.
-   * @see #setVar(Variable)
-   * @see org.fil2018.flomira.suricate.SuricatePackage#getLigne_Var()
+   * @return the value of the '<em>Variable</em>' containment reference.
+   * @see #setVariable(Variable)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getLigne_Variable()
    * @model containment="true"
    * @generated
    */
-  Variable getVar();
+  Variable getVariable();
 
   /**
-   * Sets the value of the '{@link org.fil2018.flomira.suricate.Ligne#getVar <em>Var</em>}' containment reference.
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.Ligne#getVariable <em>Variable</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var</em>' containment reference.
-   * @see #getVar()
+   * @param value the new value of the '<em>Variable</em>' containment reference.
+   * @see #getVariable()
    * @generated
    */
-  void setVar(Variable value);
+  void setVariable(Variable value);
 
   /**
    * Returns the value of the '<em><b>Aff</b></em>' containment reference.

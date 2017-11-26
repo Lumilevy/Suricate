@@ -6,16 +6,16 @@ Programme:
 	(elements+=Ligne)*;
 	
 Ligne:
-	instr=Instruction  ("->" var=Variable)?
+	instr=Instruction  ("->" variable=Variable)?
 	| aff=Affectation
 ;
 
 Affectation:
-	{Affectation} valeur=TypePrimaire ("->" variable=Variable)?
+	valeur=TypePrimaire "->" variable=Variable
 ;
 
 Instruction:
-	AppelMethode | Boucle
+	methode=AppelMethode | boucle=Boucle
 ;
 
 Boucle:
@@ -27,7 +27,7 @@ IfBoucle:
 ;
 
 AppelMethode:
-	AppelMethSimple | AppelMethComposite
+	simple=AppelMethSimple | composite=AppelMethComposite
 	;
 
 AppelMethComposite:
@@ -50,7 +50,7 @@ StringLiteral:
 ;	
 	
 AppelMethSimple:
-	{Methode} ID "(" ( params+=Parametre ("," params+=Parametre)* )? ")";
+	methodeName=ID "(" ( params+=Parametre ("," params+=Parametre)* )? ")";
 	
 Parametre:
-	AppelMethode | Variable | TypePrimaire;
+	methode=AppelMethode | variable=Variable | valeur=TypePrimaire;

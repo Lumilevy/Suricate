@@ -15,13 +15,15 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.fil2018.flomira.suricate.AppelMethode#getIfBody <em>If Body</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.AppelMethode#getSimple <em>Simple</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.AppelMethode#getComposite <em>Composite</em>}</li>
  * </ul>
  *
  * @see org.fil2018.flomira.suricate.SuricatePackage#getAppelMethode()
  * @model
  * @generated
  */
-public interface AppelMethode extends Instruction, IfBoucle
+public interface AppelMethode extends IfBoucle
 {
   /**
    * Returns the value of the '<em><b>If Body</b></em>' containment reference list.
@@ -38,5 +40,57 @@ public interface AppelMethode extends Instruction, IfBoucle
    * @generated
    */
   EList<Ligne> getIfBody();
+
+  /**
+   * Returns the value of the '<em><b>Simple</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Simple</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Simple</em>' containment reference.
+   * @see #setSimple(AppelMethSimple)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getAppelMethode_Simple()
+   * @model containment="true"
+   * @generated
+   */
+  AppelMethSimple getSimple();
+
+  /**
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.AppelMethode#getSimple <em>Simple</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Simple</em>' containment reference.
+   * @see #getSimple()
+   * @generated
+   */
+  void setSimple(AppelMethSimple value);
+
+  /**
+   * Returns the value of the '<em><b>Composite</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Composite</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Composite</em>' containment reference.
+   * @see #setComposite(AppelMethComposite)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getAppelMethode_Composite()
+   * @model containment="true"
+   * @generated
+   */
+  AppelMethComposite getComposite();
+
+  /**
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.AppelMethode#getComposite <em>Composite</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Composite</em>' containment reference.
+   * @see #getComposite()
+   * @generated
+   */
+  void setComposite(AppelMethComposite value);
 
 } // AppelMethode

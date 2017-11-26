@@ -105,13 +105,13 @@ public interface SuricatePackage extends EPackage
   int LIGNE__INSTR = 0;
 
   /**
-   * The feature id for the '<em><b>Var</b></em>' containment reference.
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LIGNE__VAR = 1;
+  int LIGNE__VARIABLE = 1;
 
   /**
    * The feature id for the '<em><b>Aff</b></em>' containment reference.
@@ -169,25 +169,6 @@ public interface SuricatePackage extends EPackage
   int AFFECTATION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.fil2018.flomira.suricate.impl.ParametreImpl <em>Parametre</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.fil2018.flomira.suricate.impl.ParametreImpl
-   * @see org.fil2018.flomira.suricate.impl.SuricatePackageImpl#getParametre()
-   * @generated
-   */
-  int PARAMETRE = 10;
-
-  /**
-   * The number of structural features of the '<em>Parametre</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETRE_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.fil2018.flomira.suricate.impl.InstructionImpl <em>Instruction</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -198,13 +179,31 @@ public interface SuricatePackage extends EPackage
   int INSTRUCTION = 3;
 
   /**
+   * The feature id for the '<em><b>Methode</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTRUCTION__METHODE = 0;
+
+  /**
+   * The feature id for the '<em><b>Boucle</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTRUCTION__BOUCLE = 1;
+
+  /**
    * The number of structural features of the '<em>Instruction</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSTRUCTION_FEATURE_COUNT = PARAMETRE_FEATURE_COUNT + 0;
+  int INSTRUCTION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.fil2018.flomira.suricate.impl.BoucleImpl <em>Boucle</em>}' class.
@@ -223,7 +222,7 @@ public interface SuricatePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BOUCLE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+  int BOUCLE_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.fil2018.flomira.suricate.impl.IfBoucleImpl <em>If Boucle</em>}' class.
@@ -261,7 +260,25 @@ public interface SuricatePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPEL_METHODE__IF_BODY = INSTRUCTION_FEATURE_COUNT + 0;
+  int APPEL_METHODE__IF_BODY = IF_BOUCLE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Simple</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPEL_METHODE__SIMPLE = IF_BOUCLE_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Composite</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPEL_METHODE__COMPOSITE = IF_BOUCLE_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Appel Methode</em>' class.
@@ -270,7 +287,7 @@ public interface SuricatePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPEL_METHODE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+  int APPEL_METHODE_FEATURE_COUNT = IF_BOUCLE_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.fil2018.flomira.suricate.impl.AppelMethCompositeImpl <em>Appel Meth Composite</em>}' class.
@@ -283,22 +300,13 @@ public interface SuricatePackage extends EPackage
   int APPEL_METH_COMPOSITE = 7;
 
   /**
-   * The feature id for the '<em><b>If Body</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int APPEL_METH_COMPOSITE__IF_BODY = APPEL_METHODE__IF_BODY;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPEL_METH_COMPOSITE__NAME = APPEL_METHODE_FEATURE_COUNT + 0;
+  int APPEL_METH_COMPOSITE__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Methode</b></em>' containment reference list.
@@ -307,7 +315,7 @@ public interface SuricatePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPEL_METH_COMPOSITE__METHODE = APPEL_METHODE_FEATURE_COUNT + 1;
+  int APPEL_METH_COMPOSITE__METHODE = 1;
 
   /**
    * The number of structural features of the '<em>Appel Meth Composite</em>' class.
@@ -316,7 +324,7 @@ public interface SuricatePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPEL_METH_COMPOSITE_FEATURE_COUNT = APPEL_METHODE_FEATURE_COUNT + 2;
+  int APPEL_METH_COMPOSITE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.fil2018.flomira.suricate.impl.VariableImpl <em>Variable</em>}' class.
@@ -335,7 +343,7 @@ public interface SuricatePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE__NAME = PARAMETRE_FEATURE_COUNT + 0;
+  int VARIABLE__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Variable</em>' class.
@@ -344,7 +352,7 @@ public interface SuricatePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_FEATURE_COUNT = PARAMETRE_FEATURE_COUNT + 1;
+  int VARIABLE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.fil2018.flomira.suricate.impl.AppelMethSimpleImpl <em>Appel Meth Simple</em>}' class.
@@ -357,41 +365,13 @@ public interface SuricatePackage extends EPackage
   int APPEL_METH_SIMPLE = 9;
 
   /**
-   * The feature id for the '<em><b>If Body</b></em>' containment reference list.
+   * The feature id for the '<em><b>Methode Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPEL_METH_SIMPLE__IF_BODY = APPEL_METHODE__IF_BODY;
-
-  /**
-   * The number of structural features of the '<em>Appel Meth Simple</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int APPEL_METH_SIMPLE_FEATURE_COUNT = APPEL_METHODE_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.fil2018.flomira.suricate.impl.MethodeImpl <em>Methode</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.fil2018.flomira.suricate.impl.MethodeImpl
-   * @see org.fil2018.flomira.suricate.impl.SuricatePackageImpl#getMethode()
-   * @generated
-   */
-  int METHODE = 11;
-
-  /**
-   * The feature id for the '<em><b>If Body</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHODE__IF_BODY = APPEL_METH_SIMPLE__IF_BODY;
+  int APPEL_METH_SIMPLE__METHODE_NAME = 0;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -400,16 +380,62 @@ public interface SuricatePackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHODE__PARAMS = APPEL_METH_SIMPLE_FEATURE_COUNT + 0;
+  int APPEL_METH_SIMPLE__PARAMS = 1;
 
   /**
-   * The number of structural features of the '<em>Methode</em>' class.
+   * The number of structural features of the '<em>Appel Meth Simple</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHODE_FEATURE_COUNT = APPEL_METH_SIMPLE_FEATURE_COUNT + 1;
+  int APPEL_METH_SIMPLE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.fil2018.flomira.suricate.impl.ParametreImpl <em>Parametre</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.fil2018.flomira.suricate.impl.ParametreImpl
+   * @see org.fil2018.flomira.suricate.impl.SuricatePackageImpl#getParametre()
+   * @generated
+   */
+  int PARAMETRE = 10;
+
+  /**
+   * The feature id for the '<em><b>Methode</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETRE__METHODE = 0;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETRE__VARIABLE = 1;
+
+  /**
+   * The feature id for the '<em><b>Valeur</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETRE__VALEUR = 2;
+
+  /**
+   * The number of structural features of the '<em>Parametre</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETRE_FEATURE_COUNT = 3;
 
 
   /**
@@ -455,15 +481,15 @@ public interface SuricatePackage extends EPackage
   EReference getLigne_Instr();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.fil2018.flomira.suricate.Ligne#getVar <em>Var</em>}'.
+   * Returns the meta object for the containment reference '{@link org.fil2018.flomira.suricate.Ligne#getVariable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Var</em>'.
-   * @see org.fil2018.flomira.suricate.Ligne#getVar()
+   * @return the meta object for the containment reference '<em>Variable</em>'.
+   * @see org.fil2018.flomira.suricate.Ligne#getVariable()
    * @see #getLigne()
    * @generated
    */
-  EReference getLigne_Var();
+  EReference getLigne_Variable();
 
   /**
    * Returns the meta object for the containment reference '{@link org.fil2018.flomira.suricate.Ligne#getAff <em>Aff</em>}'.
@@ -519,6 +545,28 @@ public interface SuricatePackage extends EPackage
   EClass getInstruction();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.fil2018.flomira.suricate.Instruction#getMethode <em>Methode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Methode</em>'.
+   * @see org.fil2018.flomira.suricate.Instruction#getMethode()
+   * @see #getInstruction()
+   * @generated
+   */
+  EReference getInstruction_Methode();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.fil2018.flomira.suricate.Instruction#getBoucle <em>Boucle</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Boucle</em>'.
+   * @see org.fil2018.flomira.suricate.Instruction#getBoucle()
+   * @see #getInstruction()
+   * @generated
+   */
+  EReference getInstruction_Boucle();
+
+  /**
    * Returns the meta object for class '{@link org.fil2018.flomira.suricate.Boucle <em>Boucle</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -558,6 +606,28 @@ public interface SuricatePackage extends EPackage
    * @generated
    */
   EReference getAppelMethode_IfBody();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.fil2018.flomira.suricate.AppelMethode#getSimple <em>Simple</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Simple</em>'.
+   * @see org.fil2018.flomira.suricate.AppelMethode#getSimple()
+   * @see #getAppelMethode()
+   * @generated
+   */
+  EReference getAppelMethode_Simple();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.fil2018.flomira.suricate.AppelMethode#getComposite <em>Composite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Composite</em>'.
+   * @see org.fil2018.flomira.suricate.AppelMethode#getComposite()
+   * @see #getAppelMethode()
+   * @generated
+   */
+  EReference getAppelMethode_Composite();
 
   /**
    * Returns the meta object for class '{@link org.fil2018.flomira.suricate.AppelMethComposite <em>Appel Meth Composite</em>}'.
@@ -623,6 +693,28 @@ public interface SuricatePackage extends EPackage
   EClass getAppelMethSimple();
 
   /**
+   * Returns the meta object for the attribute '{@link org.fil2018.flomira.suricate.AppelMethSimple#getMethodeName <em>Methode Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Methode Name</em>'.
+   * @see org.fil2018.flomira.suricate.AppelMethSimple#getMethodeName()
+   * @see #getAppelMethSimple()
+   * @generated
+   */
+  EAttribute getAppelMethSimple_MethodeName();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.fil2018.flomira.suricate.AppelMethSimple#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see org.fil2018.flomira.suricate.AppelMethSimple#getParams()
+   * @see #getAppelMethSimple()
+   * @generated
+   */
+  EReference getAppelMethSimple_Params();
+
+  /**
    * Returns the meta object for class '{@link org.fil2018.flomira.suricate.Parametre <em>Parametre</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -633,25 +725,37 @@ public interface SuricatePackage extends EPackage
   EClass getParametre();
 
   /**
-   * Returns the meta object for class '{@link org.fil2018.flomira.suricate.Methode <em>Methode</em>}'.
+   * Returns the meta object for the containment reference '{@link org.fil2018.flomira.suricate.Parametre#getMethode <em>Methode</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Methode</em>'.
-   * @see org.fil2018.flomira.suricate.Methode
+   * @return the meta object for the containment reference '<em>Methode</em>'.
+   * @see org.fil2018.flomira.suricate.Parametre#getMethode()
+   * @see #getParametre()
    * @generated
    */
-  EClass getMethode();
+  EReference getParametre_Methode();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.fil2018.flomira.suricate.Methode#getParams <em>Params</em>}'.
+   * Returns the meta object for the containment reference '{@link org.fil2018.flomira.suricate.Parametre#getVariable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Params</em>'.
-   * @see org.fil2018.flomira.suricate.Methode#getParams()
-   * @see #getMethode()
+   * @return the meta object for the containment reference '<em>Variable</em>'.
+   * @see org.fil2018.flomira.suricate.Parametre#getVariable()
+   * @see #getParametre()
    * @generated
    */
-  EReference getMethode_Params();
+  EReference getParametre_Variable();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.fil2018.flomira.suricate.Parametre#getValeur <em>Valeur</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Valeur</em>'.
+   * @see org.fil2018.flomira.suricate.Parametre#getValeur()
+   * @see #getParametre()
+   * @generated
+   */
+  EAttribute getParametre_Valeur();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -713,12 +817,12 @@ public interface SuricatePackage extends EPackage
     EReference LIGNE__INSTR = eINSTANCE.getLigne_Instr();
 
     /**
-     * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LIGNE__VAR = eINSTANCE.getLigne_Var();
+    EReference LIGNE__VARIABLE = eINSTANCE.getLigne_Variable();
 
     /**
      * The meta object literal for the '<em><b>Aff</b></em>' containment reference feature.
@@ -765,6 +869,22 @@ public interface SuricatePackage extends EPackage
     EClass INSTRUCTION = eINSTANCE.getInstruction();
 
     /**
+     * The meta object literal for the '<em><b>Methode</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSTRUCTION__METHODE = eINSTANCE.getInstruction_Methode();
+
+    /**
+     * The meta object literal for the '<em><b>Boucle</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSTRUCTION__BOUCLE = eINSTANCE.getInstruction_Boucle();
+
+    /**
      * The meta object literal for the '{@link org.fil2018.flomira.suricate.impl.BoucleImpl <em>Boucle</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -801,6 +921,22 @@ public interface SuricatePackage extends EPackage
      * @generated
      */
     EReference APPEL_METHODE__IF_BODY = eINSTANCE.getAppelMethode_IfBody();
+
+    /**
+     * The meta object literal for the '<em><b>Simple</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPEL_METHODE__SIMPLE = eINSTANCE.getAppelMethode_Simple();
+
+    /**
+     * The meta object literal for the '<em><b>Composite</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPEL_METHODE__COMPOSITE = eINSTANCE.getAppelMethode_Composite();
 
     /**
      * The meta object literal for the '{@link org.fil2018.flomira.suricate.impl.AppelMethCompositeImpl <em>Appel Meth Composite</em>}' class.
@@ -857,6 +993,22 @@ public interface SuricatePackage extends EPackage
     EClass APPEL_METH_SIMPLE = eINSTANCE.getAppelMethSimple();
 
     /**
+     * The meta object literal for the '<em><b>Methode Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPEL_METH_SIMPLE__METHODE_NAME = eINSTANCE.getAppelMethSimple_MethodeName();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPEL_METH_SIMPLE__PARAMS = eINSTANCE.getAppelMethSimple_Params();
+
+    /**
      * The meta object literal for the '{@link org.fil2018.flomira.suricate.impl.ParametreImpl <em>Parametre</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -867,22 +1019,28 @@ public interface SuricatePackage extends EPackage
     EClass PARAMETRE = eINSTANCE.getParametre();
 
     /**
-     * The meta object literal for the '{@link org.fil2018.flomira.suricate.impl.MethodeImpl <em>Methode</em>}' class.
+     * The meta object literal for the '<em><b>Methode</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.fil2018.flomira.suricate.impl.MethodeImpl
-     * @see org.fil2018.flomira.suricate.impl.SuricatePackageImpl#getMethode()
      * @generated
      */
-    EClass METHODE = eINSTANCE.getMethode();
+    EReference PARAMETRE__METHODE = eINSTANCE.getParametre_Methode();
 
     /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference METHODE__PARAMS = eINSTANCE.getMethode_Params();
+    EReference PARAMETRE__VARIABLE = eINSTANCE.getParametre_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Valeur</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETRE__VALEUR = eINSTANCE.getParametre_Valeur();
 
   }
 

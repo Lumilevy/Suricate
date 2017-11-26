@@ -3,6 +3,7 @@
  */
 package org.fil2018.flomira.suricate;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.fil2018.flomira.suricate;
  * @model
  * @generated
  */
-public interface Variable extends Parametre
+public interface Variable extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

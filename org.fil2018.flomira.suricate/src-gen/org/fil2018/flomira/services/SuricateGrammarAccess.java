@@ -6,7 +6,6 @@ package org.fil2018.flomira.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
@@ -47,19 +46,19 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cInstrInstructionParserRuleCall_0_0_0 = (RuleCall)cInstrAssignment_0_0.eContents().get(0);
 		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final Assignment cVarAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
-		private final RuleCall cVarVariableParserRuleCall_0_1_1_0 = (RuleCall)cVarAssignment_0_1_1.eContents().get(0);
+		private final Assignment cVariableAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cVariableVariableParserRuleCall_0_1_1_0 = (RuleCall)cVariableAssignment_0_1_1.eContents().get(0);
 		private final Assignment cAffAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cAffAffectationParserRuleCall_1_0 = (RuleCall)cAffAssignment_1.eContents().get(0);
 		
 		//Ligne:
-		//	instr=Instruction ("->" var=Variable)? | aff=Affectation;
+		//	instr=Instruction ("->" variable=Variable)? | aff=Affectation;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//instr=Instruction ("->" var=Variable)? | aff=Affectation
+		//instr=Instruction ("->" variable=Variable)? | aff=Affectation
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//instr=Instruction ("->" var=Variable)?
+		//instr=Instruction ("->" variable=Variable)?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//instr=Instruction
@@ -68,17 +67,17 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 		//Instruction
 		public RuleCall getInstrInstructionParserRuleCall_0_0_0() { return cInstrInstructionParserRuleCall_0_0_0; }
 		
-		//("->" var=Variable)?
+		//("->" variable=Variable)?
 		public Group getGroup_0_1() { return cGroup_0_1; }
 		
 		//"->"
 		public Keyword getHyphenMinusGreaterThanSignKeyword_0_1_0() { return cHyphenMinusGreaterThanSignKeyword_0_1_0; }
 		
-		//var=Variable
-		public Assignment getVarAssignment_0_1_1() { return cVarAssignment_0_1_1; }
+		//variable=Variable
+		public Assignment getVariableAssignment_0_1_1() { return cVariableAssignment_0_1_1; }
 		
 		//Variable
-		public RuleCall getVarVariableParserRuleCall_0_1_1_0() { return cVarVariableParserRuleCall_0_1_1_0; }
+		public RuleCall getVariableVariableParserRuleCall_0_1_1_0() { return cVariableVariableParserRuleCall_0_1_1_0; }
 		
 		//aff=Affectation
 		public Assignment getAffAssignment_1() { return cAffAssignment_1; }
@@ -89,60 +88,60 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 	public class AffectationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.fil2018.flomira.Suricate.Affectation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cAffectationAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cValeurAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValeurTypePrimaireParserRuleCall_1_0 = (RuleCall)cValeurAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cHyphenMinusGreaterThanSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cVariableAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cVariableVariableParserRuleCall_2_1_0 = (RuleCall)cVariableAssignment_2_1.eContents().get(0);
+		private final Assignment cValeurAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cValeurTypePrimaireParserRuleCall_0_0 = (RuleCall)cValeurAssignment_0.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cVariableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cVariableVariableParserRuleCall_2_0 = (RuleCall)cVariableAssignment_2.eContents().get(0);
 		
 		//Affectation:
-		//	{Affectation} valeur=TypePrimaire ("->" variable=Variable)?;
+		//	valeur=TypePrimaire "->" variable=Variable;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Affectation} valeur=TypePrimaire ("->" variable=Variable)?
+		//valeur=TypePrimaire "->" variable=Variable
 		public Group getGroup() { return cGroup; }
 		
-		//{Affectation}
-		public Action getAffectationAction_0() { return cAffectationAction_0; }
-		
 		//valeur=TypePrimaire
-		public Assignment getValeurAssignment_1() { return cValeurAssignment_1; }
+		public Assignment getValeurAssignment_0() { return cValeurAssignment_0; }
 		
 		//TypePrimaire
-		public RuleCall getValeurTypePrimaireParserRuleCall_1_0() { return cValeurTypePrimaireParserRuleCall_1_0; }
-		
-		//("->" variable=Variable)?
-		public Group getGroup_2() { return cGroup_2; }
+		public RuleCall getValeurTypePrimaireParserRuleCall_0_0() { return cValeurTypePrimaireParserRuleCall_0_0; }
 		
 		//"->"
-		public Keyword getHyphenMinusGreaterThanSignKeyword_2_0() { return cHyphenMinusGreaterThanSignKeyword_2_0; }
+		public Keyword getHyphenMinusGreaterThanSignKeyword_1() { return cHyphenMinusGreaterThanSignKeyword_1; }
 		
 		//variable=Variable
-		public Assignment getVariableAssignment_2_1() { return cVariableAssignment_2_1; }
+		public Assignment getVariableAssignment_2() { return cVariableAssignment_2; }
 		
 		//Variable
-		public RuleCall getVariableVariableParserRuleCall_2_1_0() { return cVariableVariableParserRuleCall_2_1_0; }
+		public RuleCall getVariableVariableParserRuleCall_2_0() { return cVariableVariableParserRuleCall_2_0; }
 	}
 	public class InstructionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.fil2018.flomira.Suricate.Instruction");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cAppelMethodeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cBoucleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Assignment cMethodeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cMethodeAppelMethodeParserRuleCall_0_0 = (RuleCall)cMethodeAssignment_0.eContents().get(0);
+		private final Assignment cBoucleAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cBoucleBoucleParserRuleCall_1_0 = (RuleCall)cBoucleAssignment_1.eContents().get(0);
 		
 		//Instruction:
-		//	AppelMethode | Boucle;
+		//	methode=AppelMethode | boucle=Boucle;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//AppelMethode | Boucle
+		//methode=AppelMethode | boucle=Boucle
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//methode=AppelMethode
+		public Assignment getMethodeAssignment_0() { return cMethodeAssignment_0; }
+		
 		//AppelMethode
-		public RuleCall getAppelMethodeParserRuleCall_0() { return cAppelMethodeParserRuleCall_0; }
+		public RuleCall getMethodeAppelMethodeParserRuleCall_0_0() { return cMethodeAppelMethodeParserRuleCall_0_0; }
+		
+		//boucle=Boucle
+		public Assignment getBoucleAssignment_1() { return cBoucleAssignment_1; }
 		
 		//Boucle
-		public RuleCall getBoucleParserRuleCall_1() { return cBoucleParserRuleCall_1; }
+		public RuleCall getBoucleBoucleParserRuleCall_1_0() { return cBoucleBoucleParserRuleCall_1_0; }
 	}
 	public class BoucleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.fil2018.flomira.Suricate.Boucle");
@@ -197,21 +196,29 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 	public class AppelMethodeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.fil2018.flomira.Suricate.AppelMethode");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cAppelMethSimpleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cAppelMethCompositeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Assignment cSimpleAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cSimpleAppelMethSimpleParserRuleCall_0_0 = (RuleCall)cSimpleAssignment_0.eContents().get(0);
+		private final Assignment cCompositeAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cCompositeAppelMethCompositeParserRuleCall_1_0 = (RuleCall)cCompositeAssignment_1.eContents().get(0);
 		
 		//AppelMethode:
-		//	AppelMethSimple | AppelMethComposite;
+		//	simple=AppelMethSimple | composite=AppelMethComposite;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//AppelMethSimple | AppelMethComposite
+		//simple=AppelMethSimple | composite=AppelMethComposite
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//simple=AppelMethSimple
+		public Assignment getSimpleAssignment_0() { return cSimpleAssignment_0; }
+		
 		//AppelMethSimple
-		public RuleCall getAppelMethSimpleParserRuleCall_0() { return cAppelMethSimpleParserRuleCall_0; }
+		public RuleCall getSimpleAppelMethSimpleParserRuleCall_0_0() { return cSimpleAppelMethSimpleParserRuleCall_0_0; }
+		
+		//composite=AppelMethComposite
+		public Assignment getCompositeAssignment_1() { return cCompositeAssignment_1; }
 		
 		//AppelMethComposite
-		public RuleCall getAppelMethCompositeParserRuleCall_1() { return cAppelMethCompositeParserRuleCall_1; }
+		public RuleCall getCompositeAppelMethCompositeParserRuleCall_1_0() { return cCompositeAppelMethCompositeParserRuleCall_1_0; }
 	}
 	public class AppelMethCompositeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.fil2018.flomira.Suricate.AppelMethComposite");
@@ -311,80 +318,92 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 	public class AppelMethSimpleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.fil2018.flomira.Suricate.AppelMethSimple");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cMethodeAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cParamsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cParamsParametreParserRuleCall_3_0_0 = (RuleCall)cParamsAssignment_3_0.eContents().get(0);
-		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
-		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cParamsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cParamsParametreParserRuleCall_3_1_1_0 = (RuleCall)cParamsAssignment_3_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cMethodeNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cMethodeNameIDTerminalRuleCall_0_0 = (RuleCall)cMethodeNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cParamsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cParamsParametreParserRuleCall_2_0_0 = (RuleCall)cParamsAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cParamsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cParamsParametreParserRuleCall_2_1_1_0 = (RuleCall)cParamsAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//AppelMethSimple:
-		//	{Methode} ID "(" (params+=Parametre ("," params+=Parametre)*)? ")";
+		//	methodeName=ID "(" (params+=Parametre ("," params+=Parametre)*)? ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Methode} ID "(" (params+=Parametre ("," params+=Parametre)*)? ")"
+		//methodeName=ID "(" (params+=Parametre ("," params+=Parametre)*)? ")"
 		public Group getGroup() { return cGroup; }
 		
-		//{Methode}
-		public Action getMethodeAction_0() { return cMethodeAction_0; }
+		//methodeName=ID
+		public Assignment getMethodeNameAssignment_0() { return cMethodeNameAssignment_0; }
 		
 		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+		public RuleCall getMethodeNameIDTerminalRuleCall_0_0() { return cMethodeNameIDTerminalRuleCall_0_0; }
 		
 		//"("
-		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
 		//(params+=Parametre ("," params+=Parametre)*)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//params+=Parametre
-		public Assignment getParamsAssignment_3_0() { return cParamsAssignment_3_0; }
+		public Assignment getParamsAssignment_2_0() { return cParamsAssignment_2_0; }
 		
 		//Parametre
-		public RuleCall getParamsParametreParserRuleCall_3_0_0() { return cParamsParametreParserRuleCall_3_0_0; }
+		public RuleCall getParamsParametreParserRuleCall_2_0_0() { return cParamsParametreParserRuleCall_2_0_0; }
 		
 		//("," params+=Parametre)*
-		public Group getGroup_3_1() { return cGroup_3_1; }
+		public Group getGroup_2_1() { return cGroup_2_1; }
 		
 		//","
-		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
 		
 		//params+=Parametre
-		public Assignment getParamsAssignment_3_1_1() { return cParamsAssignment_3_1_1; }
+		public Assignment getParamsAssignment_2_1_1() { return cParamsAssignment_2_1_1; }
 		
 		//Parametre
-		public RuleCall getParamsParametreParserRuleCall_3_1_1_0() { return cParamsParametreParserRuleCall_3_1_1_0; }
+		public RuleCall getParamsParametreParserRuleCall_2_1_1_0() { return cParamsParametreParserRuleCall_2_1_1_0; }
 		
 		//")"
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 	public class ParametreElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.fil2018.flomira.Suricate.Parametre");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cInstructionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cVariableParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cTypePrimaireParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Assignment cMethodeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cMethodeAppelMethodeParserRuleCall_0_0 = (RuleCall)cMethodeAssignment_0.eContents().get(0);
+		private final Assignment cVariableAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cVariableVariableParserRuleCall_1_0 = (RuleCall)cVariableAssignment_1.eContents().get(0);
+		private final Assignment cValeurAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cValeurTypePrimaireParserRuleCall_2_0 = (RuleCall)cValeurAssignment_2.eContents().get(0);
 		
 		//Parametre:
-		//	Instruction | Variable | TypePrimaire;
+		//	methode=AppelMethode | variable=Variable | valeur=TypePrimaire;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Instruction | Variable | TypePrimaire
+		//methode=AppelMethode | variable=Variable | valeur=TypePrimaire
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Instruction
-		public RuleCall getInstructionParserRuleCall_0() { return cInstructionParserRuleCall_0; }
+		//methode=AppelMethode
+		public Assignment getMethodeAssignment_0() { return cMethodeAssignment_0; }
+		
+		//AppelMethode
+		public RuleCall getMethodeAppelMethodeParserRuleCall_0_0() { return cMethodeAppelMethodeParserRuleCall_0_0; }
+		
+		//variable=Variable
+		public Assignment getVariableAssignment_1() { return cVariableAssignment_1; }
 		
 		//Variable
-		public RuleCall getVariableParserRuleCall_1() { return cVariableParserRuleCall_1; }
+		public RuleCall getVariableVariableParserRuleCall_1_0() { return cVariableVariableParserRuleCall_1_0; }
+		
+		//valeur=TypePrimaire
+		public Assignment getValeurAssignment_2() { return cValeurAssignment_2; }
 		
 		//TypePrimaire
-		public RuleCall getTypePrimaireParserRuleCall_2() { return cTypePrimaireParserRuleCall_2; }
+		public RuleCall getValeurTypePrimaireParserRuleCall_2_0() { return cValeurTypePrimaireParserRuleCall_2_0; }
 	}
 	
 	
@@ -466,7 +485,7 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Ligne:
-	//	instr=Instruction ("->" var=Variable)? | aff=Affectation;
+	//	instr=Instruction ("->" variable=Variable)? | aff=Affectation;
 	public LigneElements getLigneAccess() {
 		return pLigne;
 	}
@@ -476,7 +495,7 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Affectation:
-	//	{Affectation} valeur=TypePrimaire ("->" variable=Variable)?;
+	//	valeur=TypePrimaire "->" variable=Variable;
 	public AffectationElements getAffectationAccess() {
 		return pAffectation;
 	}
@@ -486,7 +505,7 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Instruction:
-	//	AppelMethode | Boucle;
+	//	methode=AppelMethode | boucle=Boucle;
 	public InstructionElements getInstructionAccess() {
 		return pInstruction;
 	}
@@ -516,7 +535,7 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AppelMethode:
-	//	AppelMethSimple | AppelMethComposite;
+	//	simple=AppelMethSimple | composite=AppelMethComposite;
 	public AppelMethodeElements getAppelMethodeAccess() {
 		return pAppelMethode;
 	}
@@ -576,7 +595,7 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AppelMethSimple:
-	//	{Methode} ID "(" (params+=Parametre ("," params+=Parametre)*)? ")";
+	//	methodeName=ID "(" (params+=Parametre ("," params+=Parametre)*)? ")";
 	public AppelMethSimpleElements getAppelMethSimpleAccess() {
 		return pAppelMethSimple;
 	}
@@ -586,7 +605,7 @@ public class SuricateGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Parametre:
-	//	Instruction | Variable | TypePrimaire;
+	//	methode=AppelMethode | variable=Variable | valeur=TypePrimaire;
 	public ParametreElements getParametreAccess() {
 		return pParametre;
 	}

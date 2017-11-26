@@ -5,6 +5,7 @@ package org.fil2018.flomira.suricate.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,9 +13,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.fil2018.flomira.suricate.AppelMethComposite;
+import org.fil2018.flomira.suricate.AppelMethSimple;
 import org.fil2018.flomira.suricate.AppelMethode;
 import org.fil2018.flomira.suricate.Ligne;
 import org.fil2018.flomira.suricate.SuricatePackage;
@@ -28,11 +33,13 @@ import org.fil2018.flomira.suricate.SuricatePackage;
  * </p>
  * <ul>
  *   <li>{@link org.fil2018.flomira.suricate.impl.AppelMethodeImpl#getIfBody <em>If Body</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.AppelMethodeImpl#getSimple <em>Simple</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.AppelMethodeImpl#getComposite <em>Composite</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AppelMethodeImpl extends InstructionImpl implements AppelMethode
+public class AppelMethodeImpl extends IfBoucleImpl implements AppelMethode
 {
   /**
    * The cached value of the '{@link #getIfBody() <em>If Body</em>}' containment reference list.
@@ -43,6 +50,26 @@ public class AppelMethodeImpl extends InstructionImpl implements AppelMethode
    * @ordered
    */
   protected EList<Ligne> ifBody;
+
+  /**
+   * The cached value of the '{@link #getSimple() <em>Simple</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSimple()
+   * @generated
+   * @ordered
+   */
+  protected AppelMethSimple simple;
+
+  /**
+   * The cached value of the '{@link #getComposite() <em>Composite</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComposite()
+   * @generated
+   * @ordered
+   */
+  protected AppelMethComposite composite;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,6 +111,102 @@ public class AppelMethodeImpl extends InstructionImpl implements AppelMethode
    * <!-- end-user-doc -->
    * @generated
    */
+  public AppelMethSimple getSimple()
+  {
+    return simple;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSimple(AppelMethSimple newSimple, NotificationChain msgs)
+  {
+    AppelMethSimple oldSimple = simple;
+    simple = newSimple;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SuricatePackage.APPEL_METHODE__SIMPLE, oldSimple, newSimple);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSimple(AppelMethSimple newSimple)
+  {
+    if (newSimple != simple)
+    {
+      NotificationChain msgs = null;
+      if (simple != null)
+        msgs = ((InternalEObject)simple).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.APPEL_METHODE__SIMPLE, null, msgs);
+      if (newSimple != null)
+        msgs = ((InternalEObject)newSimple).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.APPEL_METHODE__SIMPLE, null, msgs);
+      msgs = basicSetSimple(newSimple, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.APPEL_METHODE__SIMPLE, newSimple, newSimple));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AppelMethComposite getComposite()
+  {
+    return composite;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetComposite(AppelMethComposite newComposite, NotificationChain msgs)
+  {
+    AppelMethComposite oldComposite = composite;
+    composite = newComposite;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SuricatePackage.APPEL_METHODE__COMPOSITE, oldComposite, newComposite);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setComposite(AppelMethComposite newComposite)
+  {
+    if (newComposite != composite)
+    {
+      NotificationChain msgs = null;
+      if (composite != null)
+        msgs = ((InternalEObject)composite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.APPEL_METHODE__COMPOSITE, null, msgs);
+      if (newComposite != null)
+        msgs = ((InternalEObject)newComposite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.APPEL_METHODE__COMPOSITE, null, msgs);
+      msgs = basicSetComposite(newComposite, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.APPEL_METHODE__COMPOSITE, newComposite, newComposite));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -91,6 +214,10 @@ public class AppelMethodeImpl extends InstructionImpl implements AppelMethode
     {
       case SuricatePackage.APPEL_METHODE__IF_BODY:
         return ((InternalEList<?>)getIfBody()).basicRemove(otherEnd, msgs);
+      case SuricatePackage.APPEL_METHODE__SIMPLE:
+        return basicSetSimple(null, msgs);
+      case SuricatePackage.APPEL_METHODE__COMPOSITE:
+        return basicSetComposite(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,6 +234,10 @@ public class AppelMethodeImpl extends InstructionImpl implements AppelMethode
     {
       case SuricatePackage.APPEL_METHODE__IF_BODY:
         return getIfBody();
+      case SuricatePackage.APPEL_METHODE__SIMPLE:
+        return getSimple();
+      case SuricatePackage.APPEL_METHODE__COMPOSITE:
+        return getComposite();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -126,6 +257,12 @@ public class AppelMethodeImpl extends InstructionImpl implements AppelMethode
         getIfBody().clear();
         getIfBody().addAll((Collection<? extends Ligne>)newValue);
         return;
+      case SuricatePackage.APPEL_METHODE__SIMPLE:
+        setSimple((AppelMethSimple)newValue);
+        return;
+      case SuricatePackage.APPEL_METHODE__COMPOSITE:
+        setComposite((AppelMethComposite)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -143,6 +280,12 @@ public class AppelMethodeImpl extends InstructionImpl implements AppelMethode
       case SuricatePackage.APPEL_METHODE__IF_BODY:
         getIfBody().clear();
         return;
+      case SuricatePackage.APPEL_METHODE__SIMPLE:
+        setSimple((AppelMethSimple)null);
+        return;
+      case SuricatePackage.APPEL_METHODE__COMPOSITE:
+        setComposite((AppelMethComposite)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -159,6 +302,10 @@ public class AppelMethodeImpl extends InstructionImpl implements AppelMethode
     {
       case SuricatePackage.APPEL_METHODE__IF_BODY:
         return ifBody != null && !ifBody.isEmpty();
+      case SuricatePackage.APPEL_METHODE__SIMPLE:
+        return simple != null;
+      case SuricatePackage.APPEL_METHODE__COMPOSITE:
+        return composite != null;
     }
     return super.eIsSet(featureID);
   }

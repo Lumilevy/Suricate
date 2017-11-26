@@ -10,6 +10,14 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Parametre</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.fil2018.flomira.suricate.Parametre#getMethode <em>Methode</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.Parametre#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.Parametre#getValeur <em>Valeur</em>}</li>
+ * </ul>
  *
  * @see org.fil2018.flomira.suricate.SuricatePackage#getParametre()
  * @model
@@ -17,4 +25,82 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Parametre extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Methode</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Methode</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Methode</em>' containment reference.
+   * @see #setMethode(AppelMethode)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getParametre_Methode()
+   * @model containment="true"
+   * @generated
+   */
+  AppelMethode getMethode();
+
+  /**
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.Parametre#getMethode <em>Methode</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Methode</em>' containment reference.
+   * @see #getMethode()
+   * @generated
+   */
+  void setMethode(AppelMethode value);
+
+  /**
+   * Returns the value of the '<em><b>Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Variable</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Variable</em>' containment reference.
+   * @see #setVariable(Variable)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getParametre_Variable()
+   * @model containment="true"
+   * @generated
+   */
+  Variable getVariable();
+
+  /**
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.Parametre#getVariable <em>Variable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Variable</em>' containment reference.
+   * @see #getVariable()
+   * @generated
+   */
+  void setVariable(Variable value);
+
+  /**
+   * Returns the value of the '<em><b>Valeur</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Valeur</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Valeur</em>' attribute.
+   * @see #setValeur(String)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getParametre_Valeur()
+   * @model
+   * @generated
+   */
+  String getValeur();
+
+  /**
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.Parametre#getValeur <em>Valeur</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Valeur</em>' attribute.
+   * @see #getValeur()
+   * @generated
+   */
+  void setValeur(String value);
+
 } // Parametre

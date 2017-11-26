@@ -3,17 +3,69 @@
  */
 package org.fil2018.flomira.suricate;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Appel Meth Simple</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.fil2018.flomira.suricate.AppelMethSimple#getMethodeName <em>Methode Name</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.AppelMethSimple#getParams <em>Params</em>}</li>
+ * </ul>
  *
  * @see org.fil2018.flomira.suricate.SuricatePackage#getAppelMethSimple()
  * @model
  * @generated
  */
-public interface AppelMethSimple extends AppelMethode
+public interface AppelMethSimple extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Methode Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Methode Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Methode Name</em>' attribute.
+   * @see #setMethodeName(String)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getAppelMethSimple_MethodeName()
+   * @model
+   * @generated
+   */
+  String getMethodeName();
+
+  /**
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.AppelMethSimple#getMethodeName <em>Methode Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Methode Name</em>' attribute.
+   * @see #getMethodeName()
+   * @generated
+   */
+  void setMethodeName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+   * The list contents are of type {@link org.fil2018.flomira.suricate.Parametre}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Params</em>' containment reference list.
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getAppelMethSimple_Params()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Parametre> getParams();
+
 } // AppelMethSimple

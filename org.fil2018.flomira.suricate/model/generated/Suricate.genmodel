@@ -11,18 +11,23 @@
     </genClasses>
     <genClasses ecoreClass="Suricate.ecore#//Ligne">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Ligne/instr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Ligne/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Ligne/variable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Ligne/aff"/>
     </genClasses>
     <genClasses ecoreClass="Suricate.ecore#//Affectation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Suricate.ecore#//Affectation/valeur"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Affectation/variable"/>
     </genClasses>
-    <genClasses ecoreClass="Suricate.ecore#//Instruction"/>
+    <genClasses ecoreClass="Suricate.ecore#//Instruction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Instruction/methode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Instruction/boucle"/>
+    </genClasses>
     <genClasses ecoreClass="Suricate.ecore#//Boucle"/>
     <genClasses ecoreClass="Suricate.ecore#//IfBoucle"/>
     <genClasses ecoreClass="Suricate.ecore#//AppelMethode">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//AppelMethode/ifBody"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//AppelMethode/simple"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//AppelMethode/composite"/>
     </genClasses>
     <genClasses ecoreClass="Suricate.ecore#//AppelMethComposite">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Suricate.ecore#//AppelMethComposite/name"/>
@@ -31,10 +36,14 @@
     <genClasses ecoreClass="Suricate.ecore#//Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Suricate.ecore#//Variable/name"/>
     </genClasses>
-    <genClasses ecoreClass="Suricate.ecore#//AppelMethSimple"/>
-    <genClasses ecoreClass="Suricate.ecore#//Parametre"/>
-    <genClasses ecoreClass="Suricate.ecore#//Methode">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Methode/params"/>
+    <genClasses ecoreClass="Suricate.ecore#//AppelMethSimple">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Suricate.ecore#//AppelMethSimple/methodeName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//AppelMethSimple/params"/>
+    </genClasses>
+    <genClasses ecoreClass="Suricate.ecore#//Parametre">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Parametre/methode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Suricate.ecore#//Parametre/variable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Suricate.ecore#//Parametre/valeur"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

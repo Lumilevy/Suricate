@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.fil2018.flomira.suricate.SuricatePackage;
 import org.fil2018.flomira.suricate.Variable;
@@ -25,7 +26,7 @@ import org.fil2018.flomira.suricate.Variable;
  *
  * @generated
  */
-public class VariableImpl extends ParametreImpl implements Variable
+public class VariableImpl extends MinimalEObjectImpl.Container implements Variable
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

@@ -27,7 +27,7 @@ import org.fil2018.flomira.suricate.Variable;
  * </p>
  * <ul>
  *   <li>{@link org.fil2018.flomira.suricate.impl.LigneImpl#getInstr <em>Instr</em>}</li>
- *   <li>{@link org.fil2018.flomira.suricate.impl.LigneImpl#getVar <em>Var</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.LigneImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.fil2018.flomira.suricate.impl.LigneImpl#getAff <em>Aff</em>}</li>
  * </ul>
  *
@@ -46,14 +46,14 @@ public class LigneImpl extends MinimalEObjectImpl.Container implements Ligne
   protected Instruction instr;
 
   /**
-   * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference.
+   * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVar()
+   * @see #getVariable()
    * @generated
    * @ordered
    */
-  protected Variable var;
+  protected Variable variable;
 
   /**
    * The cached value of the '{@link #getAff() <em>Aff</em>}' containment reference.
@@ -139,9 +139,9 @@ public class LigneImpl extends MinimalEObjectImpl.Container implements Ligne
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable getVar()
+  public Variable getVariable()
   {
-    return var;
+    return variable;
   }
 
   /**
@@ -149,13 +149,13 @@ public class LigneImpl extends MinimalEObjectImpl.Container implements Ligne
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVar(Variable newVar, NotificationChain msgs)
+  public NotificationChain basicSetVariable(Variable newVariable, NotificationChain msgs)
   {
-    Variable oldVar = var;
-    var = newVar;
+    Variable oldVariable = variable;
+    variable = newVariable;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SuricatePackage.LIGNE__VAR, oldVar, newVar);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SuricatePackage.LIGNE__VARIABLE, oldVariable, newVariable);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -166,20 +166,20 @@ public class LigneImpl extends MinimalEObjectImpl.Container implements Ligne
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVar(Variable newVar)
+  public void setVariable(Variable newVariable)
   {
-    if (newVar != var)
+    if (newVariable != variable)
     {
       NotificationChain msgs = null;
-      if (var != null)
-        msgs = ((InternalEObject)var).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.LIGNE__VAR, null, msgs);
-      if (newVar != null)
-        msgs = ((InternalEObject)newVar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.LIGNE__VAR, null, msgs);
-      msgs = basicSetVar(newVar, msgs);
+      if (variable != null)
+        msgs = ((InternalEObject)variable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.LIGNE__VARIABLE, null, msgs);
+      if (newVariable != null)
+        msgs = ((InternalEObject)newVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.LIGNE__VARIABLE, null, msgs);
+      msgs = basicSetVariable(newVariable, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.LIGNE__VAR, newVar, newVar));
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.LIGNE__VARIABLE, newVariable, newVariable));
   }
 
   /**
@@ -242,8 +242,8 @@ public class LigneImpl extends MinimalEObjectImpl.Container implements Ligne
     {
       case SuricatePackage.LIGNE__INSTR:
         return basicSetInstr(null, msgs);
-      case SuricatePackage.LIGNE__VAR:
-        return basicSetVar(null, msgs);
+      case SuricatePackage.LIGNE__VARIABLE:
+        return basicSetVariable(null, msgs);
       case SuricatePackage.LIGNE__AFF:
         return basicSetAff(null, msgs);
     }
@@ -262,8 +262,8 @@ public class LigneImpl extends MinimalEObjectImpl.Container implements Ligne
     {
       case SuricatePackage.LIGNE__INSTR:
         return getInstr();
-      case SuricatePackage.LIGNE__VAR:
-        return getVar();
+      case SuricatePackage.LIGNE__VARIABLE:
+        return getVariable();
       case SuricatePackage.LIGNE__AFF:
         return getAff();
     }
@@ -283,8 +283,8 @@ public class LigneImpl extends MinimalEObjectImpl.Container implements Ligne
       case SuricatePackage.LIGNE__INSTR:
         setInstr((Instruction)newValue);
         return;
-      case SuricatePackage.LIGNE__VAR:
-        setVar((Variable)newValue);
+      case SuricatePackage.LIGNE__VARIABLE:
+        setVariable((Variable)newValue);
         return;
       case SuricatePackage.LIGNE__AFF:
         setAff((Affectation)newValue);
@@ -306,8 +306,8 @@ public class LigneImpl extends MinimalEObjectImpl.Container implements Ligne
       case SuricatePackage.LIGNE__INSTR:
         setInstr((Instruction)null);
         return;
-      case SuricatePackage.LIGNE__VAR:
-        setVar((Variable)null);
+      case SuricatePackage.LIGNE__VARIABLE:
+        setVariable((Variable)null);
         return;
       case SuricatePackage.LIGNE__AFF:
         setAff((Affectation)null);
@@ -328,8 +328,8 @@ public class LigneImpl extends MinimalEObjectImpl.Container implements Ligne
     {
       case SuricatePackage.LIGNE__INSTR:
         return instr != null;
-      case SuricatePackage.LIGNE__VAR:
-        return var != null;
+      case SuricatePackage.LIGNE__VARIABLE:
+        return variable != null;
       case SuricatePackage.LIGNE__AFF:
         return aff != null;
     }

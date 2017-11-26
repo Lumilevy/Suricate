@@ -17,8 +17,11 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.fil2018.flomira.services.SuricateGrammarAccess;
 import org.fil2018.flomira.suricate.Affectation;
 import org.fil2018.flomira.suricate.AppelMethComposite;
+import org.fil2018.flomira.suricate.AppelMethSimple;
+import org.fil2018.flomira.suricate.AppelMethode;
+import org.fil2018.flomira.suricate.Instruction;
 import org.fil2018.flomira.suricate.Ligne;
-import org.fil2018.flomira.suricate.Methode;
+import org.fil2018.flomira.suricate.Parametre;
 import org.fil2018.flomira.suricate.Programme;
 import org.fil2018.flomira.suricate.SuricatePackage;
 import org.fil2018.flomira.suricate.Variable;
@@ -41,42 +44,31 @@ public class SuricateSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				sequence_Affectation(context, (Affectation) semanticObject); 
 				return; 
 			case SuricatePackage.APPEL_METH_COMPOSITE:
-				if (rule == grammarAccess.getAppelMethodeRule()
-						|| rule == grammarAccess.getAppelMethCompositeRule()) {
-					sequence_AppelMethComposite(context, (AppelMethComposite) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getInstructionRule()
-						|| rule == grammarAccess.getParametreRule()) {
-					sequence_AppelMethComposite_IfBoucle(context, (AppelMethComposite) semanticObject); 
+				sequence_AppelMethComposite(context, (AppelMethComposite) semanticObject); 
+				return; 
+			case SuricatePackage.APPEL_METH_SIMPLE:
+				sequence_AppelMethSimple(context, (AppelMethSimple) semanticObject); 
+				return; 
+			case SuricatePackage.APPEL_METHODE:
+				if (rule == grammarAccess.getAppelMethodeRule()) {
+					sequence_AppelMethode(context, (AppelMethode) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getBoucleRule()
 						|| rule == grammarAccess.getIfBoucleRule()) {
-					sequence_AppelMethComposite_IfBoucle(context, (AppelMethComposite) semanticObject); 
+					sequence_AppelMethode_IfBoucle(context, (AppelMethode) semanticObject); 
 					return; 
 				}
 				else break;
+			case SuricatePackage.INSTRUCTION:
+				sequence_Instruction(context, (Instruction) semanticObject); 
+				return; 
 			case SuricatePackage.LIGNE:
 				sequence_Ligne(context, (Ligne) semanticObject); 
 				return; 
-			case SuricatePackage.METHODE:
-				if (rule == grammarAccess.getInstructionRule()
-						|| rule == grammarAccess.getParametreRule()) {
-					sequence_AppelMethSimple_IfBoucle(context, (Methode) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getBoucleRule()
-						|| rule == grammarAccess.getIfBoucleRule()) {
-					sequence_AppelMethSimple_IfBoucle(context, (Methode) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getAppelMethodeRule()
-						|| rule == grammarAccess.getAppelMethSimpleRule()) {
-					sequence_AppelMethSimple(context, (Methode) semanticObject); 
-					return; 
-				}
-				else break;
+			case SuricatePackage.PARAMETRE:
+				sequence_Parametre(context, (Parametre) semanticObject); 
+				return; 
 			case SuricatePackage.PROGRAMME:
 				sequence_Programme(context, (Programme) semanticObject); 
 				return; 
@@ -93,16 +85,24 @@ public class SuricateSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Affectation returns Affectation
 	 *
 	 * Constraint:
-	 *     (valeur=TypePrimaire variable=Variable?)
+	 *     (valeur=TypePrimaire variable=Variable)
 	 */
 	protected void sequence_Affectation(ISerializationContext context, Affectation semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SuricatePackage.Literals.AFFECTATION__VALEUR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SuricatePackage.Literals.AFFECTATION__VALEUR));
+			if (transientValues.isValueTransient(semanticObject, SuricatePackage.Literals.AFFECTATION__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SuricatePackage.Literals.AFFECTATION__VARIABLE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAffectationAccess().getValeurTypePrimaireParserRuleCall_0_0(), semanticObject.getValeur());
+		feeder.accept(grammarAccess.getAffectationAccess().getVariableVariableParserRuleCall_2_0(), semanticObject.getVariable());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     AppelMethode returns AppelMethComposite
 	 *     AppelMethComposite returns AppelMethComposite
 	 *
 	 * Constraint:
@@ -115,65 +115,49 @@ public class SuricateSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
-	 *     Instruction returns AppelMethComposite
-	 *     Parametre returns AppelMethComposite
+	 *     AppelMethSimple returns AppelMethSimple
 	 *
 	 * Constraint:
-	 *     (name=[Variable|ID] methode+=AppelMethSimple+ ifBody+=Ligne*)
+	 *     (methodeName=ID (params+=Parametre params+=Parametre*)?)
 	 */
-	protected void sequence_AppelMethComposite_IfBoucle(ISerializationContext context, AppelMethComposite semanticObject) {
+	protected void sequence_AppelMethSimple(ISerializationContext context, AppelMethSimple semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
-	// This method is commented out because it has the same signature as another method in this class.
-	// This is probably a bug in Xtext's serializer, please report it here: 
-	// https://bugs.eclipse.org/bugs/enter_bug.cgi?product=TMF
-	//
-	// Contexts:
-	//     Boucle returns AppelMethComposite
-	//     IfBoucle returns AppelMethComposite
-	//
-	// Constraint:
-	//     (name=[Variable|ID] methode+=AppelMethSimple+ ifBody+=Ligne+)
-	//
-	// protected void sequence_AppelMethComposite_IfBoucle(ISerializationContext context, AppelMethComposite semanticObject) { }
-	
 	/**
 	 * Contexts:
-	 *     Instruction returns Methode
-	 *     Parametre returns Methode
+	 *     AppelMethode returns AppelMethode
 	 *
 	 * Constraint:
-	 *     ((params+=Parametre params+=Parametre*)? ifBody+=Ligne*)
+	 *     (simple=AppelMethSimple | composite=AppelMethComposite)
 	 */
-	protected void sequence_AppelMethSimple_IfBoucle(ISerializationContext context, Methode semanticObject) {
+	protected void sequence_AppelMethode(ISerializationContext context, AppelMethode semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
-	// This method is commented out because it has the same signature as another method in this class.
-	// This is probably a bug in Xtext's serializer, please report it here: 
-	// https://bugs.eclipse.org/bugs/enter_bug.cgi?product=TMF
-	//
-	// Contexts:
-	//     Boucle returns Methode
-	//     IfBoucle returns Methode
-	//
-	// Constraint:
-	//     ((params+=Parametre params+=Parametre*)? ifBody+=Ligne+)
-	//
-	// protected void sequence_AppelMethSimple_IfBoucle(ISerializationContext context, Methode semanticObject) { }
+	/**
+	 * Contexts:
+	 *     Boucle returns AppelMethode
+	 *     IfBoucle returns AppelMethode
+	 *
+	 * Constraint:
+	 *     ((simple=AppelMethSimple | composite=AppelMethComposite) ifBody+=Ligne+)
+	 */
+	protected void sequence_AppelMethode_IfBoucle(ISerializationContext context, AppelMethode semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
-	 *     AppelMethode returns Methode
-	 *     AppelMethSimple returns Methode
+	 *     Instruction returns Instruction
 	 *
 	 * Constraint:
-	 *     (params+=Parametre params+=Parametre*)?
+	 *     (methode=AppelMethode | boucle=Boucle)
 	 */
-	protected void sequence_AppelMethSimple(ISerializationContext context, Methode semanticObject) {
+	protected void sequence_Instruction(ISerializationContext context, Instruction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -183,9 +167,21 @@ public class SuricateSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Ligne returns Ligne
 	 *
 	 * Constraint:
-	 *     ((instr=Instruction var=Variable?) | aff=Affectation)
+	 *     ((instr=Instruction variable=Variable?) | aff=Affectation)
 	 */
 	protected void sequence_Ligne(ISerializationContext context, Ligne semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Parametre returns Parametre
+	 *
+	 * Constraint:
+	 *     (methode=AppelMethode | variable=Variable | valeur=TypePrimaire)
+	 */
+	protected void sequence_Parametre(ISerializationContext context, Parametre semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -205,7 +201,6 @@ public class SuricateSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * Contexts:
 	 *     Variable returns Variable
-	 *     Parametre returns Variable
 	 *
 	 * Constraint:
 	 *     name=ID

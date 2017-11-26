@@ -131,11 +131,6 @@ public class SuricateAdapterFactory extends AdapterFactoryImpl
         return createParametreAdapter();
       }
       @Override
-      public Adapter caseMethode(Methode object)
-      {
-        return createMethodeAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -318,21 +313,6 @@ public class SuricateAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParametreAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.fil2018.flomira.suricate.Methode <em>Methode</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.fil2018.flomira.suricate.Methode
-   * @generated
-   */
-  public Adapter createMethodeAdapter()
   {
     return null;
   }

@@ -76,7 +76,6 @@ public class SuricateFactoryImpl extends EFactoryImpl implements SuricateFactory
       case SuricatePackage.VARIABLE: return createVariable();
       case SuricatePackage.APPEL_METH_SIMPLE: return createAppelMethSimple();
       case SuricatePackage.PARAMETRE: return createParametre();
-      case SuricatePackage.METHODE: return createMethode();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -201,17 +200,6 @@ public class SuricateFactoryImpl extends EFactoryImpl implements SuricateFactory
   {
     ParametreImpl parametre = new ParametreImpl();
     return parametre;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Methode createMethode()
-  {
-    MethodeImpl methode = new MethodeImpl();
-    return methode;
   }
 
   /**

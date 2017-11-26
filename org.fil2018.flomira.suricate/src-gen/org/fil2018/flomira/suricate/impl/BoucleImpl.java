@@ -5,6 +5,8 @@ package org.fil2018.flomira.suricate.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.fil2018.flomira.suricate.Boucle;
 import org.fil2018.flomira.suricate.SuricatePackage;
 
@@ -15,7 +17,7 @@ import org.fil2018.flomira.suricate.SuricatePackage;
  *
  * @generated
  */
-public class BoucleImpl extends InstructionImpl implements Boucle
+public class BoucleImpl extends MinimalEObjectImpl.Container implements Boucle
 {
   /**
    * <!-- begin-user-doc -->

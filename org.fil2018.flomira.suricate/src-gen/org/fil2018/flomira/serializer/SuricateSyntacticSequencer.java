@@ -10,8 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.fil2018.flomira.services.SuricateGrammarAccess;
@@ -20,42 +18,17 @@ import org.fil2018.flomira.services.SuricateGrammarAccess;
 public class SuricateSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected SuricateGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_IfBoucle_IfKeyword_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SuricateGrammarAccess) access;
-		match_IfBoucle_IfKeyword_0_q = new TokenAlias(false, true, grammarAccess.getIfBoucleAccess().getIfKeyword_0());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getIDRule())
-			return getIDToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getTypePrimaireRule())
-			return getTypePrimaireToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * terminal ID  		: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-	 */
-	protected String getIDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * TypePrimaire:
-	 * 	IntLiteral | StringLiteral
-	 * ;
-	 */
-	protected String getTypePrimaireToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -63,24 +36,8 @@ public class SuricateSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_IfBoucle_IfKeyword_0_q.equals(syntax))
-				emit_IfBoucle_IfKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     'If'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) ID '(' ')' 'Then' '{' ifBody+=Ligne
-	 *     (rule start) (ambiguity) ID '(' ')' (rule start)
-	 *     (rule start) (ambiguity) ID '(' params+=Parametre
-	 *     (rule start) (ambiguity) name=[Variable|ID]
-	 */
-	protected void emit_IfBoucle_IfKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

@@ -98,7 +98,6 @@ public class SuricateSwitch<T> extends Switch<T>
       {
         Instruction instruction = (Instruction)theEObject;
         T result = caseInstruction(instruction);
-        if (result == null) result = caseParametre(instruction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -106,8 +105,6 @@ public class SuricateSwitch<T> extends Switch<T>
       {
         Boucle boucle = (Boucle)theEObject;
         T result = caseBoucle(boucle);
-        if (result == null) result = caseInstruction(boucle);
-        if (result == null) result = caseParametre(boucle);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -116,8 +113,6 @@ public class SuricateSwitch<T> extends Switch<T>
         IfBoucle ifBoucle = (IfBoucle)theEObject;
         T result = caseIfBoucle(ifBoucle);
         if (result == null) result = caseBoucle(ifBoucle);
-        if (result == null) result = caseInstruction(ifBoucle);
-        if (result == null) result = caseParametre(ifBoucle);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -126,9 +121,7 @@ public class SuricateSwitch<T> extends Switch<T>
         AppelMethode appelMethode = (AppelMethode)theEObject;
         T result = caseAppelMethode(appelMethode);
         if (result == null) result = caseIfBoucle(appelMethode);
-        if (result == null) result = caseParametre(appelMethode);
         if (result == null) result = caseBoucle(appelMethode);
-        if (result == null) result = caseInstruction(appelMethode);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -136,11 +129,6 @@ public class SuricateSwitch<T> extends Switch<T>
       {
         AppelMethComposite appelMethComposite = (AppelMethComposite)theEObject;
         T result = caseAppelMethComposite(appelMethComposite);
-        if (result == null) result = caseAppelMethode(appelMethComposite);
-        if (result == null) result = caseIfBoucle(appelMethComposite);
-        if (result == null) result = caseParametre(appelMethComposite);
-        if (result == null) result = caseBoucle(appelMethComposite);
-        if (result == null) result = caseInstruction(appelMethComposite);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -148,7 +136,6 @@ public class SuricateSwitch<T> extends Switch<T>
       {
         Variable variable = (Variable)theEObject;
         T result = caseVariable(variable);
-        if (result == null) result = caseParametre(variable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -156,11 +143,6 @@ public class SuricateSwitch<T> extends Switch<T>
       {
         AppelMethSimple appelMethSimple = (AppelMethSimple)theEObject;
         T result = caseAppelMethSimple(appelMethSimple);
-        if (result == null) result = caseAppelMethode(appelMethSimple);
-        if (result == null) result = caseIfBoucle(appelMethSimple);
-        if (result == null) result = caseParametre(appelMethSimple);
-        if (result == null) result = caseBoucle(appelMethSimple);
-        if (result == null) result = caseInstruction(appelMethSimple);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -168,19 +150,6 @@ public class SuricateSwitch<T> extends Switch<T>
       {
         Parametre parametre = (Parametre)theEObject;
         T result = caseParametre(parametre);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SuricatePackage.METHODE:
-      {
-        Methode methode = (Methode)theEObject;
-        T result = caseMethode(methode);
-        if (result == null) result = caseAppelMethSimple(methode);
-        if (result == null) result = caseAppelMethode(methode);
-        if (result == null) result = caseIfBoucle(methode);
-        if (result == null) result = caseParametre(methode);
-        if (result == null) result = caseBoucle(methode);
-        if (result == null) result = caseInstruction(methode);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -360,22 +329,6 @@ public class SuricateSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseParametre(Parametre object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Methode</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Methode</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMethode(Methode object)
   {
     return null;
   }

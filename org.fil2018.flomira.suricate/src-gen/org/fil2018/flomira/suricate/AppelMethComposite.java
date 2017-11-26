@@ -5,6 +5,8 @@ package org.fil2018.flomira.suricate;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Appel Meth Composite</b></em>'.
@@ -22,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface AppelMethComposite extends AppelMethode
+public interface AppelMethComposite extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' reference.

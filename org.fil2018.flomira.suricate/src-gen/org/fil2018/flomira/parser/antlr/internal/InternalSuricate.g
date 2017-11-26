@@ -140,17 +140,17 @@ ruleLigne returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getLigneAccess().getVarVariableParserRuleCall_0_1_1_0());
+							newCompositeNode(grammarAccess.getLigneAccess().getVariableVariableParserRuleCall_0_1_1_0());
 						}
-						lv_var_2_0=ruleVariable
+						lv_variable_2_0=ruleVariable
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getLigneRule());
 							}
 							set(
 								$current,
-								"var",
-								lv_var_2_0,
+								"variable",
+								lv_variable_2_0,
 								"org.fil2018.flomira.Suricate.Variable");
 							afterParserOrEnumRuleCall();
 						}
@@ -198,18 +198,11 @@ ruleAffectation returns [EObject current=null]
 }:
 	(
 		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getAffectationAccess().getAffectationAction_0(),
-					$current);
-			}
-		)
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAffectationAccess().getValeurTypePrimaireParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getAffectationAccess().getValeurTypePrimaireParserRuleCall_0_0());
 				}
-				lv_valeur_1_0=ruleTypePrimaire
+				lv_valeur_0_0=ruleTypePrimaire
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAffectationRule());
@@ -217,37 +210,35 @@ ruleAffectation returns [EObject current=null]
 					set(
 						$current,
 						"valeur",
-						lv_valeur_1_0,
+						lv_valeur_0_0,
 						"org.fil2018.flomira.Suricate.TypePrimaire");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_1='->'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getAffectationAccess().getHyphenMinusGreaterThanSignKeyword_1());
+		}
 		(
-			otherlv_2='->'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getAffectationAccess().getHyphenMinusGreaterThanSignKeyword_2_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAffectationAccess().getVariableVariableParserRuleCall_2_1_0());
+				{
+					newCompositeNode(grammarAccess.getAffectationAccess().getVariableVariableParserRuleCall_2_0());
+				}
+				lv_variable_2_0=ruleVariable
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAffectationRule());
 					}
-					lv_variable_3_0=ruleVariable
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAffectationRule());
-						}
-						set(
-							$current,
-							"variable",
-							lv_variable_3_0,
-							"org.fil2018.flomira.Suricate.Variable");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"variable",
+						lv_variable_2_0,
+						"org.fil2018.flomira.Suricate.Variable");
+					afterParserOrEnumRuleCall();
+				}
 			)
-		)?
+		)
 	)
 ;
 
@@ -267,23 +258,45 @@ ruleInstruction returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getInstructionAccess().getAppelMethodeParserRuleCall_0());
-		}
-		this_AppelMethode_0=ruleAppelMethode
-		{
-			$current = $this_AppelMethode_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInstructionAccess().getMethodeAppelMethodeParserRuleCall_0_0());
+				}
+				lv_methode_0_0=ruleAppelMethode
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInstructionRule());
+					}
+					set(
+						$current,
+						"methode",
+						lv_methode_0_0,
+						"org.fil2018.flomira.Suricate.AppelMethode");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getInstructionAccess().getBoucleParserRuleCall_1());
-		}
-		this_Boucle_1=ruleBoucle
-		{
-			$current = $this_Boucle_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInstructionAccess().getBoucleBoucleParserRuleCall_1_0());
+				}
+				lv_boucle_1_0=ruleBoucle
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInstructionRule());
+					}
+					set(
+						$current,
+						"boucle",
+						lv_boucle_1_0,
+						"org.fil2018.flomira.Suricate.Boucle");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -390,23 +403,45 @@ ruleAppelMethode returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getAppelMethodeAccess().getAppelMethSimpleParserRuleCall_0());
-		}
-		this_AppelMethSimple_0=ruleAppelMethSimple
-		{
-			$current = $this_AppelMethSimple_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAppelMethodeAccess().getSimpleAppelMethSimpleParserRuleCall_0_0());
+				}
+				lv_simple_0_0=ruleAppelMethSimple
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAppelMethodeRule());
+					}
+					set(
+						$current,
+						"simple",
+						lv_simple_0_0,
+						"org.fil2018.flomira.Suricate.AppelMethSimple");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getAppelMethodeAccess().getAppelMethCompositeParserRuleCall_1());
-		}
-		this_AppelMethComposite_1=ruleAppelMethComposite
-		{
-			$current = $this_AppelMethComposite_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAppelMethodeAccess().getCompositeAppelMethCompositeParserRuleCall_1_0());
+				}
+				lv_composite_1_0=ruleAppelMethComposite
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAppelMethodeRule());
+					}
+					set(
+						$current,
+						"composite",
+						lv_composite_1_0,
+						"org.fil2018.flomira.Suricate.AppelMethComposite");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -607,27 +642,34 @@ ruleAppelMethSimple returns [EObject current=null]
 }:
 	(
 		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getAppelMethSimpleAccess().getMethodeAction_0(),
-					$current);
-			}
+			(
+				lv_methodeName_0_0=RULE_ID
+				{
+					newLeafNode(lv_methodeName_0_0, grammarAccess.getAppelMethSimpleAccess().getMethodeNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAppelMethSimpleRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"methodeName",
+						lv_methodeName_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
 		)
-		this_ID_1=RULE_ID
+		otherlv_1='('
 		{
-			newLeafNode(this_ID_1, grammarAccess.getAppelMethSimpleAccess().getIDTerminalRuleCall_1());
-		}
-		otherlv_2='('
-		{
-			newLeafNode(otherlv_2, grammarAccess.getAppelMethSimpleAccess().getLeftParenthesisKeyword_2());
+			newLeafNode(otherlv_1, grammarAccess.getAppelMethSimpleAccess().getLeftParenthesisKeyword_1());
 		}
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppelMethSimpleAccess().getParamsParametreParserRuleCall_3_0_0());
+						newCompositeNode(grammarAccess.getAppelMethSimpleAccess().getParamsParametreParserRuleCall_2_0_0());
 					}
-					lv_params_3_0=ruleParametre
+					lv_params_2_0=ruleParametre
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAppelMethSimpleRule());
@@ -635,23 +677,23 @@ ruleAppelMethSimple returns [EObject current=null]
 						add(
 							$current,
 							"params",
-							lv_params_3_0,
+							lv_params_2_0,
 							"org.fil2018.flomira.Suricate.Parametre");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_4=','
+				otherlv_3=','
 				{
-					newLeafNode(otherlv_4, grammarAccess.getAppelMethSimpleAccess().getCommaKeyword_3_1_0());
+					newLeafNode(otherlv_3, grammarAccess.getAppelMethSimpleAccess().getCommaKeyword_2_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getAppelMethSimpleAccess().getParamsParametreParserRuleCall_3_1_1_0());
+							newCompositeNode(grammarAccess.getAppelMethSimpleAccess().getParamsParametreParserRuleCall_2_1_1_0());
 						}
-						lv_params_5_0=ruleParametre
+						lv_params_4_0=ruleParametre
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getAppelMethSimpleRule());
@@ -659,7 +701,7 @@ ruleAppelMethSimple returns [EObject current=null]
 							add(
 								$current,
 								"params",
-								lv_params_5_0,
+								lv_params_4_0,
 								"org.fil2018.flomira.Suricate.Parametre");
 							afterParserOrEnumRuleCall();
 						}
@@ -667,9 +709,9 @@ ruleAppelMethSimple returns [EObject current=null]
 				)
 			)*
 		)?
-		otherlv_6=')'
+		otherlv_5=')'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getAppelMethSimpleAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getAppelMethSimpleAccess().getRightParenthesisKeyword_3());
 		}
 	)
 ;
@@ -690,31 +732,65 @@ ruleParametre returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getParametreAccess().getInstructionParserRuleCall_0());
-		}
-		this_Instruction_0=ruleInstruction
-		{
-			$current = $this_Instruction_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getParametreAccess().getMethodeAppelMethodeParserRuleCall_0_0());
+				}
+				lv_methode_0_0=ruleAppelMethode
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getParametreRule());
+					}
+					set(
+						$current,
+						"methode",
+						lv_methode_0_0,
+						"org.fil2018.flomira.Suricate.AppelMethode");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getParametreAccess().getVariableParserRuleCall_1());
-		}
-		this_Variable_1=ruleVariable
-		{
-			$current = $this_Variable_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getParametreAccess().getVariableVariableParserRuleCall_1_0());
+				}
+				lv_variable_1_0=ruleVariable
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getParametreRule());
+					}
+					set(
+						$current,
+						"variable",
+						lv_variable_1_0,
+						"org.fil2018.flomira.Suricate.Variable");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getParametreAccess().getTypePrimaireParserRuleCall_2());
-		}
-		ruleTypePrimaire
-		{
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getParametreAccess().getValeurTypePrimaireParserRuleCall_2_0());
+				}
+				lv_valeur_2_0=ruleTypePrimaire
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getParametreRule());
+					}
+					set(
+						$current,
+						"valeur",
+						lv_valeur_2_0,
+						"org.fil2018.flomira.Suricate.TypePrimaire");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

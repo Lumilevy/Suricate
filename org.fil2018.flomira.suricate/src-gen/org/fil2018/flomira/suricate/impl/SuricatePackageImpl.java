@@ -18,7 +18,6 @@ import org.fil2018.flomira.suricate.Boucle;
 import org.fil2018.flomira.suricate.IfBoucle;
 import org.fil2018.flomira.suricate.Instruction;
 import org.fil2018.flomira.suricate.Ligne;
-import org.fil2018.flomira.suricate.Methode;
 import org.fil2018.flomira.suricate.Parametre;
 import org.fil2018.flomira.suricate.Programme;
 import org.fil2018.flomira.suricate.SuricateFactory;
@@ -109,13 +108,6 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
    * @generated
    */
   private EClass parametreEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass methodeEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -225,7 +217,7 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLigne_Var()
+  public EReference getLigne_Variable()
   {
     return (EReference)ligneEClass.getEStructuralFeatures().get(1);
   }
@@ -285,6 +277,26 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getInstruction_Methode()
+  {
+    return (EReference)instructionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInstruction_Boucle()
+  {
+    return (EReference)instructionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getBoucle()
   {
     return boucleEClass;
@@ -318,6 +330,26 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
   public EReference getAppelMethode_IfBody()
   {
     return (EReference)appelMethodeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAppelMethode_Simple()
+  {
+    return (EReference)appelMethodeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAppelMethode_Composite()
+  {
+    return (EReference)appelMethodeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -385,6 +417,26 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAppelMethSimple_MethodeName()
+  {
+    return (EAttribute)appelMethSimpleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAppelMethSimple_Params()
+  {
+    return (EReference)appelMethSimpleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getParametre()
   {
     return parametreEClass;
@@ -395,9 +447,9 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMethode()
+  public EReference getParametre_Methode()
   {
-    return methodeEClass;
+    return (EReference)parametreEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -405,9 +457,19 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethode_Params()
+  public EReference getParametre_Variable()
   {
-    return (EReference)methodeEClass.getEStructuralFeatures().get(0);
+    return (EReference)parametreEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getParametre_Valeur()
+  {
+    return (EAttribute)parametreEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -445,7 +507,7 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
 
     ligneEClass = createEClass(LIGNE);
     createEReference(ligneEClass, LIGNE__INSTR);
-    createEReference(ligneEClass, LIGNE__VAR);
+    createEReference(ligneEClass, LIGNE__VARIABLE);
     createEReference(ligneEClass, LIGNE__AFF);
 
     affectationEClass = createEClass(AFFECTATION);
@@ -453,6 +515,8 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
     createEReference(affectationEClass, AFFECTATION__VARIABLE);
 
     instructionEClass = createEClass(INSTRUCTION);
+    createEReference(instructionEClass, INSTRUCTION__METHODE);
+    createEReference(instructionEClass, INSTRUCTION__BOUCLE);
 
     boucleEClass = createEClass(BOUCLE);
 
@@ -460,6 +524,8 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
 
     appelMethodeEClass = createEClass(APPEL_METHODE);
     createEReference(appelMethodeEClass, APPEL_METHODE__IF_BODY);
+    createEReference(appelMethodeEClass, APPEL_METHODE__SIMPLE);
+    createEReference(appelMethodeEClass, APPEL_METHODE__COMPOSITE);
 
     appelMethCompositeEClass = createEClass(APPEL_METH_COMPOSITE);
     createEReference(appelMethCompositeEClass, APPEL_METH_COMPOSITE__NAME);
@@ -469,11 +535,13 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
     createEAttribute(variableEClass, VARIABLE__NAME);
 
     appelMethSimpleEClass = createEClass(APPEL_METH_SIMPLE);
+    createEAttribute(appelMethSimpleEClass, APPEL_METH_SIMPLE__METHODE_NAME);
+    createEReference(appelMethSimpleEClass, APPEL_METH_SIMPLE__PARAMS);
 
     parametreEClass = createEClass(PARAMETRE);
-
-    methodeEClass = createEClass(METHODE);
-    createEReference(methodeEClass, METHODE__PARAMS);
+    createEReference(parametreEClass, PARAMETRE__METHODE);
+    createEReference(parametreEClass, PARAMETRE__VARIABLE);
+    createEAttribute(parametreEClass, PARAMETRE__VALEUR);
   }
 
   /**
@@ -505,15 +573,8 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    instructionEClass.getESuperTypes().add(this.getParametre());
-    boucleEClass.getESuperTypes().add(this.getInstruction());
     ifBoucleEClass.getESuperTypes().add(this.getBoucle());
-    appelMethodeEClass.getESuperTypes().add(this.getInstruction());
     appelMethodeEClass.getESuperTypes().add(this.getIfBoucle());
-    appelMethCompositeEClass.getESuperTypes().add(this.getAppelMethode());
-    variableEClass.getESuperTypes().add(this.getParametre());
-    appelMethSimpleEClass.getESuperTypes().add(this.getAppelMethode());
-    methodeEClass.getESuperTypes().add(this.getAppelMethSimple());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programmeEClass, Programme.class, "Programme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -521,7 +582,7 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
 
     initEClass(ligneEClass, Ligne.class, "Ligne", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLigne_Instr(), this.getInstruction(), null, "instr", null, 0, 1, Ligne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLigne_Var(), this.getVariable(), null, "var", null, 0, 1, Ligne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLigne_Variable(), this.getVariable(), null, "variable", null, 0, 1, Ligne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLigne_Aff(), this.getAffectation(), null, "aff", null, 0, 1, Ligne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(affectationEClass, Affectation.class, "Affectation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -529,6 +590,8 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
     initEReference(getAffectation_Variable(), this.getVariable(), null, "variable", null, 0, 1, Affectation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInstruction_Methode(), this.getAppelMethode(), null, "methode", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInstruction_Boucle(), this.getBoucle(), null, "boucle", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(boucleEClass, Boucle.class, "Boucle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -536,6 +599,8 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
 
     initEClass(appelMethodeEClass, AppelMethode.class, "AppelMethode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAppelMethode_IfBody(), this.getLigne(), null, "ifBody", null, 0, -1, AppelMethode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppelMethode_Simple(), this.getAppelMethSimple(), null, "simple", null, 0, 1, AppelMethode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppelMethode_Composite(), this.getAppelMethComposite(), null, "composite", null, 0, 1, AppelMethode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(appelMethCompositeEClass, AppelMethComposite.class, "AppelMethComposite", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAppelMethComposite_Name(), this.getVariable(), null, "name", null, 0, 1, AppelMethComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -545,11 +610,13 @@ public class SuricatePackageImpl extends EPackageImpl implements SuricatePackage
     initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(appelMethSimpleEClass, AppelMethSimple.class, "AppelMethSimple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAppelMethSimple_MethodeName(), ecorePackage.getEString(), "methodeName", null, 0, 1, AppelMethSimple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppelMethSimple_Params(), this.getParametre(), null, "params", null, 0, -1, AppelMethSimple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parametreEClass, Parametre.class, "Parametre", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(methodeEClass, Methode.class, "Methode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMethode_Params(), this.getParametre(), null, "params", null, 0, -1, Methode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParametre_Methode(), this.getAppelMethode(), null, "methode", null, 0, 1, Parametre.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParametre_Variable(), this.getVariable(), null, "variable", null, 0, 1, Parametre.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParametre_Valeur(), ecorePackage.getEString(), "valeur", null, 0, 1, Parametre.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

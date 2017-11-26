@@ -3,17 +3,77 @@
  */
 package org.fil2018.flomira.suricate;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Instruction</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.fil2018.flomira.suricate.Instruction#getMethode <em>Methode</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.Instruction#getBoucle <em>Boucle</em>}</li>
+ * </ul>
  *
  * @see org.fil2018.flomira.suricate.SuricatePackage#getInstruction()
  * @model
  * @generated
  */
-public interface Instruction extends Parametre
+public interface Instruction extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Methode</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Methode</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Methode</em>' containment reference.
+   * @see #setMethode(AppelMethode)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getInstruction_Methode()
+   * @model containment="true"
+   * @generated
+   */
+  AppelMethode getMethode();
+
+  /**
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.Instruction#getMethode <em>Methode</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Methode</em>' containment reference.
+   * @see #getMethode()
+   * @generated
+   */
+  void setMethode(AppelMethode value);
+
+  /**
+   * Returns the value of the '<em><b>Boucle</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Boucle</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Boucle</em>' containment reference.
+   * @see #setBoucle(Boucle)
+   * @see org.fil2018.flomira.suricate.SuricatePackage#getInstruction_Boucle()
+   * @model containment="true"
+   * @generated
+   */
+  Boucle getBoucle();
+
+  /**
+   * Sets the value of the '{@link org.fil2018.flomira.suricate.Instruction#getBoucle <em>Boucle</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Boucle</em>' containment reference.
+   * @see #getBoucle()
+   * @generated
+   */
+  void setBoucle(Boucle value);
+
 } // Instruction

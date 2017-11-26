@@ -123,15 +123,6 @@ public interface SuricateFactory extends EFactory
   Parametre createParametre();
 
   /**
-   * Returns a new object of class '<em>Methode</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Methode</em>'.
-   * @generated
-   */
-  Methode createMethode();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -3,8 +3,17 @@
  */
 package org.fil2018.flomira.suricate.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.fil2018.flomira.suricate.AppelMethode;
+import org.fil2018.flomira.suricate.Boucle;
 import org.fil2018.flomira.suricate.Instruction;
 import org.fil2018.flomira.suricate.SuricatePackage;
 
@@ -12,11 +21,38 @@ import org.fil2018.flomira.suricate.SuricatePackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Instruction</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.InstructionImpl#getMethode <em>Methode</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.InstructionImpl#getBoucle <em>Boucle</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class InstructionImpl extends ParametreImpl implements Instruction
+public class InstructionImpl extends MinimalEObjectImpl.Container implements Instruction
 {
+  /**
+   * The cached value of the '{@link #getMethode() <em>Methode</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMethode()
+   * @generated
+   * @ordered
+   */
+  protected AppelMethode methode;
+
+  /**
+   * The cached value of the '{@link #getBoucle() <em>Boucle</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBoucle()
+   * @generated
+   * @ordered
+   */
+  protected Boucle boucle;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +72,196 @@ public class InstructionImpl extends ParametreImpl implements Instruction
   protected EClass eStaticClass()
   {
     return SuricatePackage.Literals.INSTRUCTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AppelMethode getMethode()
+  {
+    return methode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMethode(AppelMethode newMethode, NotificationChain msgs)
+  {
+    AppelMethode oldMethode = methode;
+    methode = newMethode;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SuricatePackage.INSTRUCTION__METHODE, oldMethode, newMethode);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMethode(AppelMethode newMethode)
+  {
+    if (newMethode != methode)
+    {
+      NotificationChain msgs = null;
+      if (methode != null)
+        msgs = ((InternalEObject)methode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.INSTRUCTION__METHODE, null, msgs);
+      if (newMethode != null)
+        msgs = ((InternalEObject)newMethode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.INSTRUCTION__METHODE, null, msgs);
+      msgs = basicSetMethode(newMethode, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.INSTRUCTION__METHODE, newMethode, newMethode));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Boucle getBoucle()
+  {
+    return boucle;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBoucle(Boucle newBoucle, NotificationChain msgs)
+  {
+    Boucle oldBoucle = boucle;
+    boucle = newBoucle;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SuricatePackage.INSTRUCTION__BOUCLE, oldBoucle, newBoucle);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBoucle(Boucle newBoucle)
+  {
+    if (newBoucle != boucle)
+    {
+      NotificationChain msgs = null;
+      if (boucle != null)
+        msgs = ((InternalEObject)boucle).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.INSTRUCTION__BOUCLE, null, msgs);
+      if (newBoucle != null)
+        msgs = ((InternalEObject)newBoucle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.INSTRUCTION__BOUCLE, null, msgs);
+      msgs = basicSetBoucle(newBoucle, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.INSTRUCTION__BOUCLE, newBoucle, newBoucle));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.INSTRUCTION__METHODE:
+        return basicSetMethode(null, msgs);
+      case SuricatePackage.INSTRUCTION__BOUCLE:
+        return basicSetBoucle(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.INSTRUCTION__METHODE:
+        return getMethode();
+      case SuricatePackage.INSTRUCTION__BOUCLE:
+        return getBoucle();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.INSTRUCTION__METHODE:
+        setMethode((AppelMethode)newValue);
+        return;
+      case SuricatePackage.INSTRUCTION__BOUCLE:
+        setBoucle((Boucle)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.INSTRUCTION__METHODE:
+        setMethode((AppelMethode)null);
+        return;
+      case SuricatePackage.INSTRUCTION__BOUCLE:
+        setBoucle((Boucle)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.INSTRUCTION__METHODE:
+        return methode != null;
+      case SuricatePackage.INSTRUCTION__BOUCLE:
+        return boucle != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //InstructionImpl

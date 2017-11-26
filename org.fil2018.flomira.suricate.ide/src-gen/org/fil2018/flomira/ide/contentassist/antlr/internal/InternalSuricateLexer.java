@@ -231,10 +231,10 @@ public class InternalSuricateLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSuricate.g:1467:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalSuricate.g:1467:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSuricate.g:1506:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalSuricate.g:1506:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalSuricate.g:1467:11: ( '^' )?
+            // InternalSuricate.g:1506:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -243,7 +243,7 @@ public class InternalSuricateLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalSuricate.g:1467:11: '^'
+                    // InternalSuricate.g:1506:11: '^'
                     {
                     match('^'); 
 
@@ -261,7 +261,7 @@ public class InternalSuricateLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalSuricate.g:1467:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSuricate.g:1506:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -310,10 +310,10 @@ public class InternalSuricateLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSuricate.g:1469:10: ( ( '0' .. '9' )+ )
-            // InternalSuricate.g:1469:12: ( '0' .. '9' )+
+            // InternalSuricate.g:1508:10: ( ( '0' .. '9' )+ )
+            // InternalSuricate.g:1508:12: ( '0' .. '9' )+
             {
-            // InternalSuricate.g:1469:12: ( '0' .. '9' )+
+            // InternalSuricate.g:1508:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -327,7 +327,7 @@ public class InternalSuricateLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalSuricate.g:1469:13: '0' .. '9'
+            	    // InternalSuricate.g:1508:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -359,10 +359,10 @@ public class InternalSuricateLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSuricate.g:1471:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalSuricate.g:1471:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSuricate.g:1510:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalSuricate.g:1510:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalSuricate.g:1471:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSuricate.g:1510:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -380,10 +380,10 @@ public class InternalSuricateLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalSuricate.g:1471:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalSuricate.g:1510:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalSuricate.g:1471:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalSuricate.g:1510:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -399,7 +399,7 @@ public class InternalSuricateLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalSuricate.g:1471:21: '\\\\' .
+                    	    // InternalSuricate.g:1510:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -407,7 +407,7 @@ public class InternalSuricateLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSuricate.g:1471:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalSuricate.g:1510:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -432,10 +432,10 @@ public class InternalSuricateLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalSuricate.g:1471:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalSuricate.g:1510:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalSuricate.g:1471:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalSuricate.g:1510:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -451,7 +451,7 @@ public class InternalSuricateLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalSuricate.g:1471:54: '\\\\' .
+                    	    // InternalSuricate.g:1510:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -459,7 +459,7 @@ public class InternalSuricateLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSuricate.g:1471:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalSuricate.g:1510:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -502,12 +502,12 @@ public class InternalSuricateLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSuricate.g:1473:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalSuricate.g:1473:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalSuricate.g:1512:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalSuricate.g:1512:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalSuricate.g:1473:24: ( options {greedy=false; } : . )*
+            // InternalSuricate.g:1512:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -532,7 +532,7 @@ public class InternalSuricateLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalSuricate.g:1473:52: .
+            	    // InternalSuricate.g:1512:52: .
             	    {
             	    matchAny(); 
 
@@ -562,12 +562,12 @@ public class InternalSuricateLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSuricate.g:1475:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalSuricate.g:1475:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalSuricate.g:1514:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalSuricate.g:1514:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalSuricate.g:1475:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalSuricate.g:1514:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -580,7 +580,7 @@ public class InternalSuricateLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalSuricate.g:1475:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalSuricate.g:1514:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -600,7 +600,7 @@ public class InternalSuricateLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalSuricate.g:1475:40: ( ( '\\r' )? '\\n' )?
+            // InternalSuricate.g:1514:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -609,9 +609,9 @@ public class InternalSuricateLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalSuricate.g:1475:41: ( '\\r' )? '\\n'
+                    // InternalSuricate.g:1514:41: ( '\\r' )? '\\n'
                     {
-                    // InternalSuricate.g:1475:41: ( '\\r' )?
+                    // InternalSuricate.g:1514:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -620,7 +620,7 @@ public class InternalSuricateLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalSuricate.g:1475:41: '\\r'
+                            // InternalSuricate.g:1514:41: '\\r'
                             {
                             match('\r'); 
 
@@ -652,10 +652,10 @@ public class InternalSuricateLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSuricate.g:1477:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalSuricate.g:1477:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSuricate.g:1516:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalSuricate.g:1516:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalSuricate.g:1477:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSuricate.g:1516:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -709,8 +709,8 @@ public class InternalSuricateLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSuricate.g:1479:16: ( . )
-            // InternalSuricate.g:1479:18: .
+            // InternalSuricate.g:1518:16: ( . )
+            // InternalSuricate.g:1518:18: .
             {
             matchAny(); 
 

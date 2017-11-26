@@ -3,22 +3,77 @@
  */
 package org.fil2018.flomira.suricate.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.fil2018.flomira.suricate.AppelMethode;
 import org.fil2018.flomira.suricate.Parametre;
 import org.fil2018.flomira.suricate.SuricatePackage;
+import org.fil2018.flomira.suricate.Variable;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Parametre</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.ParametreImpl#getMethode <em>Methode</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.ParametreImpl#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.fil2018.flomira.suricate.impl.ParametreImpl#getValeur <em>Valeur</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ParametreImpl extends MinimalEObjectImpl.Container implements Parametre
 {
+  /**
+   * The cached value of the '{@link #getMethode() <em>Methode</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMethode()
+   * @generated
+   * @ordered
+   */
+  protected AppelMethode methode;
+
+  /**
+   * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariable()
+   * @generated
+   * @ordered
+   */
+  protected Variable variable;
+
+  /**
+   * The default value of the '{@link #getValeur() <em>Valeur</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValeur()
+   * @generated
+   * @ordered
+   */
+  protected static final String VALEUR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValeur() <em>Valeur</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValeur()
+   * @generated
+   * @ordered
+   */
+  protected String valeur = VALEUR_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +93,246 @@ public class ParametreImpl extends MinimalEObjectImpl.Container implements Param
   protected EClass eStaticClass()
   {
     return SuricatePackage.Literals.PARAMETRE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AppelMethode getMethode()
+  {
+    return methode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMethode(AppelMethode newMethode, NotificationChain msgs)
+  {
+    AppelMethode oldMethode = methode;
+    methode = newMethode;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SuricatePackage.PARAMETRE__METHODE, oldMethode, newMethode);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMethode(AppelMethode newMethode)
+  {
+    if (newMethode != methode)
+    {
+      NotificationChain msgs = null;
+      if (methode != null)
+        msgs = ((InternalEObject)methode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.PARAMETRE__METHODE, null, msgs);
+      if (newMethode != null)
+        msgs = ((InternalEObject)newMethode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.PARAMETRE__METHODE, null, msgs);
+      msgs = basicSetMethode(newMethode, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.PARAMETRE__METHODE, newMethode, newMethode));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Variable getVariable()
+  {
+    return variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetVariable(Variable newVariable, NotificationChain msgs)
+  {
+    Variable oldVariable = variable;
+    variable = newVariable;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SuricatePackage.PARAMETRE__VARIABLE, oldVariable, newVariable);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVariable(Variable newVariable)
+  {
+    if (newVariable != variable)
+    {
+      NotificationChain msgs = null;
+      if (variable != null)
+        msgs = ((InternalEObject)variable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.PARAMETRE__VARIABLE, null, msgs);
+      if (newVariable != null)
+        msgs = ((InternalEObject)newVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SuricatePackage.PARAMETRE__VARIABLE, null, msgs);
+      msgs = basicSetVariable(newVariable, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.PARAMETRE__VARIABLE, newVariable, newVariable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getValeur()
+  {
+    return valeur;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValeur(String newValeur)
+  {
+    String oldValeur = valeur;
+    valeur = newValeur;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SuricatePackage.PARAMETRE__VALEUR, oldValeur, valeur));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.PARAMETRE__METHODE:
+        return basicSetMethode(null, msgs);
+      case SuricatePackage.PARAMETRE__VARIABLE:
+        return basicSetVariable(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.PARAMETRE__METHODE:
+        return getMethode();
+      case SuricatePackage.PARAMETRE__VARIABLE:
+        return getVariable();
+      case SuricatePackage.PARAMETRE__VALEUR:
+        return getValeur();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.PARAMETRE__METHODE:
+        setMethode((AppelMethode)newValue);
+        return;
+      case SuricatePackage.PARAMETRE__VARIABLE:
+        setVariable((Variable)newValue);
+        return;
+      case SuricatePackage.PARAMETRE__VALEUR:
+        setValeur((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.PARAMETRE__METHODE:
+        setMethode((AppelMethode)null);
+        return;
+      case SuricatePackage.PARAMETRE__VARIABLE:
+        setVariable((Variable)null);
+        return;
+      case SuricatePackage.PARAMETRE__VALEUR:
+        setValeur(VALEUR_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case SuricatePackage.PARAMETRE__METHODE:
+        return methode != null;
+      case SuricatePackage.PARAMETRE__VARIABLE:
+        return variable != null;
+      case SuricatePackage.PARAMETRE__VALEUR:
+        return VALEUR_EDEFAULT == null ? valeur != null : !VALEUR_EDEFAULT.equals(valeur);
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (valeur: ");
+    result.append(valeur);
+    result.append(')');
+    return result.toString();
   }
 
 } //ParametreImpl
